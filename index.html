@@ -400,6 +400,25 @@
             .checklist-item-container li::before { content: '☐ '; }
             .checklist-item-container li.completed::before { content: '✅ '; }
         }
+        /* 響應式表格容器 */
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+        }
+        @media (max-width: 600px) {
+            table, th, td {
+                font-size: 15px;
+                padding: 8px;
+            }
+            th, td {
+                white-space: nowrap;
+            }
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -422,7 +441,6 @@
 
         <!-- 總覽 Tab Content -->
         <div id="tab-overview" class="tab-content active">
-            
             <h2><span class="icon">✈️</span>航班資訊</h2>
             <div class="info-grid">
                 <div class="info-card">
@@ -450,57 +468,59 @@
 
             <h2><span class="icon">🗺️</span> 每日行程總覽</h2>
             <div class="card">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>日期</th>
-                            <th>行程重點</th>
-                            <th>住宿地點</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Day 1 (2025-09-10 週三)</td>
-                            <td>抵達東京成田機場，搭乘新幹線前往輕井澤，入住輕井澤王子大飯店西館。</td>
-                            <td>輕井澤</td>
-                        </tr>
-                        <tr>
-                            <td>Day 2 (2025-09-11 週四)</td>
-                            <td>輕井澤景點漫遊（雲場池、舊銀座通），下午搭車前往松本，參觀松本城。</td>
-                            <td>松本</td>
-                        </tr>
-                        <tr>
-                            <td>Day 3 (2025-09-12 週五)</td>
-                            <td>上高地一日健行，享受「神的故鄉」絕美風景。</td>
-                            <td>松本</td>
-                        </tr>
-                        <tr>
-                            <td>Day 4 (2025-09-13 週六)</td>
-                            <td>抵達金澤，下午展開武家屋敷與現代藝術巡禮。</td>
-                            <td>金澤</td>
-                        </tr>
-                        <tr>
-                            <td>Day 5 (2025-09-14 週日)</td>
-                            <td>金澤近郊一日遊（敦賀港都漫遊 或 永平寺禪修之旅）。</td>
-                            <td>金澤</td>
-                        </tr>
-                        <tr>
-                            <td>Day 6 (2025-09-15 週一)<br><span style="color:red;">(敬老之日)</span></td>
-                            <td>金澤經典庭園、茶屋街與寺廟深度文化體驗。</td>
-                            <td>金澤</td>
-                        </tr>
-                        <tr>
-                            <td>Day 7 (2025-09-16 週二)</td>
-                            <td>搭乘新幹線返回東京，下午進行淺草、上野下町散策。</td>
-                            <td>東京日暮里</td>
-                        </tr>
-                        <tr>
-                            <td>Day 8 (2025-09-17 週三)</td>
-                            <td>從日暮里搭乘Skyliner至成田機場，滿載而歸。</td>
-                            <td>溫暖的家</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>日期</th>
+                                <th>行程重點</th>
+                                <th>住宿地點</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Day 1<br><span style="font-size:0.95em; color:#888;">2025-09-10<br>週三</span></td>
+                                <td>抵達東京成田機場，搭乘新幹線前往輕井澤，入住輕井澤王子大飯店西館。</td>
+                                <td>輕井澤</td>
+                            </tr>
+                            <tr>
+                                <td>Day 2<br><span style="font-size:0.95em; color:#888;">2025-09-11<br>週四</span></td>
+                                <td>輕井澤景點漫遊，前往松本。</td>
+                                <td>松本</td>
+                            </tr>
+                            <tr>
+                                <td>Day 3<br><span style="font-size:0.95em; color:#888;">2025-09-12<br>週五</span></td>
+                                <td>神的故鄉(上高地)健行。</td>
+                                <td>松本</td>
+                            </tr>
+                            <tr>
+                                <td>Day 4<br><span style="font-size:0.95em; color:#888;">2025-09-13<br>週六</span></td>
+                                <td>抵達金澤，武家屋敷與現代藝術巡禮。</td>
+                                <td>金澤</td>
+                            </tr>
+                            <tr>
+                                <td>Day 5<br><span style="font-size:0.95em; color:#888;">2025-09-14<br>週日</span></td>
+                                <td>敦賀一日遊或永平寺半日遊。</td>
+                                <td>金澤</td>
+                            </tr>
+                            <tr>
+                                <td>Day 6<br><span style="font-size:0.95em; color:#888;">2025-09-15<br>週一</span></td>
+                                <td>金澤經典庭園、茶屋街與寺廟深度文化體驗。</td>
+                                <td>金澤</td>
+                            </tr>
+                            <tr>
+                                <td>Day 7<br><span style="font-size:0.95em; color:#888;">2025-09-16<br>週二</span></td>
+                                <td>返回東京，淺草下町散策。</td>
+                                <td>東京</td>
+                            </tr>
+                            <tr>
+                                <td>Day 8<br><span style="font-size:0.95em; color:#888;">2025-09-17<br>週三</span></td>
+                                <td>滿載而歸。</td>
+                                <td>台灣</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
             <h2><span class="icon">📊</span>關鍵資訊總覽</h2>
@@ -594,50 +614,99 @@
         <!-- Day 1 Content -->
         <div id="tab-day1" class="tab-content">
             <div class="day-title-banner">1️⃣ Day 1: 抵達輕井澤 (2025-09-10 週三)</div>
+            <div class="warning"></div>
+            <div class="info-grid"></div>
+            <div class="card">
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>時間</th>
+                                <th>地點 / 活動</th>
+                                <th>詳細說明與任務</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>~06:00</td>
+                                <td>✈️ 高雄國際機場</td>
+                                <td>抵達機場，辦理泰航(FD234)報到、托運行李、安檢、證照查驗。</td>
+                            </tr>
+                            <tr>
+                                <td>08:05-12:55</td>
+                                <td>🛫 空中飛行</td>
+                                <td>實際搭乘：3小時50分(日本時間比台灣快一小時)。從高雄(KHH)飛往成田(NRT)。</td>
+                            </tr>
+                            <tr>
+                                <td>12:55-15:00</td>
+                                <td>🛬 成田機場 (なりた) T2</td>
+                                <td>辦理入境、提領行李、兌換JR Pass。</td>
+                            </tr>
+                            <tr>
+                                <td>15:00-16:00</td>
+                                <td>🚄 成田機場 → 輕井澤</td>
+                                <td>搭乘時間：1小時0分。搭乘【特急成田快線32號】。</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card"></div>
+        </div>
+
+        <!-- Day 2 Content -->
+        <div id="tab-day2" class="tab-content">
+            <div class="day-title-banner">2️⃣ Day 2: 輕井澤風光 → 前進松本 (2025-09-11 週四)</div>
             <div class="warning">
                 <h3>🏔️ 高原氣候提醒</h3>
-                <p>輕井澤 (かるいざわ) 為高原度假區，海拔約1000公尺，氣溫會比平地涼爽，尤其早晚溫差大，請務必準備保暖外套。</p>
+                <p>輕井澤 (かるいざわ) 海拔較高，早晚溫差大。即使日間溫暖，太陽下山後氣溫會明顯下降，請務必攜帶保暖衣物。</p>
             </div>
             <div class="info-grid">
                 <div class="info-card">
                     <h3>🚶‍♀️ 生理與行李負荷分析</h3>
-                    <ul class="default-list">
-                        <li class="icon-walk"><b>步行強度:</b> 約 5,000 步 (約 3.5 公里)。</li>
+                     <ul class="default-list">
+                        <li class="icon-walk"><b>步行強度:</b> 約 8,000 步 (約 5.5 公里)。</li>
                         <li class="icon-toilet"><b>廁所友善度:</b> 佳。</li>
-                        <li class="icon-luggage"><b>行李友善度:</b> 低。本日是行李移動最頻繁的一天，請善用飯店接駁車。</li>
+                        <li class="icon-luggage"><b>行李友善度:</b> 中。善用置物櫃與計程車是本日關鍵。</li>
                     </ul>
                 </div>
                 <div class="info-card">
                     <h3>🏨 當日住宿資訊</h3>
                     <ul class="default-list">
-                        <li class="icon-bed"><b>飯店:</b> 輕井澤王子大飯店 西館 (軽井沢プリンスホテルウエスト, Karuizawa Prince Hotel West) (<a class="photo-link" href="https://www.princehotels.com/karuizawa-west/zh-hant/guest-rooms/prince-cottage-type-e/" target="_blank">參考照片</a>)</li>
-                        <li class="icon-room"><b>房型:</b> 小木屋E 禁煙客房 (75m²)。2臥室，6張單人床，1客廳，2洗浴室，1洗手間（西式）。</li>
-                        <li class="icon-star"><b>特色:</b> 提供浴衣，環境清幽。<b>車站南口有免費飯店接駁車</b>。</li>
-                        <li class="icon-time"><b>入住/退房:</b> 15:00 / 11:00</li>
-                        <li class="icon-pin"><b>地址:</b> 長野県北佐久郡軽井沢町軽井沢1016-87<br>1016-87 Karuizawa, Kitasaku District, Nagano 389-0193, Japan</li>
-                        <li class="icon-phone"><b>電話:</b> +81 267-42-1111</li>
+                        <li class="icon-bed"><b>住宿:</b> 松本 (まつもと) Airbnb (<a class="photo-link" href="https://www.airbnb.com.tw/rooms/1291644049856334910?source_impression_id=p3_1752918306_P3XQHS3CzQH26wtD" target="_blank">參考照片</a>)</li>
+                        <li class="icon-room"><b>房型:</b> 獨棟2層樓，3間客房 (臥室1: 2張單人床, 臥室2: 3張地板床墊, 臥室3: 3張地板床墊)。</li>
+                        <li class="icon-star"><b>特色:</b> 房內可看到松本城，離松本城走路僅1分鐘，可寄放行李。</li>
+                        <li class="icon-time"><b>入住/退房:</b> 15:00 (自助入住) / 10:00</li>
                     </ul>
                     <p style="font-size: smaller; color: #6c757d; margin-top: 10px;">*提示：點擊藍色底線文字可查看照片。</p>
                 </div>
             </div>
-            
             <div class="card">
-                <h3>⏰ 時間軸 & 任務清單</h3>
+                <h3>⏰ 時間軸規劃</h3>
                 <table class="timeline">
                     <thead><tr><th>時間</th><th>地點 / 活動</th><th>詳細說明與任務</th></tr></thead>
                     <tbody>
-                        <tr><td>~06:00</td><td>🛫 高雄國際機場</td><td>抵達機場，辦理泰航(FD234)報到、托運行李、安檢、證照查驗。</td></tr>
-                        <tr><td>08:05-12:55</td><td>✈️ 空中飛行</td><td>實際搭乘：3小時50分(日本時間比台灣快一小時)。從高雄(KHH)飛往成田(NRT)。</td></tr>
-                        <tr><td>12:55-15:00</td><td>🛬 成田機場 (なりた) T2</td><td>辦理入境、提領行李、兌換JR Pass。</td></tr>
-                        <tr><td>15:14-16:14</td><td>🚄 成田機場 → 東京 (とうきょう)</td><td>搭乘時間：1小時0分。搭乘【<b>特急成田エクスプレス３２号(新宿行)</b>】。<br><b>備註(前一班車)：</b>14:20 成田空港 → 15:15 東京，轉乘 15:52 東京 → 17:08 輕井澤。</td></tr>
-                        <tr><td>16:14-16:52</td><td>🔄 東京車站轉乘</td><td>轉乘時間：38分。依照下方轉乘指南，從N'EX月台(<b>B5F</b>)移動至北陸新幹線月台(<b>2F</b>)。<br><b>備註：如果快一點，有機會搭上：16:32-17:35新幹線はくたか５７１号(金沢行)[63分]</b></td></tr>
-                        <tr><td>16:52-18:03</td><td>🚄 東京 → 輕井澤 (かるいざわ)</td><td>搭乘時間：1小時11分。搭乘【<b>新幹線あさま６２１号(長野行)</b>】。上車預計在<b>2F的23月台</b>。</td></tr>
-                        <tr><td>18:30-18:45</td><td>🏨 輕井澤王子大飯店</td><td>「車站南口」搭乘飯店免費接駁車，棕色路線從<b>B1</b>出發(<b>00、30發車</b>)，抵達<b>B12M</b> 西館大廳(<b>15、45抵達</b>)(<b>25、55發車</b>)辦理入住。備註：可考慮先去吃飯再入住，但必須注意最後入住時間。</td></tr>
-                        <tr><td>19:00~</td><td>🛍️ 輕井澤王子購物廣場</td><td>於美食街「味之街」享用晚餐，餐後自由散步。<br><button class="gemini-button" onclick="getGeminiSuggestion('dinnerKaruizawa')">✨ 晚餐靈感</button></td></tr>
+                        <tr><td>~08:30</td><td>🏨 飯店 / 退房</td><td>辦理退房手續。</td></tr>
+                        <tr><td>08:55-09:25</td><td>🚉 輕井澤車站 (かるいざわえき)</td><td>從 <b>B12M</b> 西館大廳（<b>25、55發車</b>)搭乘免費接駁車，抵達車站南口（<b>25、55抵達</b>)。</td></tr>
+                        <tr><td>09:30-14:00</td><td>🚶‍♂️ 輕井澤景點漫遊</td><td>將大行李寄放車站置物櫃後，依序遊覽：車站 → 雲場池 → 舊輕井澤銀座通 → 聖保羅天主教堂 → 蕭紀念禮拜堂・紀念館 → 車站。並在此區間享用午餐。</td></tr>
+                        <tr><td><b>14:16-14:46</b></td><td>🚄 輕井澤 → 長野 (ながの)</td><td>搭乘【<b>新幹線あさま613号（往長野）</b>】。抵達月台：<b>14</b>。</td></tr>
+                        <tr><td><b>14:46-15:00</b></td><td>🔄 長野車站轉乘</td><td>轉乘時間：14分鐘。</td></tr>
+                        <tr><td><b>15:00-15:51</b></td><td>🚄 長野 → 松本 (まつもと)</td><td>搭乘【<b>特急しなの18号（往名古屋）</b>】。發車月台：<b>6</b>。長野-松本段需額外購票，【乘車券+特急自由席】票價為 <b>¥2,370</b>。<b>特急票無法使用西瓜卡，要另外在售票機或櫃臺購買</b>。</td></tr>
+                        <tr><td>16:05-16:25</td><td>🏠 松本Airbnb</td>
+                            <td>
+                                <b>1. 搭乘公車：公車200號(21月台)</b><br>
+                                在松本站「お城口」（正面出口）的<b>21號月台</b>，搭乘「タウンスニーカー北コース」循環巴士（30分鐘一班，5、35分發車，最後一班17：15），在「池上百竹亭」下車(4站，約20分)。可用現金(¥200)、信用卡感應、Apple Pay支付，不可用西瓜卡(Suica)。<br>
+                                <b>2. 計程車：</b>在[二の丸裏御門橋]下車，費用約¥1,000多。
+                            </td>
+                        </tr>
+                        <tr><td>16:30-17:30</td><td>🏯 國寶松本城 (こくほうまつもとじょう)</td><td><b>[營業時間 08:30-17:00，最後入場16:30] [門票 ¥700]</b> 步行1分鐘前往參觀。</td></tr>
+                        <tr><td>17:30-18:30</td><td>🐸 繩手通 (なわてどおり)</td><td><b>[店家約10:00-17:00]</b> 逛逛特色青蛙主題小店。</td></tr>
+                        <tr><td>18:30-19:00</td><td>🏺 中町通 (なかまちどおり)</td><td><b>[店家約10:00-17:00]</b> 逛逛倉庫改建的民藝品店。</td></tr>
+                        <tr><td>19:00~</td><td>🌃 松本市區 / 晚餐</td><td>在繩手通或車站周邊享用晚餐。<br><b style="color:red;">備註：晚上需採買隔天去上高地的早餐和午餐。</b></td></tr>
                     </tbody>
                 </table>
             </div>
-             <div class="card">
+            <div class="card">
                 <h3>🔄 成田機場T2 → 換票/劃位 → 搭乘N'EX</h3>
                 <table>
                     <thead><tr><th>順序</th><th>流程步驟</th><th>詳細操作說明</th><th>貼心建議與注意事項</th></tr></thead>
@@ -719,79 +788,51 @@
                 </table>
             </div>
             <div class="card">
-                <h3>🏞️ 車窗風景提醒</h3>
-                <p>如果選擇從長野搭乘<b>[篠ノ井線]普通車</b>前往松本，將會經過<b>[姨捨 (おばすて)]</b>站，此處為「日本三大車窗風景」之一。可從<b>右側車窗</b>欣賞壯麗的善光寺平全景與千曲川，秋季景色尤其優美。</p>
-            </div>
-            <div class="card">
-                <h3>📍 輕井澤經典景點簡介</h3>
+                <h3>🔄 成田機場T2 → 換票/劃位 → 搭乘N'EX</h3>
                 <table>
-                    <thead><tr><th>景點</th><th>特色與拍照技巧</th></tr></thead>
+                    <thead><tr><th>順序</th><th>流程步驟</th><th>詳細操作說明</th><th>貼心建議與注意事項</th></tr></thead>
                     <tbody>
-                        <tr>
-                            <td>輕井澤車站<br><span style="font-size:0.9em; color:#6c757d;">(かるいざわえき)</span></td>
-                            <td><b>特色：</b>結合現代新幹線與懷舊車站的建築風格，是連接南北輕井澤的中心點。<br><b>拍照技巧：</b>可以嘗試在車站南口的Outlet廣場，以車站為背景，捕捉廣闊的藍天與歐式建築的對比。</td></tr>
-                        <tr>
-                            <td>雲場池<br><span style="font-size:0.9em; color:#6c757d;">(くもばいけ)</span></td>
-                            <td><b>特色：</b>有「天鵝湖」的美譽，湖水清澈見底，四季景色分明，尤其以秋天的楓紅倒影最為著名。<br><b>拍照技巧：</b>建議早晨前來，此時光線柔和且遊客較少。可利用低角度拍攝，將湖面倒影與實景完整納入畫面，創造出對稱的美感。</td></tr>
-                        <tr>
-                            <td>舊輕井澤銀座通<br><span style="font-size:0.9em; color:#6c757d;">(きゅうかるいざわぎんざどおり)</span></td>
-                            <td><b>特色：</b>充滿歷史風情的主要商店街，匯集了果醬、麵包、香腸等當地名產店與各式咖啡館。<br><b>拍照技巧：</b>可以利用長焦段鏡頭，捕捉街上的人文互動或特色店家的櫥窗細節，營造出溫馨的街拍風格。</td></tr>
-                        <tr>
-                            <td>聖保羅天主教堂<br><span style="font-size:0.9em; color:#6c757d;">(せいパウロカトリックきょうかい)</span></td>
-                            <td><b>特色：</b>由美國建築師安東尼・雷蒙設計，巨大的三角形屋頂與木造結構是其標誌，充滿寧靜與神聖的氛圍。<br><b>拍照技巧：</b>嘗試從教堂側面的小徑，利用樹葉作為前景，框住教堂主體，拍出彷彿置身於森林童話中的感覺。</td></tr>
-                        <tr>
-                            <td>蕭紀念禮拜堂<br><span style="font-size:0.9em; color:#6c757d;">(ショーきねんれいはいどう)</span></td>
-                            <td><b>特色：</b>輕井澤最古老的教堂，紀念被譽為「輕井澤之父」的加拿大傳教士A.C.蕭，樸實的木造建築散發著歷史感。<br><b>拍照技巧：</b>聚焦在教堂的木質紋理與彩繪玻璃窗，利用光影變化，捕捉其莊重而溫暖的氣氛。</td></tr>
+                        <tr><td>1</td><td>抵達成田機場T2入口（<b>1F入境層</b>）</td><td>通關完成後，依「JR線」／「鐵道」標示前往電扶梯或電梯，往<b>B1層</b>下樓。</td><td>請耐心排隊，電梯口易擁擠。</td></tr>
+                        <tr><td>2</td><td>前往JR East Travel Service Center（<b>B1樓層</b>）</td><td>尋找綠色招牌，向服務人員出示護照與兌換券，進行JR PASS換票與預約劃位工作。</td><td>準備好所有證件與兌換資料。</td></tr>
+                        <tr><td>3</td><td>劃位與確認座位</td><td>工作人員協助劃定N’EX指定席及其他旅段劃位，確認車票細節無誤後領取票券。</td><td>確認列車號碼、發車時間與座位號碼。</td></tr>
+                        <tr><td>4</td><td>進入JR線閘門</td><td>從窗口旁「JR線」閘門刷票入站，切勿誤入京成線閘口。</td><td>注意閘門英文標識，如有困難請求助。</td></tr>
+                        <tr><td>5</td><td>前往月台（通常<b>1或2號</b>）</td><td>依月台螢幕確認班次，前往指定月台及車廂位置，有序排隊等候列車。</td><td>注意隨身行李，團體協調上下車順序。</td></tr>
                     </tbody>
                 </table>
             </div>
             <div class="card">
-                <h3>🚇 交通詳解：松本車站 ⇿ 住宿</h3>
-                <ul class="default-list" style="padding-left: 10px;">
-                    <li class="icon-walk">
-                        <b>步行：</b>1.4公里、約20分鐘。
-                    </li>
-                    <li class="icon-bus">
-                        <b>公車：</b>
-                        <ul style="margin-top: 10px; padding-left: 20px; list-style-type: disc;">
-                            <li style="margin-bottom: 8px;">
-                                <b>車站 → 住宿 (抵達時):</b><br>
-                                於松本站「お城口」(正面出口) <b>21號月台</b>，搭乘「タウンスニーカー北コース」循環巴士。
-                                <br><small><em>(每30分鐘一班，5, 35分發車，末班車17:15)。</em></small>
-                                <br>在「池上百竹亭」下車 (4站, 約20分)。
-                                <br><small><em>費用: ¥200 (可用現金/信用卡感應/Apple Pay，不可用Suica)。</em></small>
-                            </li>
-                            <li>
-                                <b>住宿 → 車站 (出發時):</b><br>
-                                於「松本市役所前」站牌，搭乘【30號】淺間溫泉線巴士前往松本車站。
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="icon-taxi">
-                        <b>計程車：</b>
-                        <br>告知司機在 [二の丸裏御門橋] 下車，費用約 ¥1,000多。
-                    </li>
-                </ul>
+                <h3>🔄 東京車站 N'EX → 北陸新幹線轉乘</h3>
+                <table>
+                    <thead><tr><th>順序</th><th>流程步驟</th><th>詳細說明</th><th>貼心建議與注意事項</th></tr></thead>
+                    <tbody>
+                        <tr><td>1</td><td>N'EX下車（<b>B5F</b>）</td><td>建議選擇<b>5～6號車廂</b>，靠近電梯與手扶梯，下車後方便直上。</td><td>行李集中，便於團體協作</td></tr>
+                        <tr><td>2</td><td>上樓至<b>1樓</b></td><td>從<b>B5F</b>搭乘電梯或手扶梯直達<b>1樓</b>大廳，依「新幹線／八重洲口」標示前進。</td><td>跟隨綠色「新幹線」標誌，減少迷路風險</td></tr>
+                        <tr><td>3</td><td>站內移動</td><td><b>1樓</b>步行依「新幹線」指標，朝八重洲中央口或新幹線乘換口方向前行。</td><td>跟隨綠色「新幹線」標誌，減少迷路風險</td></tr>
+                        <tr><td>4</td><td>通過新幹線閘門</td><td>進入「北のりかえ口」或「南のりかえ口」，投入兩張車票或感應IC卡／出示JR PASS。</td><td>人多時可請站務員協助通過</td></tr>
+                        <tr><td>5</td><td>上<b>2樓</b>至新幹線月台</td><td>進閘後搭乘手扶梯或電梯上<b>2樓</b>，前往<b>23號月台</b>（北陸新幹線）；依票面查車廂位置，月台標示清晰。</td><td>注意確認車廂編號與位置</td></tr>
+                        <tr><td>6</td><td>月台候車與上車</td><td>於指定車廂門口等候，確認車廂編號與行李空間；預留充裕緩衝時間，團體協調分工有序上車。</td><td>建議提前協調上下車順序與行李搬運</td></tr>
+                    </tbody>
+                </table>
             </div>
         </div>
-        
-        <!-- Day 3 Content -->
-        <div id="tab-day3" class="tab-content">
-             <div class="day-title-banner">3️⃣ Day 3: 神的故鄉 (上高地) 健行 (2025-09-12 週五)</div>
+
+        <!-- Day 2 Content -->
+        <div id="tab-day2" class="tab-content">
+            <div class="day-title-banner">2️⃣ Day 2: 輕井澤風光 → 前進松本 (2025-09-11 週四)</div>
             <div class="warning">
-                <h3>🏔️ 高山氣候提醒</h3>
-                <p>上高地 (かみこうち) 海拔約1500公尺，氣溫會比平地低5-10度，紫外線強。即使平地晴朗，山區天氣也可能多變，請務必攜帶保暖防風外套與雨具。</p>
+                <h3>🏔️ 高原氣候提醒</h3>
+                <p>輕井澤 (かるいざわ) 海拔較高，早晚溫差大。即使日間溫暖，太陽下山後氣溫會明顯下降，請務必攜帶保暖衣物。</p>
             </div>
             <div class="info-grid">
                 <div class="info-card">
                     <h3>🚶‍♀️ 生理與行李負荷分析</h3>
-                    <ul class="default-list">
-                        <li class="icon-walk"><b>步行強度：</b>高。依照健行方案，約 6,000 - 15,000 步 (約 4 - 10 公里)。</li>
-                        <li class="icon-toilet"><b>廁所友善度：</b>中。主要集中在大正池、巴士總站、河童橋、明神池等區域。</li>
-                        <li class="icon-luggage"><b>行李友善度：</b>佳。輕裝一日遊。</li>
+                     <ul class="default-list">
+                        <li class="icon-walk"><b>步行強度:</b> 約 8,000 步 (約 5.5 公里)。</li>
+                        <li class="icon-toilet"><b>廁所友善度:</b> 佳。</li>
+                        <li class="icon-luggage"><b>行李友善度:</b> 中。善用置物櫃與計程車是本日關鍵。</li>
                     </ul>
                 </div>
-                 <div class="info-card">
+                <div class="info-card">
                     <h3>🏨 當日住宿資訊</h3>
                     <ul class="default-list">
                         <li class="icon-bed"><b>住宿:</b> 松本 (まつもと) Airbnb (<a class="photo-link" href="https://www.airbnb.com.tw/rooms/1291644049856334910?source_impression_id=p3_1752918306_P3XQHS3CzQH26wtD" target="_blank">參考照片</a>)</li>
@@ -807,261 +848,78 @@
                 <table class="timeline">
                     <thead><tr><th>時間</th><th>地點 / 活動</th><th>詳細說明與任務</th></tr></thead>
                     <tbody>
-                        <tr><td>07:10-07:38</td><td>🏠 住宿 → 松本站 (まつもとえき)</td><td>從住宿步行至「松本市役所前」站牌，搭乘【30號】淺間溫泉線巴士前往松本車站(07:25-07:38)。</td></tr>
-                        <tr><td><b>08:01-08:31</b></td><td>🚃 松本 → 新島々 (しんしましま)</td><td>搭乘時間：30分。於松本車站<b>7號月台</b>搭乘松本電鐵上高地線。</td></tr>
-                        <tr><td><b>08:31-08:40</b></td><td>🔄 新島々站轉乘</td><td>轉乘時間：9分。</td></tr>
-                        <tr><td><b>08:40-09:55</b></td><td>🚌 新島々 → 上高地 (かみこうち)</td><td>搭乘時間：1小時15分。於新島々車站<b>1號月台</b>搭乘Alpico巴士。<br><b>提醒：</b><br>• 約<b>09:34</b>在【大正池】站下車 (方案1&3適用)。<br>• 約<b>09:55</b>在【上高地巴士總站】下車 (方案2適用)。</td></tr>
-                        <tr><td>10:00~15:00</td><td>🚶‍♂️ 上高地健行與用餐</td><td>依照下方選擇的健行方案進行，並在途中用餐。</td></tr>
-                        <tr><td><b>15:15-16:20</b></td><td>🚌 上高地 → 新島々</td><td>搭乘時間：1小時5分。從上高地巴士總站<b>4號月台</b>搭乘巴士。<br><b>提醒：</b><br>• 前一班車為 14:40 (抵達松本 16:29)<br>• 後一班車為 15:45 (抵達松本 17:51)</td></tr>
-                        <tr><td><b>16:20-16:43</b></td><td>🔄 新島々站轉乘</td><td>轉乘時間：23分。</td></tr>
-                        <tr><td><b>16:43-17:13</b></td><td>🚃 新島々 → 松本</td><td>搭乘時間：30分。搭乘電車返回松本。<br><b style="color:red;">提醒：此時間抵達松本，已接不上循環巴士末班車(17:15)。</b></td></tr>
+                        <tr><td>~08:30</td><td>🏨 飯店 / 退房</td><td>辦理退房手續。</td></tr>
+                        <tr><td>08:55-09:25</td><td>🚉 輕井澤車站 (かるいざわえき)</td><td>從 <b>B12M</b> 西館大廳（<b>25、55發車</b>)搭乘免費接駁車，抵達車站南口（<b>25、55抵達</b>)。</td></tr>
+                        <tr><td>09:30-14:00</td><td>🚶‍♂️ 輕井澤景點漫遊</td><td>將大行李寄放車站置物櫃後，依序遊覽：車站 → 雲場池 → 舊輕井澤銀座通 → 聖保羅天主教堂 → 蕭紀念禮拜堂・紀念館 → 車站。並在此區間享用午餐。</td></tr>
+                        <tr><td><b>14:16-14:46</b></td><td>🚄 輕井澤 → 長野 (ながの)</td><td>搭乘【<b>新幹線あさま613号（往長野）</b>】。抵達月台：<b>14</b>。</td></tr>
+                        <tr><td><b>14:46-15:00</b></td><td>🔄 長野車站轉乘</td><td>轉乘時間：14分鐘。</td></tr>
+                        <tr><td><b>15:00-15:51</b></td><td>🚄 長野 → 松本 (まつもと)</td><td>搭乘【<b>特急しなの18号（往名古屋）</b>】。發車月台：<b>6</b>。長野-松本段需額外購票，【乘車券+特急自由席】票價為 <b>¥2,370</b>。<b>特急票無法使用西瓜卡，要另外在售票機或櫃臺購買</b>。</td></tr>
+                        <tr><td>16:05-16:25</td><td>🏠 松本Airbnb</td>
+                            <td>
+                                <b>1. 搭乘公車：公車200號(21月台)</b><br>
+                                在松本站「お城口」（正面出口）的<b>21號月台</b>，搭乘「タウンスニーカー北コース」循環巴士（30分鐘一班，5、35分發車，最後一班17：15），在「池上百竹亭」下車(4站，約20分)。可用現金(¥200)、信用卡感應、Apple Pay支付，不可用西瓜卡(Suica)。<br>
+                                <b>2. 計程車：</b>在[二の丸裏御門橋]下車，費用約¥1,000多。
+                            </td>
+                        </tr>
+                        <tr><td>16:30-17:30</td><td>🏯 國寶松本城 (こくほうまつもとじょう)</td><td><b>[營業時間 08:30-17:00，最後入場16:30] [門票 ¥700]</b> 步行1分鐘前往參觀。</td></tr>
+                        <tr><td>17:30-18:30</td><td>🐸 繩手通 (なわてどおり)</td><td><b>[店家約10:00-17:00]</b> 逛逛特色青蛙主題小店。</td></tr>
+                        <tr><td>18:30-19:00</td><td>🏺 中町通 (なかまちどおり)</td><td><b>[店家約10:00-17:00]</b> 逛逛倉庫改建的民藝品店。</td></tr>
+                        <tr><td>19:00~</td><td>🌃 松本市區 / 晚餐</td><td>在繩手通或車站周邊享用晚餐。<br><b style="color:red;">備註：晚上需採買隔天去上高地的早餐和午餐。</b></td></tr>
                     </tbody>
                 </table>
-            </div>
-            <div class="warning">
-                <h3>🚌 巴士預約提醒</h3>
-                <p>前往「神的故鄉(上高地)」的巴士非常熱門，強烈建議您出發前幾週，預先至 <a class="photo-link" href="https://reurl.cc/3M59QO" target="_blank">Alpico巴士官網</a> 預約來回座位，特別是回程時段，以免現場無位影響行程。</p>
-            </div>
-             <div class="card">
-                <h3>🚶‍♀️ 三大健行方案</h3>
-                <table>
-                    <thead><tr><th>項目</th><th>方案1：經典精華</th><th>方案2：深度探索</th><th>方案3：全程挑戰</th></tr></thead>
-                    <tbody>
-                        <tr><td><b>路線</b></td><td>大正池 → 河童橋</td><td>上高地巴士總站 → 明神池 → 上高地巴士總站</td><td>大正池 → 明神池 → 上高地巴士總站</td></tr>
-                        <tr><td><b>總健行距離</b></td><td>約 4 公里</td><td>約 6 公里</td><td>約 10 公里</td></tr>
-                        <tr><td><b>健行時間</b></td><td>約 1.5 - 2 小時</td><td>約 2 - 2.5 小時</td><td>約 3.5 - 4 小時</td></tr>
-                        <tr><td><b>步數估計</b></td><td>約 6,000 步</td><td>約 9,000 步</td><td>約 15,000 步</td></tr>
-                        <tr><td><b>難度</b></td><td>⭐ (輕鬆)</td><td>⭐⭐ (中等)</td><td>⭐⭐⭐ (挑戰)</td></tr>
-                        <tr><td><b>特色</b></td><td>景色最多元，CP值最高</td><td>深入原始森林，感受靜謐</td><td>完整體驗上高地之美</td></tr>
-                    </tbody>
-                </table>
-                <p style="font-size: smaller; color: #6c757d;">*健行時間不含休息與拍照，請依團隊體力選擇最適合的方案。<br>*明神池 ⇿ 上高地巴士總站，只能步行，沒有大眾運輸工具。</p>
             </div>
             <div class="card">
-                <h3>📍 上高地景點特色速覽</h3>
+                <h3>🔄 成田機場T2 → 換票/劃位 → 搭乘N'EX</h3>
                 <table>
-                     <thead><tr><th>景點</th><th>特色與可看性</th><th>拍照技巧</th></tr></thead>
-                     <tbody>
-                        <tr><td>大正池 (たいしょういけ)</td><td><b>特色：</b>因火山噴發而形成的堰塞湖，枯木矗立在水中的景象如夢似幻，是上高地的代表景觀之一。<br><b>可看性：</b>清晨時水面如鏡，能完美倒映穗高連峰，景色絕美。</td><td>建議早晨順光拍攝，利用廣角鏡頭將山脈倒影與枯木一同納入畫面。</td></tr>
-                        <tr><td>田代池 (たしろいけ)</td><td><b>特色：</b>由地下湧泉形成的淺灘濕地，水質清澈見底，四季展現不同色彩。<br><b>可看性：</b>濕地中的原生植物與清澈流水交織成原始的自然美景。</td><td>可使用偏光鏡消除水面反光，拍出水下植物的清透感。</td></tr>
-                        <tr><td>河童橋 (かっぱばし)</td><td><b>特色：</b>上高地的地標，是欣賞穗高連峰與梓川清流的最佳地點。<br><b>可看性：</b>從橋上可以360度欣賞壯麗的山景與溪谷，是遊客必訪的中心點。</td><td>站在橋上或下游河灘，以橋為前景，將後方的穗高連峰一起拍下，是最經典的構圖。</td></tr>
-                        <tr><td>明神池 (みょうじんいけ)</td><td><b>特色：</b>分為一之池與二之池，池畔是穗高神社奧宮，充滿神秘與莊嚴的氛圍。<br><b>可看性：</b>池水極度清澈，周圍被原始森林環繞，靜謐的氛圍彷彿人間仙境。</td><td>低角度拍攝停泊在池邊的小船，搭配後方的山景與神社，能營造出靜謐神聖的感覺。</td></tr>
-                     </tbody>
+                    <thead><tr><th>順序</th><th>流程步驟</th><th>詳細操作說明</th><th>貼心建議與注意事項</th></tr></thead>
+                    <tbody>
+                        <tr><td>1</td><td>抵達成田機場T2入口（<b>1F入境層</b>）</td><td>通關完成後，依「JR線」／「鐵道」標示前往電扶梯或電梯，往<b>B1層</b>下樓。</td><td>請耐心排隊，電梯口易擁擠。</td></tr>
+                        <tr><td>2</td><td>前往JR East Travel Service Center（<b>B1樓層</b>）</td><td>尋找綠色招牌，向服務人員出示護照與兌換券，進行JR PASS換票與預約劃位工作。</td><td>準備好所有證件與兌換資料。</td></tr>
+                        <tr><td>3</td><td>劃位與確認座位</td><td>工作人員協助劃定N’EX指定席及其他旅段劃位，確認車票細節無誤後領取票券。</td><td>確認列車號碼、發車時間與座位號碼。</td></tr>
+                        <tr><td>4</td><td>進入JR線閘門</td><td>從窗口旁「JR線」閘門刷票入站，切勿誤入京成線閘口。</td><td>注意閘門英文標識，如有困難請求助。</td></tr>
+                        <tr><td>5</td><td>前往月台（通常<b>1或2號</b>）</td><td>依月台螢幕確認班次，前往指定月台及車廂位置，有序排隊等候列車。</td><td>注意隨身行李，團體協調上下車順序。</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card">
+                <h3>🔄 東京車站 N'EX → 北陸新幹線轉乘</h3>
+                <table>
+                    <thead><tr><th>順序</th><th>流程步驟</th><th>詳細說明</th><th>貼心建議與注意事項</th></tr></thead>
+                    <tbody>
+                        <tr><td>1</td><td>N'EX下車（<b>B5F</b>）</td><td>建議選擇<b>5～6號車廂</b>，靠近電梯與手扶梯，下車後方便直上。</td><td>行李集中，便於團體協作</td></tr>
+                        <tr><td>2</td><td>上樓至<b>1樓</b></td><td>從<b>B5F</b>搭乘電梯或手扶梯直達<b>1樓</b>大廳，依「新幹線／八重洲口」標示前進。</td><td>跟隨綠色「新幹線」標誌，減少迷路風險</td></tr>
+                        <tr><td>3</td><td>站內移動</td><td><b>1樓</b>步行依「新幹線」指標，朝八重洲中央口或新幹線乘換口方向前行。</td><td>跟隨綠色「新幹線」標誌，減少迷路風險</td></tr>
+                        <tr><td>4</td><td>通過新幹線閘門</td><td>進入「北のりかえ口」或「南のりかえ口」，投入兩張車票或感應IC卡／出示JR PASS。</td><td>人多時可請站務員協助通過</td></tr>
+                        <tr><td>5</td><td>上<b>2樓</b>至新幹線月台</td><td>進閘後搭乘手扶梯或電梯上<b>2樓</b>，前往<b>23號月台</b>（北陸新幹線）；依票面查車廂位置，月台標示清晰。</td><td>注意確認車廂編號與位置</td></tr>
+                        <tr><td>6</td><td>月台候車與上車</td><td>於指定車廂門口等候，確認車廂編號與行李空間；預留充裕緩衝時間，團體協調分工有序上車。</td><td>建議提前協調上下車順序與行李搬運</td></tr>
+                    </tbody>
                 </table>
             </div>
         </div>
 
-        <!-- Day 4 Content -->
-        <div id="tab-day4" class="tab-content">
-             <div class="day-title-banner">4️⃣ Day 4: 抵達金澤 → 武家屋敷與現代藝術巡禮 (2025-09-13 週六)</div>
-            <div class="info-grid">
-                <div class="info-card">
-                    <h3>🚶‍♀️ 生理與行李負荷分析</h3>
-                    <ul class="default-list">
-                        <li class="icon-walk"><b>步行強度：</b>高。約 10,000 步 (約 7 公里)。</li>
-                        <li class="icon-toilet"><b>廁所友善度:</b> 佳。</li>
-                        <li class="icon-luggage"><b>行李友善度：</b>中。本日行程集中，建議輕裝出發。</li>
-                    </ul>
-                </div>
-                <div class="info-card">
-                    <h3>🏨 當日住宿資訊</h3>
-                    <ul class="default-list">
-                        <li class="icon-bed"><b>住宿:</b> RUFF - Hosai (金澤, かなざわ) (<a class="photo-link" href="https://www.booking.com/hotel/jp/ruff-hosai.zh-tw.html" target="_blank">參考照片</a>)</li>
-                        <li class="icon-room"><b>房型:</b> 獨棟2層樓住宅 (98m²)，3房</li>
-                        <li class="icon-star"><b>特色:</b> 位於長町武家屋敷區域，有熱水按摩池。</li>
-                        <li class="icon-time"><b>入住/退房:</b> 15:00 / 11:00</li>
-                    </ul>
-                    <p style="font-size: smaller; color: #6c757d; margin-top: 10px;">*提示：點擊藍色底線文字可查看照片。</p>
-                </div>
-            </div>
-            <div class="card">
-                <h3>⏰ 時間軸規劃</h3>
-                <table class="timeline">
-                    <thead><tr><th>時間</th><th>地點 / 活動</th><th>詳細說明與任務</th></tr></thead>
-                    <tbody>
-                        <tr><td>08:15-08:43</td><td>🏠 住宿 → 車站</td><td>「松本市役所前」站牌，搭乘【30號】淺間溫泉線巴士前往松本車站。 （公車08:30-08:43）</td></tr>
-                        <tr><td><b>09:09-10:03</b></td><td>🚄 松本 → 長野 (ながの)</td><td>搭乘時間：54分。搭乘【<b>特急しなの1号</b>】。（<b>3號月台</b>出發，<b>2號月台</b>抵達）</td></tr>
-                        <tr><td><b>10:03-10:46</b></td><td>🔄 長野站轉乘</td><td>轉乘時間：43分。</td></tr>
-                        <tr><td><b>10:46-11:52</b></td><td>🚄 長野 → 金澤 (かなざわ)</td><td>搭乘時間：1小時6分。搭乘【<b>新幹線かがやき507号，全車指定席（必須先訂位）</b>】。（<b>12月台</b>出發，<b>13月台</b>抵達）</td></tr>
-                        <tr><td>12:00-13:00</td><td>🏨 金澤住宿</td><td>車站→ 住宿，走路1公里，15分。先至住宿處寄放行李。</td></tr>
-                        <tr><td>13:00-14:30</td><td>🚶‍♂️ 長町武家屋敷跡</td><td><b>[店家約10:00-17:00]</b> 在此區域散步並享用午餐。</td></tr>
-                        <tr><td>14:30-15:30</td><td>🧘 鈴木大拙館</td><td><b>[開放至 17:00，最後入場16:30] [門票 ¥310]</b> 感受禪意空間。</td></tr>
-                        <tr><td>15:30-16:30</td><td>🖼️ 金澤21世紀美術館</td><td><b>[展覽區 10:00-18:00] [門票因展覽而異]</b> 參觀現代藝術。</td></tr>
-                        <tr><td>16:30-17:00</td><td>🏙️ 金澤市公所展望大廳</td><td><b>[平日 08:30-17:15] [免費]</b> 從8樓欣賞市景。</td></tr>
-                        <tr><td>17:00~</td><td>🌃 金澤 / 晚餐</td><td>返回住宿處辦理入住，之後可至片町/香林坊區域享用晚餐。</td></tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="card">
-                <h3>📍 當日景點特色速覽</h3>
-                <table>
-                     <thead><tr><th>景點</th><th>特色與推薦理由</th></tr></thead>
-                     <tbody>
-                        <tr><td>長町武家屋敷跡</td><td><b>特色：</b>保留江戶時代武士住宅區的原始風貌，土牆與石板路非常有味道。<br><b>推薦：</b>適合悠閒散步，感受歷史氛圍，且離住宿點最近，可作為起點。</td></tr>
-                        <tr><td>鈴木大拙館</td><td><b>特色：</b>由建築大師谷口吉生設計，充滿禪意的哲學空間，建築與水景完美結合。<br><b>推薦：</b>能讓心靈完全沉靜下來的地方，是本日行程的完美收尾。</td></tr>
-                        <tr><td>金澤21世紀美術館</td><td><b>特色：</b>圓形玻璃建築本身就是藝術品，以互動式裝置藝術聞名，尤其是《泳池》。<br><b>推薦：</b>顛覆傳統美術館的想像，充滿趣味性，適合所有年齡層。</td></tr>
-                        <tr><td>金澤市公所展望大廳</td><td><b>特色：</b>免費的市區制高點，可從不同角度俯瞰金澤市景，包含金澤城與兼六園。<br><b>推薦：</b>CP值極高的秘境景點，能快速建立對金澤市的地理概念。</td></tr>
-                     </tbody>
-                </table>
-            </div>
-        </div>
-
-        <!-- Day 5 Content -->
-        <div id="tab-day5" class="tab-content">
-            <div class="day-title-banner">5️⃣ Day 5: 敦賀一日遊 或 永平寺半日遊 (2025-09-14 週日)</div>
-            <div class="info-grid">
-                 <div class="info-card">
-                    <h3>🚶‍♀️ 生理與行李負荷分析</h3>
-                    <ul class="default-list">
-                        <li class="icon-walk"><b>步行強度：</b>中。敦賀方案約 8,000步；永平寺方案約 6,000步。</li>
-                        <li class="icon-toilet"><b>廁所友善度：</b>佳。</li>
-                        <li class="icon-luggage"><b>行李友善度：</b>佳。輕裝一日遊。</li>
-                    </ul>
-                </div>
-                 <div class="info-card">
-                    <h3>🏨 當日住宿資訊</h3>
-                    <ul class="default-list">
-                        <li class="icon-bed"><b>住宿:</b> RUFF - Hosai (金澤, かなざわ) (<a class="photo-link" href="https://www.booking.com/hotel/jp/ruff-hosai.zh-tw.html" target="_blank">參考照片</a>)</li>
-                        <li class="icon-room"><b>房型:</b> 獨棟2層樓住宅 (98m²)，3房</li>
-                        <li class="icon-star"><b>特色:</b> 位於長町武家屋敷區域，有熱水按摩池。</li>
-                        <li class="icon-time"><b>入住/退房:</b> 15:00 / 11:00</li>
-                    </ul>
-                     <p style="font-size: smaller; color: #6c757d; margin-top: 10px;">*提示：點擊藍色底線文字可查看照片。</p>
-                </div>
-            </div>
-            <div class="card">
-                <h3>方案A：敦賀港都漫遊</h3>
-                <table class="timeline">
-                    <thead><tr><th>時間</th><th>地點 / 活動</th><th>詳細說明與任務</th></tr></thead>
-                    <tbody>
-                        <tr><td><b>08:45-09:34</b></td><td>🚄 金澤 → 敦賀 (つるが)</td><td>搭乘時間：49分。搭乘【<b>新幹線かがやき501号，全車指定席（必須先訂位）</b>】。</td></tr>
-                        <tr><td>09:35-10:30</td><td>⛩️ 氣比神宮 (けひじんぐう)</td><td><b>[營業時間 06:00-17:00]</b> 從車站步行約5分鐘，參拜大鳥居。</td></tr>
-                        <tr><td>10:40-11:40</td><td>🧱 紅磚倉庫 (あかれんがそうこ)</td><td><b>[營業時間 09:30-22:00]</b> 從神宮步行約15分鐘，逛逛港邊歷史館與文創商店。</td></tr>
-                        <tr><td>12:00-13:00</td><td>🐟 日本海魚市場街</td><td><b>[店家約10:00-17:00]</b> 從倉庫步行約10分鐘，品嚐新鮮海鮮丼午餐。</td></tr>
-                        <tr><td>13:20-14:00</td><td>🏞️ 金崎宮 (かねがさきぐう)</td><td><b>[全天開放]</b> 從市場步行約15分鐘，輕爬坡欣賞敦賀灣景色。</td></tr>
-                        <tr><td>14:30-15:00</td><td>🏛️ 鐵道資料館 (可選)</td><td><b>[營業時間 09:30-17:00]</b> 對鐵道歷史有興趣者可參觀。</td></tr>
-                        <tr><td>15:00-15:17</td><td>🚶‍♂️ 返回敦賀站</td><td>從市區步行返回車站。</td></tr>
-                        <tr><td><b>15:17-16:00</b></td><td>🚄 敦賀 → 金澤</td><td>搭乘時間：43分。搭乘【<b>新幹線つるぎ24号</b>】。</td></tr>
-                    </tbody>
-                </table>
-            </div>
-             <div class="card">
-                <h3>📍 當日景點特色速覽 (方案A：敦賀)</h3>
-                <table>
-                     <thead><tr><th>景點</th><th>特色與推薦理由</th></tr></thead>
-                     <tbody>
-                        <tr><td>氣比神宮</td><td><b>特色：</b>擁有與奈良春日大社、廣島嚴島神社並列「日本三大木造大鳥居」的壯觀鳥居。<br><b>推薦：</b>是北陸道的總鎮守，歷史悠久，充滿能量，適合做為一日遊的起點。</td></tr>
-                        <tr><td>紅磚倉庫</td><td><b>特色：</b>由紐約設計師設計的歷史建築，現已改造成充滿文藝氣息的餐廳與立體模型館。<br><b>推薦：</b>結合了歷史、建築與美食，是個適合悠閒放鬆的好地方。</td></tr>
-                        <tr><td>日本海魚市場街</td><td><b>特色：</b>規模宏大的海鮮市場，可以品嚐到最新鮮的日本海海產。<br><b>推薦：</b>午餐的最佳選擇，能以實惠的價格享用豪華的海鮮丼。</td></tr>
-                     </tbody>
-                </table>
-            </div>
+        <!-- Day 2 Content -->
+        <div id="tab-day2" class="tab-content">
+            <div class="day-title-banner">2️⃣ Day 2: 輕井澤風光 → 前進松本 (2025-09-11 週四)</div>
             <div class="warning">
-                <h3>備案B：永平寺半日禪修之旅</h3>
-                <p>若想體驗莊嚴的禪宗聖地，可選擇上午前往永平寺，下午返回金澤繼續市區行程。</p>
-                <table class="timeline">
-                    <thead><tr><th>時間</th><th>地點 / 活動</th><th>詳細說明與任務</th></tr></thead>
-                    <tbody>
-                        <tr><td><b>08:10-08:58</b></td><td>🚄 金澤 → 福井 (ふくい)</td><td>搭乘時間：48分。搭乘【<b>特急サンダーバード8号</b>】。</td></tr>
-                        <tr><td><b>09:10-09-40</b></td><td>🚌 福井 → 永平寺 (えいへいじ)</td><td>搭乘時間：30分。於福井站東口搭乘【<b>特急永平寺ライナー</b>】巴士。</td></tr>
-                        <tr><td>09:40-12:00</td><td>🏛️ 大本山永平寺</td><td><b>[營業時間 08:30-16:30]</b> 參拜宏偉的七堂伽藍，感受禪宗的莊嚴肅穆。</td></tr>
-                        <tr><td><b>12:10-12:40</b></td><td>🚌 永平寺 → 福井</td><td>搭乘時間：30分。搭乘巴士返回福井站。</td></tr>
-                        <tr><td><b>13:19-14:05</b></td><td>🚄 福井 → 金澤</td><td>搭乘時間：46分。搭乘【<b>特急しらさぎ7号</b>】。</td></tr>
-                        <tr><td>14:30~</td><td>🌃 金澤市區</td><td>返回金澤後，可接續Day 4或Day 6未完成的市區行程。</td></tr>
-                    </tbody>
-                </table>
-                <p><b>交通提醒：</b>金澤到福井的JR路段可使用JR Pass。福井到永平寺的巴士需<b>另外自費</b>，單程票價為 <b>¥750</b>，可於福井站東口的巴士售票機購買。</p>
-            </div>
-            <div class="card">
-                <h3>📍 當日景點特色速覽 (方案B：永平寺)</h3>
-                <table>
-                     <thead><tr><th>景點</th><th>特色與推薦理由</th></tr></thead>
-                     <tbody>
-                        <tr><td>大本山永平寺</td><td><b>特色：</b>日本曹洞宗的大本山，是一座至今仍有僧侶嚴格修行的道場，擁有七百多年歷史。<br><b>推薦：</b>建築宏偉，環境莊嚴肅穆，能深刻體驗日本禪宗文化，是尋求心靈平靜的絕佳選擇。</td></tr>
-                     </tbody>
-                </table>
-            </div>
-        </div>
-        
-        <!-- Day 6 Content -->
-        <div id="tab-day6" class="tab-content">
-            <div class="day-title-banner">6️⃣ Day 6: 金澤經典庭園、茶屋街與寺廟深度文化體驗 (2025-09-15 週一)</div>
-            <div class="warning">
-                <h3>🎌 國定假日提醒</h3>
-                <p>本日為日本國定假日<b>「敬老之日 (敬老の日)」</b>，各大觀光景點人潮預計會非常多，請有心理準備，並建議提早出門，特別是兼六園與近江町市場。</p>
+                <h3>🏔️ 高原氣候提醒</h3>
+                <p>輕井澤 (かるいざわ) 海拔較高，早晚溫差大。即使日間溫暖，太陽下山後氣溫會明顯下降，請務必攜帶保暖衣物。</p>
             </div>
             <div class="info-grid">
                 <div class="info-card">
                     <h3>🚶‍♀️ 生理與行李負荷分析</h3>
-                    <ul class="default-list">
-                        <li class="icon-walk"><b>步行強度：</b>極高。約 15,000 步 (約 10 公里)。本日為金澤市區的深度步行日，建議適時搭乘巴士。</li>
-                        <li class="icon-toilet"><b>廁所友善度：</b>佳。</li>
-                        <li class="icon-luggage"><b>行李友善度：</b>佳。輕裝出遊。</li>
-                    </ul>
-                </div>
-                <div class="info-card">
-                    <h3>🏨 當日住宿資訊</h3>
                      <ul class="default-list">
-                        <li class="icon-bed"><b>住宿:</b> RUFF - Hosai (金澤, かなざわ) (<a class="photo-link" href="https://www.booking.com/hotel/jp/ruff-hosai.zh-tw.html" target="_blank">參考照片</a>)</li>
-                        <li class="icon-room"><b>房型:</b> 獨棟2層樓住宅 (98m²)，3房</li>
-                        <li class="icon-star"><b>特色:</b> 位於長町武家屋敷區域，有熱水按摩池。</li>
-                        <li class="icon-time"><b>入住/退房:</b> 15:00 / 11:00</li>
-                    </ul>
-                     <p style="font-size: smaller; color: #6c757d; margin-top: 10px;">*提示：點擊藍色底線文字可查看照片。</p>
-                </div>
-            </div>
-             <div class="card">
-                <h3>⏰ 時間軸規劃 (巴士一日遊)</h3>
-                <table class="timeline">
-                    <thead><tr><th>時間</th><th>地點 / 活動</th><th>詳細說明與任務</th></tr></thead>
-                    <tbody>
-                        <tr><td>08:00-10:00</td><td>🌳 兼六園 & 金澤城公園</td><td><b>[兼六園 07:00-18:00] [門票 ¥320, 65+免費]</b><br>從住宿步行至「香林坊」站牌，搭乘巴士至<b>[兼六園下・金沢城]</b>下車。提早出門避開人潮。</td></tr>
-                        <tr><td>10:00-12:00</td><td>🏮 東茶屋街 & 主計町茶屋街</td><td><b>[店家約10:00-18:00]</b> 從<b>[兼六園下・金沢城]</b>搭乘巴士至<b>[橋場町]</b>下車。感受江戶氛圍，並散步至對岸寧靜的【主計町茶屋街】。</td></tr>
-                        <tr><td>12:00-13:30</td><td>🐟 近江町市場 / 午餐</td><td><b>[店家約09:00-17:00]</b> 從<b>[橋場町]</b>搭乘巴士至<b>[武蔵ヶ辻・近江町市場]</b>下車，享用新鮮海鮮丼。</td></tr>
-                        <tr><td>14:00-15:30</td><td>🏛️ 西茶屋街 & 老舖紀念館</td><td><b>[店家約10:00-18:00]</b> 從<b>[武蔵ヶ辻・近江町市場]</b>搭乘巴士至<b>[広小路]</b>下車。感受寧靜茶屋街氛圍，並參觀【老舖紀念館】<b>[門票 ¥100]</b>。</td></tr>
-                        <tr><td>15:30-16:30</td><td>🥷 妙立寺 (忍者寺)</td><td><b>[需預約 09:00-16:00] [門票 ¥1,200]</b> 從西茶屋街步行前往，參加預約好的導覽。</td></tr>
-                        <tr><td>16:30-17:30</td><td>⛩️ 尾山神社 & 大乘寺 (可選)</td><td>從<b>[広小路]</b>搭乘巴士至<b>[南町・尾山神社]</b>下車，參觀【尾山神社】。若時間體力允許，可再前往【大乘寺】。</td></tr>
-                        <tr><td>17:30~</td><td>🌃 金澤 / 晚餐</td><td>返回住宿處或香林坊區域，享用在金澤的最後一頓晚餐，餐後可步行前往附近的【松の湯】體驗在地錢湯文化 <b>[門票 ¥500]</b>。</td></tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="card">
-                <h3>📍 當日景點特色速覽</h3>
-                <table>
-                     <thead><tr><th>景點</th><th>特色與推薦理由</th></tr></thead>
-                     <tbody>
-                        <tr><td>兼六園 & 金澤城公園</td><td><b>特色：</b>日本三大名園之首，四季景色皆美；相鄰的城堡公園展現加賀百萬石的雄偉氣勢。<br><b>推薦：</b>金澤必訪的代表性景點，提早前往能享受較佳的遊覽品質。</td></tr>
-                        <tr><td>東茶屋街 & 主計町茶屋街</td><td><b>特色：：</b>前者熱鬧，是金澤茶屋街的代表；後者緊鄰河畔，小巧寧靜，氛圍絕佳。<br><b>推薦：</b>一次體驗兩種截然不同的茶屋街風情，感受金澤的雅緻。</td></tr>
-                        <tr><td>近江町市場</td><td><b>特色：</b>被稱為「金澤的廚房」，充滿活力的在地市場，海產新鮮豐富。<br><b>推薦：</b>解決午餐的最佳地點，能品嚐到最新鮮的海鮮丼。</td></tr>
-                        <tr><td>西茶屋街 & 老舖紀念館</td><td><b>特色：</b>氛圍比東茶屋街更寧靜，至今仍有藝妓活動；紀念館可一窺江戶商家的生活樣貌。<br><b>推薦：</b>深入體驗金澤的另一面，老舖紀念館是絕佳的室內景點。</td></tr>
-                        <tr><td>妙立寺 (忍者寺)</td><td><b>特色：</b>機關重重的防禦要塞，參觀過程像一場探險，充滿趣味。<br><b>推薦：</b><b style="color:red;">需電話預約！</b>是金澤最獨特的體驗之一，絕對值回票價。</td></tr>
-                        <tr><td>尾山神社</td><td><b>特色：</b>融合和洋風格的「神門」是最大亮點，頂樓的彩繪玻璃非常特別。<br><b>推薦：</b>交通方便，能欣賞到獨一無二的明治時代建築美學。</td></tr>
-                        <tr><td>大乘寺</td><td><b>特色：</b>真正的禪修道場，建築莊嚴，氛圍肅穆寧靜，遊客稀少。<br><b>推薦：</b>(可選) 適合想深度體驗日本禪宗文化、尋求心靈平靜的旅客。</td></tr>
-                        <tr><td>松の湯 (錢湯)</td><td><b>特色：</b>創業超過80年的在地公共澡堂，能體驗最道地的日本庶民生活文化。<br><b>推薦：</b>在一天疲憊的行程後，泡個熱水澡放鬆身心是絕佳的享受。</td></tr>
-                     </tbody>
-                </table>
-            </div>
-        </div>
-
-        <!-- Day 7 Content -->
-        <div id="tab-day7" class="tab-content">
-            <div class="day-title-banner">7️⃣ Day 7: 返回東京 → 淺草下町散策 (2025-09-16 週二)</div>
-            <div class="info-grid">
-                <div class="info-card">
-                    <h3>🚶‍♀️ 生理與行李負荷分析</h3>
-                    <ul class="default-list">
-                        <li class="icon-walk"><b>步行強度：</b>高。約 10,000 步 (約 7 公里)。東京的步行與轉乘較為密集。</li>
-                        <li class="icon-toilet"><b>廁所友善度：</b>佳。</li>
-                        <li class="icon-luggage"><b>行李友善度：</b>中。需先寄放行李再開始行程。</li>
+                        <li class="icon-walk"><b>步行強度:</b> 約 8,000 步 (約 5.5 公里)。</li>
+                        <li class="icon-toilet"><b>廁所友善度:</b> 佳。</li>
+                        <li class="icon-luggage"><b>行李友善度:</b> 中。善用置物櫃與計程車是本日關鍵。</li>
                     </ul>
                 </div>
                 <div class="info-card">
                     <h3>🏨 當日住宿資訊</h3>
                     <ul class="default-list">
-                        <li class="icon-bed"><b>飯店:</b> 日暮里 和ごころ (にっぽり わごころ) (<a class="photo-link" href="https://reurl.cc/mYvANM" target="_blank">參考照片</a>)</li>
-                        <li class="icon-room"><b>房型:</b> 豪華雙床房*2間 (19m²)</li>
-                        <li class="icon-star"><b>特色:</b> 設有公共廚房，體驗日式旅館氛圍。</li>
-                        <li class="icon-time"><b>入住/退房:</b> 15:00 / 11:00</li>
+                        <li class="icon-bed"><b>住宿:</b> 松本 (まつもと) Airbnb (<a class="photo-link" href="https://www.airbnb.com.tw/rooms/1291644049856334910?source_impression_id=p3_1752918306_P3XQHS3CzQH26wtD" target="_blank">參考照片</a>)</li>
+                        <li class="icon-room"><b>房型:</b> 獨棟2層樓，3間客房 (臥室1: 2張單人床, 臥室2: 3張地板床墊, 臥室3: 3張地板床墊)。</li>
+                        <li class="icon-star"><b>特色:</b> 房內可看到松本城，離松本城走路僅1分鐘，可寄放行李。</li>
+                        <li class="icon-time"><b>入住/退房:</b> 15:00 (自助入住) / 10:00</li>
                     </ul>
                     <p style="font-size: smaller; color: #6c757d; margin-top: 10px;">*提示：點擊藍色底線文字可查看照片。</p>
                 </div>
@@ -1071,340 +929,344 @@
                 <table class="timeline">
                     <thead><tr><th>時間</th><th>地點 / 活動</th><th>詳細說明與任務</th></tr></thead>
                     <tbody>
-                        <tr><td><b>09:07-11:30</b></td><td>🚄 金澤 → 上野 (うえの)</td><td>搭乘時間：2小時23分。搭乘【<b>新幹線かがやき506号，全車指定席</b>】。（<b>12月台</b>出發，<b>22月台</b>抵達）</td></tr>
-                        <tr><td><b>11:47-11:51</b></td><td>🚄 上野 → 日暮里 (にっぽり)</td><td>搭乘時間：4分。搭乘【<b>山手線</b>】。</td></tr>
-                        <tr><td>12:00-13:00</td><td>🏨 日暮里和ごころ</td><td>先至旅館寄放行李(此時尚未能入住)。</td></tr>
-                        <tr><td>13:00-16:00</td><td>🏮 淺草寺 (せんそうじ) / 午餐</td><td><b>[本堂06:00-17:00]</b> 從日暮里搭車至【淺草】，參拜【淺草寺】。<br><button class="gemini-button" onclick="getGeminiSuggestion('souvenirAsakusa')">✨ 淺草伴手禮推薦</button></td></tr>
-                        <tr><td>16:00-17:30</td><td>🛍️ 上野阿美橫丁 (アメヤよこちょう)</td><td><b>[店家約10:00-20:00]</b> 返回上野，逛熱鬧的【阿美橫丁】。</td></tr>
-                        <tr><td>17:30-18:30</td><td>⛩️ 根津神社 (ねづじんじゃ)</td><td><b>[全天開放]</b> 參觀壯觀的千本鳥居。</td></tr>
-                        <tr><td>18:30~</td><td>🌇 谷中銀座 (やなかぎんざ) / 晚餐</td><td><b>[店家約10:00-19:00]</b> 從根津神社散步至【谷中銀座】，觀賞【晚霞階梯】日落，享用晚餐後辦理入住。晚餐後可步行至附近的【斎藤湯】體驗下町錢湯文化 <b>[門票 ¥550]</b>。</td></tr>
+                        <tr><td>~08:30</td><td>🏨 飯店 / 退房</td><td>辦理退房手續。</td></tr>
+                        <tr><td>08:55-09:25</td><td>🚉 輕井澤車站 (かるいざわえき)</td><td>從 <b>B12M</b> 西館大廳（<b>25、55發車</b>)搭乘免費接駁車，抵達車站南口（<b>25、55抵達</b>)。</td></tr>
+                        <tr><td>09:30-14:00</td><td>🚶‍♂️ 輕井澤景點漫遊</td><td>將大行李寄放車站置物櫃後，依序遊覽：車站 → 雲場池 → 舊輕井澤銀座通 → 聖保羅天主教堂 → 蕭紀念禮拜堂・紀念館 → 車站。並在此區間享用午餐。</td></tr>
+                        <tr><td><b>14:16-14:46</b></td><td>🚄 輕井澤 → 長野 (ながの)</td><td>搭乘【<b>新幹線あさま613号（往長野）</b>】。抵達月台：<b>14</b>。</td></tr>
+                        <tr><td><b>14:46-15:00</b></td><td>🔄 長野車站轉乘</td><td>轉乘時間：14分鐘。</td></tr>
+                        <tr><td><b>15:00-15:51</b></td><td>🚄 長野 → 松本 (まつもと)</td><td>搭乘【<b>特急しなの18号（往名古屋）</b>】。發車月台：<b>6</b>。長野-松本段需額外購票，【乘車券+特急自由席】票價為 <b>¥2,370</b>。<b>特急票無法使用西瓜卡，要另外在售票機或櫃臺購買</b>。</td></tr>
+                        <tr><td>16:05-16:25</td><td>🏠 松本Airbnb</td>
+                            <td>
+                                <b>1. 搭乘公車：公車200號(21月台)</b><br>
+                                在松本站「お城口」（正面出口）的<b>21號月台</b>，搭乘「タウンスニーカー北コース」循環巴士（30分鐘一班，5、35分發車，最後一班17：15），在「池上百竹亭」下車(4站，約20分)。可用現金(¥200)、信用卡感應、Apple Pay支付，不可用西瓜卡(Suica)。<br>
+                                <b>2. 計程車：</b>在[二の丸裏御門橋]下車，費用約¥1,000多。
+                            </td>
+                        </tr>
+                        <tr><td>16:30-17:30</td><td>🏯 國寶松本城 (こくほうまつもとじょう)</td><td><b>[營業時間 08:30-17:00，最後入場16:30] [門票 ¥700]</b> 步行1分鐘前往參觀。</td></tr>
+                        <tr><td>17:30-18:30</td><td>🐸 繩手通 (なわてどおり)</td><td><b>[店家約10:00-17:00]</b> 逛逛特色青蛙主題小店。</td></tr>
+                        <tr><td>18:30-19:00</td><td>🏺 中町通 (なかまちどおり)</td><td><b>[店家約10:00-17:00]</b> 逛逛倉庫改建的民藝品店。</td></tr>
+                        <tr><td>19:00~</td><td>🌃 松本市區 / 晚餐</td><td>在繩手通或車站周邊享用晚餐。<br><b style="color:red;">備註：晚上需採買隔天去上高地的早餐和午餐。</b></td></tr>
                     </tbody>
                 </table>
             </div>
-             <div class="card">
-                <h3>📍 當日景點特色速覽</h3>
+            <div class="card">
+                <h3>🔄 成田機場T2 → 換票/劃位 → 搭乘N'EX</h3>
                 <table>
-                     <thead><tr><th>景點</th><th>特色與推薦理由</th></tr></thead>
-                     <tbody>
-                        <tr><td>淺草寺</td><td><b>特色：</b>東京最古老的寺廟，巨大的「雷門」燈籠是東京的象徵之一，仲見世商店街充滿活力。<br><b>推薦：</b>感受東京最具代表性的下町風情與信仰中心，是體驗東京的起點。</td></tr>
-                        <tr><td>上野阿美橫丁</td><td><b>特色：</b>充滿活力的露天市集，藥妝、零食、海產、雜貨應有盡有，價格實惠。<br><b>推薦：</b>適合採買伴手禮與感受在地市場的熱鬧氣氛。</td></tr>
-                        <tr><td>根津神社</td><td><b>特色：</b>擁有媲美京都伏見稻荷的「千本鳥居」隧道，但遊客較少，氛圍靜謐。<br><b>推薦：</b>在東京市區就能拍到壯觀的鳥居隧道，是絕佳的秘境攝影點。</td></tr>
-                        <tr><td>谷中銀座</td><td><b>特色：</b>保留了昭和時代的懷舊商店街風情，以「晚霞階梯」的夕陽景色聞名。<br><b>推薦：</b>適合傍晚前來，感受東京的慢活步調與溫馨的社區氛圍。</td></tr>
-                        <tr><td>斎藤湯</td><td><b>特色：</b>位於日暮里附近的高評價現代化錢湯，內部乾淨明亮，提供多種浴池。<br><b>推薦：</b>在旅途的尾聲，體驗在地錢湯文化，洗去一身疲憊，是完美的放鬆方式。</td></tr>
-                     </tbody>
+                    <thead><tr><th>順序</th><th>流程步驟</th><th>詳細操作說明</th><th>貼心建議與注意事項</th></tr></thead>
+                    <tbody>
+                        <tr><td>1</td><td>抵達成田機場T2入口（<b>1F入境層</b>）</td><td>通關完成後，依「JR線」／「鐵道」標示前往電扶梯或電梯，往<b>B1層</b>下樓。</td><td>請耐心排隊，電梯口易擁擠。</td></tr>
+                        <tr><td>2</td><td>前往JR East Travel Service Center（<b>B1樓層</b>）</td><td>尋找綠色招牌，向服務人員出示護照與兌換券，進行JR PASS換票與預約劃位工作。</td><td>準備好所有證件與兌換資料。</td></tr>
+                        <tr><td>3</td><td>劃位與確認座位</td><td>工作人員協助劃定N’EX指定席及其他旅段劃位，確認車票細節無誤後領取票券。</td><td>確認列車號碼、發車時間與座位號碼。</td></tr>
+                        <tr><td>4</td><td>進入JR線閘門</td><td>從窗口旁「JR線」閘門刷票入站，切勿誤入京成線閘口。</td><td>注意閘門英文標識，如有困難請求助。</td></tr>
+                        <tr><td>5</td><td>前往月台（通常<b>1或2號</b>）</td><td>依月台螢幕確認班次，前往指定月台及車廂位置，有序排隊等候列車。</td><td>注意隨身行李，團體協調上下車順序。</td></tr>
+                    </tbody>
                 </table>
             </div>
-            <div class="warning">
-                <h3>🚇 交通詳解</h3>
-                <p><b>上野站轉乘：</b>新幹線抵達地下月台(<b>19-22號</b>)，需上樓至地面層，前往山手線月台(<b>2號</b>)。跟隨指標轉乘，路途稍長。</p>
+            <div class="card">
+                <h3>🔄 東京車站 N'EX → 北陸新幹線轉乘</h3>
+                <table>
+                    <thead><tr><th>順序</th><th>流程步驟</th><th>詳細說明</th><th>貼心建議與注意事項</th></tr></thead>
+                    <tbody>
+                        <tr><td>1</td><td>N'EX下車（<b>B5F</b>）</td><td>建議選擇<b>5～6號車廂</b>，靠近電梯與手扶梯，下車後方便直上。</td><td>行李集中，便於團體協作</td></tr>
+                        <tr><td>2</td><td>上樓至<b>1樓</b></td><td>從<b>B5F</b>搭乘電梯或手扶梯直達<b>1樓</b>大廳，依「新幹線／八重洲口」標示前進。</td><td>跟隨綠色「新幹線」標誌，減少迷路風險</td></tr>
+                        <tr><td>3</td><td>站內移動</td><td><b>1樓</b>步行依「新幹線」指標，朝八重洲中央口或新幹線乘換口方向前行。</td><td>跟隨綠色「新幹線」標誌，減少迷路風險</td></tr>
+                        <tr><td>4</td><td>通過新幹線閘門</td><td>進入「北のりかえ口」或「南のりかえ口」，投入兩張車票或感應IC卡／出示JR PASS。</td><td>人多時可請站務員協助通過</td></tr>
+                        <tr><td>5</td><td>上<b>2樓</b>至新幹線月台</td><td>進閘後搭乘手扶梯或電梯上<b>2樓</b>，前往<b>23號月台</b>（北陸新幹線）；依票面查車廂位置，月台標示清晰。</td><td>注意確認車廂編號與位置</td></tr>
+                        <tr><td>6</td><td>月台候車與上車</td><td>於指定車廂門口等候，確認車廂編號與行李空間；預留充裕緩衝時間，團體協調分工有序上車。</td><td>建議提前協調上下車順序與行李搬運</td></tr>
+                    </tbody>
+                </table>
             </div>
         </div>
-        
-        <!-- Day 8 Content -->
-        <div id="tab-day8" class="tab-content">
-            <div class="day-title-banner">8️⃣ Day 8: 滿載而歸 (2025-09-17 週三)</div>
+
+        <!-- Day 2 Content -->
+        <div id="tab-day2" class="tab-content">
+            <div class="day-title-banner">2️⃣ Day 2: 輕井澤風光 → 前進松本 (2025-09-11 週四)</div>
+            <div class="warning">
+                <h3>🏔️ 高原氣候提醒</h3>
+                <p>輕井澤 (かるいざわ) 海拔較高，早晚溫差大。即使日間溫暖，太陽下山後氣溫會明顯下降，請務必攜帶保暖衣物。</p>
+            </div>
             <div class="info-grid">
                 <div class="info-card">
                     <h3>🚶‍♀️ 生理與行李負荷分析</h3>
-                    <ul class="default-list">
-                        <li class="icon-walk"><b>步行強度：</b>約 4,000 步 (約 3 公里)。主要為機場內移動。</li>
-                        <li class="icon-toilet"><b>廁所友善度：</b>佳。</li>
-                        <li class="icon-luggage"><b>行李友善度：</b>低。本日為旅程中最後一次行李大移動。</li>
+                     <ul class="default-list">
+                        <li class="icon-walk"><b>步行強度:</b> 約 8,000 步 (約 5.5 公里)。</li>
+                        <li class="icon-toilet"><b>廁所友善度:</b> 佳。</li>
+                        <li class="icon-luggage"><b>行李友善度:</b> 中。善用置物櫃與計程車是本日關鍵。</li>
                     </ul>
                 </div>
-                 <div class="info-card">
+                <div class="info-card">
                     <h3>🏨 當日住宿資訊</h3>
                     <ul class="default-list">
-                        <li class="icon-bed"><b>住宿:</b> 溫暖的家</li>
+                        <li class="icon-bed"><b>住宿:</b> 松本 (まつもと) Airbnb (<a class="photo-link" href="https://www.airbnb.com.tw/rooms/1291644049856334910?source_impression_id=p3_1752918306_P3XQHS3CzQH26wtD" target="_blank">參考照片</a>)</li>
+                        <li class="icon-room"><b>房型:</b> 獨棟2層樓，3間客房 (臥室1: 2張單人床, 臥室2: 3張地板床墊, 臥室3: 3張地板床墊)。</li>
+                        <li class="icon-star"><b>特色:</b> 房內可看到松本城，離松本城走路僅1分鐘，可寄放行李。</li>
+                        <li class="icon-time"><b>入住/退房:</b> 15:00 (自助入住) / 10:00</li>
                     </ul>
-                 </div>
+                    <p style="font-size: smaller; color: #6c757d; margin-top: 10px;">*提示：點擊藍色底線文字可查看照片。</p>
+                </div>
             </div>
             <div class="card">
                 <h3>⏰ 時間軸規劃</h3>
                 <table class="timeline">
                     <thead><tr><th>時間</th><th>地點 / 活動</th><th>詳細說明與任務</th></tr></thead>
                     <tbody>
-                        <tr><td>~08:45</td><td>🏨 日暮里和ごころ / 退房</td><td>享用早餐，確認所有物品皆已打包，辦理退房。</td></tr>
-                        <tr><td><b>09:22-10:08</b></td><td>🚆 日暮里 → 成田機場</td><td>搭乘時間：46分。<b><span style="color:red">[關鍵任務]</span></b> 搭乘【<b>京成Skyliner</b>】。<b>JR Pass已失效，需另外購票</b>。</td></tr>
-                        <tr><td>10:08-10:55</td><td>🛫 成田機場T2</td><td>前往【<b>3樓 出境大廳</b>】，找到泰航的【<b>N</b>】櫃檯。<b>櫃檯於10:55開放</b>。</td></tr>
-                        <tr><td>10:55-11:30</td><td>🛂 <b>3F</b> 報到櫃檯</td><td><b><span style="color:red">[本日重點]</span></b> 辦理登機、托運行李，並<b>領取所有人的【登機證】</b>。</td></tr>
-                        <tr><td>11:30-12:30</td><td>🛋️ <b>4F</b> IASS貴賓室</td><td><b><span style="color:red">[本日重點]</span></b> 前往【<b>4樓</b>】貴賓室。<br>• <b>入場</b>：需出示【<b>JCB信用卡</b>】與【<b>登機證</b>】。<br>• <b>時間</b>：<b>請務必在【12:30】前離開</b>。</td></tr>
-                        <tr><td>12:30-13:00</td><td>👮 <b>3F</b> 安檢與出境</td><td>返回【<b>3樓</b>】，排隊進行安全檢查與護照查驗。</td></tr>
-                        <tr><td>13:00-13:20</td><td>🚶‍♂️ 主樓 → 衛星樓</td><td><b><span style="color:red">[本日重點]</span></b> 跟隨指示前往【<b>衛星樓</b>】。<b>此過程預估需15分鐘</b>。</td></tr>
-                        <tr><td>13:55~</td><td>✈️ 泰航 FD235</td><td>航班起飛，返回高雄。</td></tr>
+                        <tr><td>~08:30</td><td>🏨 飯店 / 退房</td><td>辦理退房手續。</td></tr>
+                        <tr><td>08:55-09:25</td><td>🚉 輕井澤車站 (かるいざわえき)</td><td>從 <b>B12M</b> 西館大廳（<b>25、55發車</b>)搭乘免費接駁車，抵達車站南口（<b>25、55抵達</b>)。</td></tr>
+                        <tr><td>09:30-14:00</td><td>🚶‍♂️ 輕井澤景點漫遊</td><td>將大行李寄放車站置物櫃後，依序遊覽：車站 → 雲場池 → 舊輕井澤銀座通 → 聖保羅天主教堂 → 蕭紀念禮拜堂・紀念館 → 車站。並在此區間享用午餐。</td></tr>
+                        <tr><td><b>14:16-14:46</b></td><td>🚄 輕井澤 → 長野 (ながの)</td><td>搭乘【<b>新幹線あさま613号（往長野）</b>】。抵達月台：<b>14</b>。</td></tr>
+                        <tr><td><b>14:46-15:00</b></td><td>🔄 長野車站轉乘</td><td>轉乘時間：14分鐘。</td></tr>
+                        <tr><td><b>15:00-15:51</b></td><td>🚄 長野 → 松本 (まつもと)</td><td>搭乘【<b>特急しなの18号（往名古屋）</b>】。發車月台：<b>6</b>。長野-松本段需額外購票，【乘車券+特急自由席】票價為 <b>¥2,370</b>。<b>特急票無法使用西瓜卡，要另外在售票機或櫃臺購買</b>。</td></tr>
+                        <tr><td>16:05-16:25</td><td>🏠 松本Airbnb</td>
+                            <td>
+                                <b>1. 搭乘公車：公車200號(21月台)</b><br>
+                                在松本站「お城口」（正面出口）的<b>21號月台</b>，搭乘「タウンスニーカー北コース」循環巴士（30分鐘一班，5、35分發車，最後一班17：15），在「池上百竹亭」下車(4站，約20分)。可用現金(¥200)、信用卡感應、Apple Pay支付，不可用西瓜卡(Suica)。<br>
+                                <b>2. 計程車：</b>在[二の丸裏御門橋]下車，費用約¥1,000多。
+                            </td>
+                        </tr>
+                        <tr><td>16:30-17:30</td><td>🏯 國寶松本城 (こくほうまつもとじょう)</td><td><b>[營業時間 08:30-17:00，最後入場16:30] [門票 ¥700]</b> 步行1分鐘前往參觀。</td></tr>
+                        <tr><td>17:30-18:30</td><td>🐸 繩手通 (なわてどおり)</td><td><b>[店家約10:00-17:00]</b> 逛逛特色青蛙主題小店。</td></tr>
+                        <tr><td>18:30-19:00</td><td>🏺 中町通 (なかまちどおり)</td><td><b>[店家約10:00-17:00]</b> 逛逛倉庫改建的民藝品店。</td></tr>
+                        <tr><td>19:00~</td><td>🌃 松本市區 / 晚餐</td><td>在繩手通或車站周邊享用晚餐。<br><b style="color:red;">備註：晚上需採買隔天去上高地的早餐和午餐。</b></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card">
+                <h3>🔄 成田機場T2 → 換票/劃位 → 搭乘N'EX</h3>
+                <table>
+                    <thead><tr><th>順序</th><th>流程步驟</th><th>詳細操作說明</th><th>貼心建議與注意事項</th></tr></thead>
+                    <tbody>
+                        <tr><td>1</td><td>抵達成田機場T2入口（<b>1F入境層</b>）</td><td>通關完成後，依「JR線」／「鐵道」標示前往電扶梯或電梯，往<b>B1層</b>下樓。</td><td>請耐心排隊，電梯口易擁擠。</td></tr>
+                        <tr><td>2</td><td>前往JR East Travel Service Center（<b>B1樓層</b>）</td><td>尋找綠色招牌，向服務人員出示護照與兌換券，進行JR PASS換票與預約劃位工作。</td><td>準備好所有證件與兌換資料。</td></tr>
+                        <tr><td>3</td><td>劃位與確認座位</td><td>工作人員協助劃定N’EX指定席及其他旅段劃位，確認車票細節無誤後領取票券。</td><td>確認列車號碼、發車時間與座位號碼。</td></tr>
+                        <tr><td>4</td><td>進入JR線閘門</td><td>從窗口旁「JR線」閘門刷票入站，切勿誤入京成線閘口。</td><td>注意閘門英文標識，如有困難請求助。</td></tr>
+                        <tr><td>5</td><td>前往月台（通常<b>1或2號</b>）</td><td>依月台螢幕確認班次，前往指定月台及車廂位置，有序排隊等候列車。</td><td>注意隨身行李，團體協調上下車順序。</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card">
+                <h3>🔄 東京車站 N'EX → 北陸新幹線轉乘</h3>
+                <table>
+                    <thead><tr><th>順序</th><th>流程步驟</th><th>詳細說明</th><th>貼心建議與注意事項</th></tr></thead>
+                    <tbody>
+                        <tr><td>1</td><td>N'EX下車（<b>B5F</b>）</td><td>建議選擇<b>5～6號車廂</b>，靠近電梯與手扶梯，下車後方便直上。</td><td>行李集中，便於團體協作</td></tr>
+                        <tr><td>2</td><td>上樓至<b>1樓</b></td><td>從<b>B5F</b>搭乘電梯或手扶梯直達<b>1樓</b>大廳，依「新幹線／八重洲口」標示前進。</td><td>跟隨綠色「新幹線」標誌，減少迷路風險</td></tr>
+                        <tr><td>3</td><td>站內移動</td><td><b>1樓</b>步行依「新幹線」指標，朝八重洲中央口或新幹線乘換口方向前行。</td><td>跟隨綠色「新幹線」標誌，減少迷路風險</td></tr>
+                        <tr><td>4</td><td>通過新幹線閘門</td><td>進入「北のりかえ口」或「南のりかえ口」，投入兩張車票或感應IC卡／出示JR PASS。</td><td>人多時可請站務員協助通過</td></tr>
+                        <tr><td>5</td><td>上<b>2樓</b>至新幹線月台</td><td>進閘後搭乘手扶梯或電梯上<b>2樓</b>，前往<b>23號月台</b>（北陸新幹線）；依票面查車廂位置，月台標示清晰。</td><td>注意確認車廂編號與位置</td></tr>
+                        <tr><td>6</td><td>月台候車與上車</td><td>於指定車廂門口等候，確認車廂編號與行李空間；預留充裕緩衝時間，團體協調分工有序上車。</td><td>建議提前協調上下車順序與行李搬運</td></tr>
                     </tbody>
                 </table>
             </div>
         </div>
-    </div>
-    
-    <!-- Modal Structure -->
-    <div id="geminiModal" class="modal">
-        <div class="modal-content">
-            <span class="close-button" onclick="closeModal()">&times;</span>
-            <h3 id="modalTitle">AI 智慧建議</h3>
-            <div id="modalBody">
-                <div class="loader"></div>
-                <p style="text-align:center;">正在為您生成建議，請稍候...</p>
+
+        <!-- Day 2 Content -->
+        <div id="tab-day2" class="tab-content">
+            <div class="day-title-banner">2️⃣ Day 2: 輕井澤風光 → 前進松本 (2025-09-11 週四)</div>
+            <div class="warning">
+                <h3>🏔️ 高原氣候提醒</h3>
+                <p>輕井澤 (かるいざわ) 海拔較高，早晚溫差大。即使日間溫暖，太陽下山後氣溫會明顯下降，請務必攜帶保暖衣物。</p>
+            </div>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>🚶‍♀️ 生理與行李負荷分析</h3>
+                     <ul class="default-list">
+                        <li class="icon-walk"><b>步行強度:</b> 約 8,000 步 (約 5.5 公里)。</li>
+                        <li class="icon-toilet"><b>廁所友善度:</b> 佳。</li>
+                        <li class="icon-luggage"><b>行李友善度:</b> 中。善用置物櫃與計程車是本日關鍵。</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>🏨 當日住宿資訊</h3>
+                    <ul class="default-list">
+                        <li class="icon-bed"><b>住宿:</b> 松本 (まつもと) Airbnb (<a class="photo-link" href="https://www.airbnb.com.tw/rooms/1291644049856334910?source_impression_id=p3_1752918306_P3XQHS3CzQH26wtD" target="_blank">參考照片</a>)</li>
+                        <li class="icon-room"><b>房型:</b> 獨棟2層樓，3間客房 (臥室1: 2張單人床, 臥室2: 3張地板床墊, 臥室3: 3張地板床墊)。</li>
+                        <li class="icon-star"><b>特色:</b> 房內可看到松本城，離松本城走路僅1分鐘，可寄放行李。</li>
+                        <li class="icon-time"><b>入住/退房:</b> 15:00 (自助入住) / 10:00</li>
+                    </ul>
+                    <p style="font-size: smaller; color: #6c757d; margin-top: 10px;">*提示：點擊藍色底線文字可查看照片。</p>
+                </div>
+            </div>
+            <div class="card">
+                <h3>⏰ 時間軸規劃</h3>
+                <table class="timeline">
+                    <thead><tr><th>時間</th><th>地點 / 活動</th><th>詳細說明與任務</th></tr></thead>
+                    <tbody>
+                        <tr><td>~08:30</td><td>🏨 飯店 / 退房</td><td>辦理退房手續。</td></tr>
+                        <tr><td>08:55-09:25</td><td>🚉 輕井澤車站 (かるいざわえき)</td><td>從 <b>B12M</b> 西館大廳（<b>25、55發車</b>)搭乘免費接駁車，抵達車站南口（<b>25、55抵達</b>)。</td></tr>
+                        <tr><td>09:30-14:00</td><td>🚶‍♂️ 輕井澤景點漫遊</td><td>將大行李寄放車站置物櫃後，依序遊覽：車站 → 雲場池 → 舊輕井澤銀座通 → 聖保羅天主教堂 → 蕭紀念禮拜堂・紀念館 → 車站。並在此區間享用午餐。</td></tr>
+                        <tr><td><b>14:16-14:46</b></td><td>🚄 輕井澤 → 長野 (ながの)</td><td>搭乘【<b>新幹線あさま613号（往長野）</b>】。抵達月台：<b>14</b>。</td></tr>
+                        <tr><td><b>14:46-15:00</b></td><td>🔄 長野車站轉乘</td><td>轉乘時間：14分鐘。</td></tr>
+                        <tr><td><b>15:00-15:51</b></td><td>🚄 長野 → 松本 (まつもと)</td><td>搭乘【<b>特急しなの18号（往名古屋）</b>】。發車月台：<b>6</b>。長野-松本段需額外購票，【乘車券+特急自由席】票價為 <b>¥2,370</b>。<b>特急票無法使用西瓜卡，要另外在售票機或櫃臺購買</b>。</td></tr>
+                        <tr><td>16:05-16:25</td><td>🏠 松本Airbnb</td>
+                            <td>
+                                <b>1. 搭乘公車：公車200號(21月台)</b><br>
+                                在松本站「お城口」（正面出口）的<b>21號月台</b>，搭乘「タウンスニーカー北コース」循環巴士（30分鐘一班，5、35分發車，最後一班17：15），在「池上百竹亭」下車(4站，約20分)。可用現金(¥200)、信用卡感應、Apple Pay支付，不可用西瓜卡(Suica)。<br>
+                                <b>2. 計程車：</b>在[二の丸裏御門橋]下車，費用約¥1,000多。
+                            </td>
+                        </tr>
+                        <tr><td>16:30-17:30</td><td>🏯 國寶松本城 (こくほうまつもとじょう)</td><td><b>[營業時間 08:30-17:00，最後入場16:30] [門票 ¥700]</b> 步行1分鐘前往參觀。</td></tr>
+                        <tr><td>17:30-18:30</td><td>🐸 繩手通 (なわてどおり)</td><td><b>[店家約10:00-17:00]</b> 逛逛特色青蛙主題小店。</td></tr>
+                        <tr><td>18:30-19:00</td><td>🏺 中町通 (なかまちどおり)</td><td><b>[店家約10:00-17:00]</b> 逛逛倉庫改建的民藝品店。</td></tr>
+                        <tr><td>19:00~</td><td>🌃 松本市區 / 晚餐</td><td>在繩手通或車站周邊享用晚餐。<br><b style="color:red;">備註：晚上需採買隔天去上高地的早餐和午餐。</b></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card">
+                <h3>🔄 成田機場T2 → 換票/劃位 → 搭乘N'EX</h3>
+                <table>
+                    <thead><tr><th>順序</th><th>流程步驟</th><th>詳細操作說明</th><th>貼心建議與注意事項</th></tr></thead>
+                    <tbody>
+                        <tr><td>1</td><td>抵達成田機場T2入口（<b>1F入境層</b>）</td><td>通關完成後，依「JR線」／「鐵道」標示前往電扶梯或電梯，往<b>B1層</b>下樓。</td><td>請耐心排隊，電梯口易擁擠。</td></tr>
+                        <tr><td>2</td><td>前往JR East Travel Service Center（<b>B1樓層</b>）</td><td>尋找綠色招牌，向服務人員出示護照與兌換券，進行JR PASS換票與預約劃位工作。</td><td>準備好所有證件與兌換資料。</td></tr>
+                        <tr><td>3</td><td>劃位與確認座位</td><td>工作人員協助劃定N’EX指定席及其他旅段劃位，確認車票細節無誤後領取票券。</td><td>確認列車號碼、發車時間與座位號碼。</td></tr>
+                        <tr><td>4</td><td>進入JR線閘門</td><td>從窗口旁「JR線」閘門刷票入站，切勿誤入京成線閘口。</td><td>注意閘門英文標識，如有困難請求助。</td></tr>
+                        <tr><td>5</td><td>前往月台（通常<b>1或2號</b>）</td><td>依月台螢幕確認班次，前往指定月台及車廂位置，有序排隊等候列車。</td><td>注意隨身行李，團體協調上下車順序。</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card">
+                <h3>🔄 東京車站 N'EX → 北陸新幹線轉乘</h3>
+                <table>
+                    <thead><tr><th>順序</th><th>流程步驟</th><th>詳細說明</th><th>貼心建議與注意事項</th></tr></thead>
+                    <tbody>
+                        <tr><td>1</td><td>N'EX下車（<b>B5F</b>）</td><td>建議選擇<b>5～6號車廂</b>，靠近電梯與手扶梯，下車後方便直上。</td><td>行李集中，便於團體協作</td></tr>
+                        <tr><td>2</td><td>上樓至<b>1樓</b></td><td>從<b>B5F</b>搭乘電梯或手扶梯直達<b>1樓</b>大廳，依「新幹線／八重洲口」標示前進。</td><td>跟隨綠色「新幹線」標誌，減少迷路風險</td></tr>
+                        <tr><td>3</td><td>站內移動</td><td><b>1樓</b>步行依「新幹線」指標，朝八重洲中央口或新幹線乘換口方向前行。</td><td>跟隨綠色「新幹線」標誌，減少迷路風險</td></tr>
+                        <tr><td>4</td><td>通過新幹線閘門</td><td>進入「北のりかえ口」或「南のりかえ口」，投入兩張車票或感應IC卡／出示JR PASS。</td><td>人多時可請站務員協助通過</td></tr>
+                        <tr><td>5</td><td>上<b>2樓</b>至新幹線月台</td><td>進閘後搭乘手扶梯或電梯上<b>2樓</b>，前往<b>23號月台</b>（北陸新幹線）；依票面查車廂位置，月台標示清晰。</td><td>注意確認車廂編號與位置</td></tr>
+                        <tr><td>6</td><td>月台候車與上車</td><td>於指定車廂門口等候，確認車廂編號與行李空間；預留充裕緩衝時間，團體協調分工有序上車。</td><td>建議提前協調上下車順序與行李搬運</td></tr>
+                    </tbody>
+                </table>
             </div>
         </div>
+
+        <!-- Day 2 Content -->
+        <div id="tab-day2" class="tab-content">
+            <div class="day-title-banner">2️⃣ Day 2: 輕井澤風光 → 前進松本 (2025-09-11 週四)</div>
+            <div class="warning">
+                <h3>🏔️ 高原氣候提醒</h3>
+                <p>輕井澤 (かるいざわ) 海拔較高，早晚溫差大。即使日間溫暖，太陽下山後氣溫會明顯下降，請務必攜帶保暖衣物。</p>
+            </div>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>🚶‍♀️ 生理與行李負荷分析</h3>
+                     <ul class="default-list">
+                        <li class="icon-walk"><b>步行強度:</b> 約 8,000 步 (約 5.5 公里)。</li>
+                        <li class="icon-toilet"><b>廁所友善度:</b> 佳。</li>
+                        <li class="icon-luggage"><b>行李友善度:</b> 中。善用置物櫃與計程車是本日關鍵。</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>🏨 當日住宿資訊</h3>
+                    <ul class="default-list">
+                        <li class="icon-bed"><b>住宿:</b> 松本 (まつもと) Airbnb (<a class="photo-link" href="https://www.airbnb.com.tw/rooms/1291644049856334910?source_impression_id=p3_1752918306_P3XQHS3CzQH26wtD" target="_blank">參考照片</a>)</li>
+                        <li class="icon-room"><b>房型:</b> 獨棟2層樓，3間客房 (臥室1: 2張單人床, 臥室2: 3張地板床墊, 臥室3: 3張地板床墊)。</li>
+                        <li class="icon-star"><b>特色:</b> 房內可看到松本城，離松本城走路僅1分鐘，可寄放行李。</li>
+                        <li class="icon-time"><b>入住/退房:</b> 15:00 (自助入住) / 10:00</li>
+                    </ul>
+                    <p style="font-size: smaller; color: #6c757d; margin-top: 10px;">*提示：點擊藍色底線文字可查看照片。</p>
+                </div>
+            </div>
+            <div class="card">
+                <h3>⏰ 時間軸規劃</h3>
+                <table class="timeline">
+                    <thead><tr><th>時間</th><th>地點 / 活動</th><th>詳細說明與任務</th></tr></thead>
+                    <tbody>
+                        <tr><td>~08:30</td><td>🏨 飯店 / 退房</td><td>辦理退房手續。</td></tr>
+                        <tr><td>08:55-09:25</td><td>🚉 輕井澤車站 (かるいざわえき)</td><td>從 <b>B12M</b> 西館大廳（<b>25、55發車</b>)搭乘免費接駁車，抵達車站南口（<b>25、55抵達</b>)。</td></tr>
+                        <tr><td>09:30-14:00</td><td>🚶‍♂️ 輕井澤景點漫遊</td><td>將大行李寄放車站置物櫃後，依序遊覽：車站 → 雲場池 → 舊輕井澤銀座通 → 聖保羅天主教堂 → 蕭紀念禮拜堂・紀念館 → 車站。並在此區間享用午餐。</td></tr>
+                        <tr><td><b>14:16-14:46</b></td><td>🚄 輕井澤 → 長野 (ながの)</td><td>搭乘【<b>新幹線あさま613号（往長野）</b>】。抵達月台：<b>14</b>。</td></tr>
+                        <tr><td><b>14:46-15:00</b></td><td>🔄 長野車站轉乘</td><td>轉乘時間：14分鐘。</td></tr>
+                        <tr><td><b>15:00-15:51</b></td><td>🚄 長野 → 松本 (まつもと)</td><td>搭乘【<b>特急しなの18号（往名古屋）</b>】。發車月台：<b>6</b>。長野-松本段需額外購票，【乘車券+特急自由席】票價為 <b>¥2,370</b>。<b>特急票無法使用西瓜卡，要另外在售票機或櫃臺購買</b>。</td></tr>
+                        <tr><td>16:05-16:25</td><td>🏠 松本Airbnb</td>
+                            <td>
+                                <b>1. 搭乘公車：公車200號(21月台)</b><br>
+                                在松本站「お城口」（正面出口）的<b>21號月台</b>，搭乘「タウンスニーカー北コース」循環巴士（30分鐘一班，5、35分發車，最後一班17：15），在「池上百竹亭」下車(4站，約20分)。可用現金(¥200)、信用卡感應、Apple Pay支付，不可用西瓜卡(Suica)。<br>
+                                <b>2. 計程車：</b>在[二の丸裏御門橋]下車，費用約¥1,000多。
+                            </td>
+                        </tr>
+                        <tr><td>16:30-17:30</td><td>🏯 國寶松本城 (こくほうまつもとじょう)</td><td><b>[營業時間 08:30-17:00，最後入場16:30] [門票 ¥700]</b> 步行1分鐘前往參觀。</td></tr>
+                        <tr><td>17:30-18:30</td><td>🐸 繩手通 (なわてどおり)</td><td><b>[店家約10:00-17:00]</b> 逛逛特色青蛙主題小店。</td></tr>
+                        <tr><td>18:30-19:00</td><td>🏺 中町通 (なかまちどおり)</td><td><b>[店家約10:00-17:00]</b> 逛逛倉庫改建的民藝品店。</td></tr>
+                        <tr><td>19:00~</td><td>🌃 松本市區 / 晚餐</td><td>在繩手通或車站周邊享用晚餐。<br><b style="color:red;">備註：晚上需採買隔天去上高地的早餐和午餐。</b></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card">
+                <h3>🔄 成田機場T2 → 換票/劃位 → 搭乘N'EX</h3>
+                <table>
+                    <thead><tr><th>順序</th><th>流程步驟</th><th>詳細操作說明</th><th>貼心建議與注意事項</th></tr></thead>
+                    <tbody>
+                        <tr><td>1</td><td>抵達成田機場T2入口（<b>1F入境層</b>）</td><td>通關完成後，依「JR線」／「鐵道」標示前往電扶梯或電梯，往<b>B1層</b>下樓。</td><td>請耐心排隊，電梯口易擁擠。</td></tr>
+                        <tr><td>2</td><td>前往JR East Travel Service Center（<b>B1樓層</b>）</td><td>尋找綠色招牌，向服務人員出示護照與兌換券，進行JR PASS換票與預約劃位工作。</td><td>準備好所有證件與兌換資料。</td></tr>
+                        <tr><td>3</td><td>劃位與確認座位</td><td>工作人員協助劃定N’EX指定席及其他旅段劃位，確認車票細節無誤後領取票券。</td><td>確認列車號碼、發車時間與座位號碼。</td></tr>
+                        <tr><td>4</td><td>進入JR線閘門</td><td>從窗口旁「JR線」閘門刷票入站，切勿誤入京成線閘口。</td><td>注意閘門英文標識，如有困難請求助。</td></tr>
+                        <tr><td>5</td><td>前往月台（通常<b>1或2號</b>）</td><td>依月台螢幕確認班次，前往指定月台及車廂位置，有序排隊等候列車。</td><td>注意隨身行李，團體協調上下車順序。</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card">
+                <h3>🔄 東京車站 N'EX → 北陸新幹線轉乘</h3>
+                <table>
+                    <thead><tr><th>順序</th><th>流程步驟</th><th>詳細說明</th><th>貼心建議與注意事項</th></tr></thead>
+                    <tbody>
+                        <tr><td>1</td><td>N'EX下車（<b>B5F</b>）</td><td>建議選擇<b>5～6號車廂</b>，靠近電梯與手扶梯，下車後方便直上。</td><td>行李集中，便於團體協作</td></tr>
+                        <tr><td>2</td><td>上樓至<b>1樓</b></td><td>從<b>B5F</b>搭乘電梯或手扶梯直達<b>1樓</b>大廳，依「新幹線／八重洲口」標示前進。</td><td>跟隨綠色「新幹線」標誌，減少迷路風險</td></tr>
+                        <tr><td>3</td><td>站內移動</td><td><b>1樓</b>步行依「新幹線」指標，朝八重洲中央口或新幹線乘換口方向前行。</td><td>跟隨綠色「新幹線」標誌，減少迷路風險</td></tr>
+                        <tr><td>4</td><td>通過新幹線閘門</td><td>進入「北のりかえ口」或「南のりかえ口」，投入兩張車票或感應IC卡／出示JR PASS。</td><td>人多時可請站務員協助通過</td></tr>
+                        <tr><td>5</td><td>上<b>2樓</b>至新幹線月台</td><td>進閘後搭乘手扶梯或電梯上<b>2樓</b>，前往<b>23號月台</b>（北陸新幹線）；依票面查車廂位置，月台標示清晰。</td><td>注意確認車廂編號與位置</td></tr>
+                        <tr><td>6</td><td>月台候車與上車</td><td>於指定車廂門口等候，確認車廂編號與行李空間；預留充裕緩衝時間，團體協調分工有序上車。</td><td>建議提前協調上下車順序與行李搬運</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
     </div>
 
-    <!-- PWA: 註冊 Service Worker -->
     <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('service-worker.js')
-                    .then(registration => {
-                        console.log('Service Worker 註冊成功:', registration);
-                    })
-                    .catch(error => {
-                        console.log('Service Worker 註冊失敗:', error);
-                    });
-            });
-        }
-    </script>
-    
-    <script type="module">
-        // Import Firebase modules for interactivity
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, doc, setDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
-
-        // --- GLOBAL VARIABLES ---
-        let db, auth, userId;
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
-        const JPY_TO_TWD_RATE = 0.21; 
-        const NUM_TRAVELERS = 5;
-
-        // --- FIREBASE INITIALIZATION ---
-        async function initializeFirebase() {
-            try {
-                const firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
-                if (Object.keys(firebaseConfig).length === 0) {
-                    console.log("Firebase config not available. Running in read-only mode.");
-                    return;
-                }
-                const app = initializeApp(firebaseConfig);
-                db = getFirestore(app);
-                auth = getAuth(app);
-
-                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
-                    await signInWithCustomToken(auth, __initial_auth_token);
-                } else {
-                    await signInAnonymously(auth);
-                }
-                
-                userId = auth.currentUser?.uid;
-                if (!userId) {
-                    console.error("Authentication failed, user ID is not available.");
-                    return;
-                }
-                setupChecklistListeners();
-            } catch (error) {
-                console.error("Firebase Initialization Error:", error);
-            }
-        }
-
-        // --- BUDGET & RATE RENDER ---
-        function renderBudgetAndRate() {
-             const budgetItems = [
-                 { name: '✈️ 機票', jpy: 37543 },      // UPDATED: 39420 TWD / 5 / 0.21
-                 { name: '🏨 住宿', jpy: 41219 },      // UPDATED: 43281 TWD / 5 / 0.21
-                 { name: '🚇 交通', jpy: 43092 },      // UPDATED: (28940 TWD / 5 / 0.21) + other costs
-                 { name: '🎟️ 門票', jpy: 3680 },
-                 { name: '🍽️ 餐飲', jpy: 48000 },
-                 { name: '🛡️ 保險', jpy: 5165 },
-                 { name: '🌐 網卡', jpy: 714 },
-             ];
-
-            const tableBody = document.getElementById('budget-table')?.querySelector('tbody');
-            if (!tableBody) return;
-            
-            let totalJpy = 0;
-            
-            tableBody.innerHTML = budgetItems.map(item => {
-                const twd = Math.round(item.jpy * JPY_TO_TWD_RATE);
-                totalJpy += item.jpy;
-                return `
-                    <tr>
-                        <td>${item.name}</td>
-                        <td>${item.jpy.toLocaleString()}</td>
-                        <td>${twd.toLocaleString()}</td>
-                    </tr>
-                `;
-            }).join('');
-            
-            const totalTwd = Math.round(totalJpy * JPY_TO_TWD_RATE);
-
-            tableBody.innerHTML += `
-                <tr style="font-weight:bold; background-color: #e9ecef;">
-                    <td><b>--- 合計 ---</b></td>
-                    <td><b>${totalJpy.toLocaleString()}</b></td>
-                    <td><b style="color:red;">${totalTwd.toLocaleString()}</b></td>
-                </tr>
-            `;
-
-            document.getElementById('per-person-twd').innerHTML = `約 <span style="color:red; font-weight:bold;">${totalTwd.toLocaleString()} TWD</span>`;
-            
-            const today = new Date();
-            document.getElementById('rate-date').textContent = today.toLocaleDateString('zh-TW', { year: 'numeric', month: 'long', day: 'numeric' });
-            document.getElementById('rate-value').textContent = `1 JPY ≈ ${JPY_TO_TWD_RATE} TWD`;
-        }
-
-        // --- CHECKLIST RENDER & LOGIC ---
-        const packingItems = [
-            { id: 'pack-passport', text: '護照 (確認效期超過6個月)' },
-            { id: 'pack-pass', text: 'JR Pass 兌換券' },
-            { id: 'pack-yen', text: '日幣現金' },
-            { id: 'pack-creditcard', text: '信用卡 (JCB卡必備)' },
-            { id: 'pack-sim', text: 'SIM卡 / WiFi分享器' },
-            { id: 'pack-medicine', text: '個人常備藥品' },
-            { id: 'pack-jacket', text: '保暖防風外套 (輕井澤/上高地用)' },
-            { id: 'pack-shoes', text: '好走的鞋子' },
-            { id: 'pack-umbrella', text: '雨具 (摺疊傘)' },
-            { id: 'pack-powerbank', text: '行動電源' } // Moved to the end
-        ];
-
-        function renderChecklist() {
-            const list = document.getElementById('packing-list');
-            if (!list) return;
-            list.innerHTML = packingItems.map(item => `<li id="${item.id}" onclick="toggleChecklistItem(event)">${item.text}</li>`).join('');
-            list.innerHTML += `<li style="padding-left: 0; font-size: 0.9em; list-style-type: none; color: #6c757d; position: static; margin-top: 15px; cursor: default;">* <b>行動電源限制：</b>限100Wh（約20,000mAh）以下，必須隨身攜帶入客艙，嚴禁放入托運行李。全程禁止在機上使用行動電源充電。</li>`;
-        }
-        
-        window.toggleChecklistItem = function(event) {
-            if (!db || !userId) {
-                alert('資料庫未連接，無法儲存狀態。');
-                return;
-            }
-            const li = event.currentTarget;
-            const isCompleted = !li.classList.contains('completed');
-            updateChecklistInDB(li.id, isCompleted);
-        }
-
-        function setupChecklistListeners() {
-            const checklistDocRef = doc(db, `artifacts/${appId}/public/data/checklists`, 'tripTasks');
-            onSnapshot(checklistDocRef, (docSnap) => {
-                const checklistData = docSnap.exists() ? docSnap.data() : {};
-                packingItems.forEach(item => {
-                    const li = document.getElementById(item.id);
-                    if (li) {
-                        li.classList.toggle('completed', !!checklistData[item.id]);
-                    }
-                });
-            });
-        }
-        
-        async function updateChecklistInDB(id, isCompleted) {
-            const checklistDocRef = doc(db, `artifacts/${appId}/public/data/checklists`, 'tripTasks');
-            try {
-                await setDoc(checklistDocRef, { [id]: isCompleted }, { merge: true });
-            } catch (error) {
-                console.error("Error updating checklist:", error);
-            }
-        }
-
-        // --- TAB & UI LOGIC ---
-        window.openTab = function(evt, tabName) {
-            let i, tabcontent, tablinks;
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
             tabcontent = document.getElementsByClassName("tab-content");
             for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].style.display = "none";
+                tabcontent[i].classList.remove("active");
             }
             tablinks = document.getElementsByClassName("tab-link");
             for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace(" active", "");
+                tablinks[i].classList.remove("active");
             }
-            document.getElementById(tabName).style.display = "block";
-            if (evt) {
-                evt.currentTarget.className += " active";
-            } else {
-                document.querySelector('.tab-link[onclick*="tab-overview"]').className += " active";
-            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
         }
 
-        function highlightCurrentDayTab() {
-            const today = new Date();
-            today.setHours(0, 0, 0, 0); 
-            
-            document.querySelectorAll('.tab-link[data-date]').forEach(tab => {
-                const tabDate = new Date(tab.dataset.date);
-                if (today.getTime() === tabDate.getTime()) {
-                    tab.classList.add('active-day');
-                }
+        // Sample data for budget table
+        const budgetData = [
+            { item: "住宿", jpy: 30000, twd: 7500 },
+            { item: "餐飲", jpy: 15000, twd: 3750 },
+            { item: "交通", jpy: 10000, twd: 2500 },
+            { item: "門票", jpy: 5000, twd: 1250 },
+            { item: "保險", jpy: 4000, twd: 1000 },
+            { item: "其他", jpy: 3000, twd: 750 },
+        ];
+
+        // Function to populate budget table
+        function populateBudgetTable(data) {
+            const tableBody = document.querySelector("#budget-table tbody");
+            tableBody.innerHTML = ""; // Clear existing rows
+            data.forEach(row => {
+                const tr = document.createElement("tr");
+                tr.innerHTML = `
+                    <td>${row.item}</td>
+                    <td>${row.jpy.toLocaleString()}</td>
+                    <td>${row.twd.toLocaleString()}</td>
+                `;
+                tableBody.appendChild(tr);
             });
         }
 
-        // --- MODAL & GEMINI API ---
-        const modal = document.getElementById('geminiModal');
-        const modalTitle = document.getElementById('modalTitle');
-        const modalBody = document.getElementById('modalBody');
-
-        window.showModal = function() { modal.style.display = "block"; }
-        window.closeModal = function() { modal.style.display = "none"; }
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                closeModal();
-            }
-        }
-
-        window.getGeminiSuggestion = async function(type) {
-            showModal();
-            modalBody.innerHTML = `<div class="loader"></div><p style="text-align:center;">正在為您生成建議，請稍候...</p>`;
-            const prompts = {
-                dinnerKaruizawa: {
-                    title: "✨ 輕井澤晚餐靈感",
-                    prompt: "你是一位友善的日本旅遊美食家。請為一個剛抵達輕井澤的台灣家庭（成員包含67、65、52、46、25歲）推薦3個在「輕井澤王子購物廣場」美食街或附近的晚餐選項。請考慮到長輩可能偏好日式或溫和口味。每個選項請包含：1. 餐廳類型 2. 推薦理由（為何適合此家庭）3. 一道招牌菜。請用繁體中文，以條列式呈現。"
-                },
-                photoChallenge: {
-                    title: "✨ 金澤攝影挑戰",
-                    prompt: "你是一位充滿創意的攝影導遊。請為一個正在金澤旅遊的家庭（成員有長輩與成人）設計5個有趣的攝影挑戰任務，地點包含「兼六園」、「金澤城公園」與「東茶屋街」。任務需簡單、有創意且適合團體一起完成。請用繁體中文，以活潑的條列式呈現。"
-                },
-                souvenirAsakusa: {
-                    title: "✨ 淺草特色伴手禮指南",
-                    prompt: "你是一位精通日本文化與伴手禮的專家。請為一個在東京淺草「仲見世商店街」周邊逛街的台灣家庭，推薦5樣道地且有代表性的伴手禮。請避免太過觀光化或不實用的品項。每個推薦請包含品項名稱、簡短說明其特色或文化意涵。請用繁體中文，以條列式呈現。"
-                }
-            };
-            const selectedPrompt = prompts[type];
-            if (!selectedPrompt) {
-                modalBody.innerHTML = "<p>錯誤：找不到對應的建議類型。</p>";
-                return;
-            }
-            modalTitle.innerText = selectedPrompt.title;
-            try {
-                let chatHistory = [{ role: "user", parts: [{ text: selectedPrompt.prompt }] }];
-                const payload = { contents: chatHistory };
-                const apiKey = ""; // Secure: API key is left empty
-                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
-                const response = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-                if (!response.ok) { throw new Error(`API request failed with status ${response.status}`); }
-                const result = await response.json();
-                if (result.candidates && result.candidates.length > 0 && result.candidates[0].content && result.candidates[0].content.parts && result.candidates[0].content.parts.length > 0) {
-                    let text = result.candidates[0].content.parts[0].text;
-                    text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-                    text = text.replace(/\n/g, '<br>');
-                    modalBody.innerHTML = `<div style="line-height: 1.8;">${text}</div>`;
-                } else { throw new Error("API 回應格式不正確或內容為空。"); }
-            } catch (error) {
-                console.error("Gemini API Error:", error);
-                modalBody.innerHTML = `<p style="color:red;">抱歉，生成建議時發生錯誤。請稍後再試。</p><p style="font-size:small; color:grey;">錯誤訊息: ${error.message}</p>`;
-            }
-        }
-
-        // --- INITIAL LOAD ---
-        document.addEventListener('DOMContentLoaded', () => {
-            openTab(null, 'tab-overview');
-            highlightCurrentDayTab();
-            renderBudgetAndRate();
-            renderChecklist();
-            initializeFirebase(); // Firebase is initialized after the initial render
+        // Call function to populate table on page load
+        document.addEventListener("DOMContentLoaded", () => {
+            populateBudgetTable(budgetData);
         });
-
     </script>
 </body>
 </html>
