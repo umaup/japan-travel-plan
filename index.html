@@ -205,10 +205,10 @@
             color: #888;
         }
 
-        .default-list li {
+        .default-list > li {
              padding-left: 28px;
         }
-        .default-list li::before {
+        .default-list > li::before {
             position: absolute;
             left: 0;
             top: 2px;
@@ -397,8 +397,9 @@
                     <h3>🛫 去程航班資訊</h3>
                     <ul class="default-list">
                         <li class="icon-calendar"><b>起飛日期:</b> <span style="color:red;">2025-09-10 (週三)</span></li>
+                        <li class="icon-time"><b>登機時間:</b> <span style="color:red;">07:25</span></li>
                         <li class="icon-time"><b>時間:</b> <span style="color:red;">08:05 → 12:55 (當地時間)</span></li>
-                        <li class="icon-flight"><b>航班:</b> <b>FD234</b> / 泰國亞洲航空(A櫃臺)</li>
+                        <li class="icon-flight"><b>航班:</b> <b>FD234</b> / 泰國亞洲航空 (A櫃臺)</li>
                         <li class="icon-pin"><b>起迄地點:</b> 高雄 (KHH) → 成田 <span style="font-size:0.9em; color:#6c757d;">(なりた)</span> (NRT)</li>
                         <li class="icon-departure"><b>出發航廈:</b> 高雄機場國際航廈 <b>3樓</b></li>
                         <li class="icon-arrival"><b>抵達航廈:</b> 成田 <span style="font-size:0.9em; color:#6c757d;">(なりた)</span> 國際機場 <b>第二航廈 (Terminal 2)</b></li>
@@ -408,8 +409,9 @@
                     <h3>🛬 回程航班資訊</h3>
                     <ul class="default-list">
                         <li class="icon-calendar"><b>起飛日期:</b> <span style="color:red;">2025-09-17 (週三)</span></li>
+                        <li class="icon-time"><b>登機時間:</b> <span style="color:red;">13:15</span></li>
                         <li class="icon-time"><b>時間:</b> <span style="color:red;">13:55 → 17:05 (當地時間)</span></li>
-                        <li class="icon-flight"><b>航班:</b> <b>FD235</b> / 泰國亞洲航空(N櫃臺)</li>
+                        <li class="icon-flight"><b>航班:</b> <b>FD235</b> / 泰國亞洲航空 (N櫃臺)</li>
                         <li class="icon-pin"><b>起迄地點:</b> 成田 <span style="font-size:0.9em; color:#6c757d;">(なりた)</span> (NRT) → 高雄 (KHH)</li>
                         <li class="icon-departure"><b>出發航廈:</b> 成田 <span style="font-size:0.9em; color:#6c757d;">(なりた)</span> 國際機場 <b>第二航廈 (Terminal 2)</b></li>
                     </ul>
@@ -604,22 +606,25 @@
                 <table class="timeline">
                     <thead><tr><th>時間</th><th>地點 / 活動</th><th>詳細說明與任務</th></tr></thead>
                     <tbody>
-                        <tr><td>~06:00</td><td>🛫 高雄國際機場</td><td>抵達機場，辦理泰航(FD234)A櫃臺報到、托運行李（25公斤）、安檢、證照查驗。
-                            <ul style="margin-top:8px; padding-left: 20px; list-style-type: disc;">
-                                <li style="margin-bottom: 5px;">登機照要把收好，空服員會確認「登機證」後才發放餐點</li>
-                                <li>座位表與餐點:
-                                    <ul style="margin-top:5px; padding-left:20px; list-style-type:decimal;">
-                                        <li>張寶蓮(18A靠窗)羅勒炸雞飯+焦香起司蛋糕</li>
-                                        <li>黃韻哲(18B中間)秦叔叔雞肉飯+美式咖啡</li>
-                                        <li>郭昆岱(18C走道)黑胡椒醬烤雞+美式咖啡+水</li>
-                                        <li>林甄宓(18D走道)椰漿飯+焦香起司蛋糕</li>
-                                        <li>張寶花(18E中間)羅勒炸雞飯+焦香起司蛋糕</li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </td></tr>
+                        <tr><td>~06:00</td><td>🛫 高雄國際機場</td><td>抵達機場，辦理泰國亞洲航空(FD234)A櫃臺報到、托運行李（25公斤）、安檢、證照查驗。</td></tr>
+                        <tr><td><span style="color:red;">07:25</span></td><td>GATE</td>
+                            <td>登機。請於登機時間前抵達登機門。<br>
+                                <ul style="margin-top:8px; padding-left: 20px; list-style-type: disc;">
+                                    <li>登機證要收好，空服員會確認「登機證」後才發放餐點。</li>
+                                    <li>座位表與餐點:
+                                        <ul style="margin-top:5px; padding-left:20px; list-style-type:decimal;">
+                                            <li>張寶蓮(18A靠窗)羅勒炸雞飯+焦香起司蛋糕</li>
+                                            <li>黃韻哲(18B中間)秦叔叔雞肉飯+美式咖啡</li>
+                                            <li>郭昆岱(18C走道)黑胡椒醬烤雞+美式咖啡+水</li>
+                                            <li>林甄宓(18D走道)椰漿飯+焦香起司蛋糕</li>
+                                            <li>張寶花(18E中間)羅勒炸雞飯+焦香起司蛋糕</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
                         <tr><td>08:05-12:55</td><td>✈️ 空中飛行</td><td>實際搭乘：3小時50分(日本時間比台灣快一小時)。從高雄(KHH)飛往成田 <span style="font-size:0.9em; color:#6c757d;">(なりた)</span>(NRT)。</td></tr>
-                        <tr><td>12:55-15:00</td><td>🛬 成田機場 <span style="font-size:0.9em; color:#6c757d;">(なりた)</span> T2</td><td>辦理入境、提領行李、兌換JR Pass。</td></tr>
+                        <tr><td>12:55-15:00</td><td>🛬 成田機場 <span style="font-size:0.9em; color:#6c757d;">(なりた)</span> T2</td><td>辦理入境、提領行李、兌換JR Pass。<br><b>備註：12:55是日本時間。</b></td></tr>
                         <tr><td>15:14-16:14</td><td>🚄 成田機場 <span style="font-size:0.9em; color:#6c757d;">(なりた)</span> → 東京 <span style="font-size:0.9em; color:#6c757d;">(とうきょう)</span></td><td>搭乘時間：1小時0分。搭乘【<b>特急成田エクスプレス３２号(新宿行)</b>】。<br><b>備註(前一班車)：</b>14:20 成田空港 → 15:15 東京，轉乘 15:52 東京 → 17:08 輕井澤。</td></tr>
                         <tr><td>16:14-16:52</td><td>🔄 東京車站轉乘</td><td>轉乘時間：38分。依照下方轉乘指南，從N'EX月台(<b>B5F</b>)移動至北陸新幹線月台(<b>2F</b>)。<br><b>備註：如果快一點，有機會搭上：16:32-17:35新幹線はくたか５７１号(金沢行)[63分]</b></td></tr>
                         <tr><td>16:52-18:03</td><td>🚄 東京 <span style="font-size:0.9em; color:#6c757d;">(とうきょう)</span> → 輕井澤 <span style="font-size:0.9em; color:#6c757d;">(かるいざわ)</span></td><td>搭乘時間：1小時11分。搭乘【<b>新幹線あさま６２１号(長野行)</b>】。上車預計在<b>2F的23月台</b>。</td></tr>
@@ -634,7 +639,7 @@
                     <thead><tr><th>順序</th><th>流程步驟</th><th>詳細操作說明</th><th>貼心建議與注意事項</th></tr></thead>
                     <tbody>
                         <tr><td>1</td><td>抵達成田機場T2入口（<b>1F入境層</b>）</td><td>通關完成後，依「JR線」／「鐵道」標示前往電扶梯或電梯，往<b>B1層</b>下樓。</td><td>請耐心排隊，電梯口易擁擠。</td></tr>
-                        <tr><td>2</td><td>前往JR East Travel Service Center（<b>B1樓層</b>）</td><td>尋找綠色招牌，向服務人員出示護照與兌換券，進行JR PASS換票與預約劃位工作。</td><td>準備好所有證件與兌換資料。</td></tr>
+                        <tr><td>2</td><td>前往JR East Travel Service Center（<b>B1樓層</b>）</td><td>尋找綠色招牌，向服務人員出示護照與兌換券，進行JR PASS換票與預약劃位工作。</td><td>準備好所有證件與兌換資料。</td></tr>
                         <tr><td>3</td><td>劃位與確認座位</td><td>工作人員協助劃定N’EX指定席及其他旅段劃位，確認車票細節無誤後領取票券。</td><td>確認列車號碼、發車時間與座位號碼。</td></tr>
                         <tr><td>4</td><td>進入JR線閘門</td><td>從窗口旁「JR線」閘門刷票入站，切勿誤入京成線閘口。</td><td>注意閘門英文標識，如有困難請求助。</td></tr>
                         <tr><td>5</td><td>前往月台（通常<b>1或2號</b>）</td><td>依月台螢幕確認班次，前往指定月台及車廂位置，有序排隊等候列車。</td><td>注意隨身行李，團體協調上下車順序。</td></tr>
@@ -792,11 +797,6 @@
             <div class="card">
                 <h3>🍽️ 餐飲與購物建議</h3>
                 <ul class="default-list">
-                     <li><b>早餐選項:</b>
-                        <ul style="margin-top: 10px; padding-left: 20px; list-style-type: disc;">
-                            <li style="margin-bottom: 8px;"><b>珈琲美学アベ</b> <span style="font-size:0.9em; color:#6c757d;">(こーひーびがくあべ)</span>: 體驗日式喫茶店的「Morning Service」文化。點一杯虹吸式咖啡，附贈厚片吐司與水煮蛋，在昭和風情的懷舊氛圍中開啟一天。(營業時間 07:00-19:00, 早餐套餐約 ¥600-900)</li>
-                        </ul>
-                    </li>
                     <li><b>午餐選項 (輕井澤):</b>
                         <ul style="margin-top: 10px; padding-left: 20px; list-style-type: disc;">
                              <li style="margin-bottom: 8px;"><b>SAWAMURA 澤村麵包</b> <span style="font-size:0.9em; color:#6c757d;">(さわむら)</span>: 在舊輕井澤銀座通附近，他們的歐式麵包非常有名，二樓附設餐廳提供使用當地食材的義大利麵等洋食，氣氛悠閒。(營業至21:00, 價格約 ¥2,000-3,500)</li>
@@ -904,6 +904,11 @@
             <div class="card">
                 <h3>🍽️ 餐飲與購物建議</h3>
                 <ul class="default-list">
+                     <li><b>早餐選項:</b>
+                        <ul style="margin-top: 10px; padding-left: 20px; list-style-type: disc;">
+                            <li style="margin-bottom: 8px;"><b>珈琲美学アベ</b> <span style="font-size:0.9em; color:#6c757d;">(こーひーびがくあべ)</span>: 體驗日式喫茶店的「Morning Service」文化。點一杯虹吸式咖啡，附贈厚片吐司與水煮蛋，在昭和風情的懷舊氛圍中開啟一天。(營業時間 07:00-19:00, 早餐套餐約 ¥600-900)</li>
+                        </ul>
+                    </li>
                      <li><b>午餐選項 (上高地):</b>
                         <ul style="margin-top: 10px; padding-left: 20px; list-style-type: disc;">
                             <li style="margin-bottom: 8px;"><b>自備午餐:</b> <b style="color:red;">強烈建議！</b>前一晚在松本的超市或便利商店購買飯糰、麵包、三明治等，健行途中在風景優美的地方野餐是最佳選擇。</li>
@@ -1308,12 +1313,33 @@
                     <tbody>
                         <tr><td>~08:45</td><td>🏨 日暮里和ごころ / 退房</td><td>享用早餐，確認所有物品皆已打包，辦理退房。</td></tr>
                         <tr><td><b>09:22-10:08</b></td><td>🚆 日暮里 <span style="font-size:0.9em; color:#6c757d;">(にっぽり)</span> → 成田機場 <span style="font-size:0.9em; color:#6c757d;">(なりたくうこう)</span></td><td>搭乘時間：46分。<b><span style="color:red">[關鍵任務]</span></b> 搭乘【<b>京成Skyliner</b>】。<b>JR Pass已失效，需另外購票</b>。</td></tr>
-                        <tr><td>10:08-10:55</td><td>🛫 成田機場T2</td><td>前往【<b>3樓 出境大廳</b>】，找到泰航的【<b>N</b>】櫃檯。<b>櫃檯於10:55開放</b>。</td></tr>
-                        <tr><td>10:55-11:30</td><td>🛂 <b>3F</b> 報到櫃檯</td><td><b><span style="color:red">[本日重點]</span></b> 辦理登機、托運行李，並<b>領取所有人的【登機證】</b>。</td></tr>
+                        <tr><td>10:08-10:55</td><td>🛫 成田機場T2</td><td>前往【<b>3樓 出境大廳</b>】，找到泰國亞洲航空的【<b>N</b>】櫃檯。<b>櫃檯於10:55開放</b>。</td></tr>
+                        <tr><td>10:55-11:30</td><td>🛂 <b>3F</b> 報到櫃檯</td>
+                            <td><b><span style="color:red">[本日重點]</span></b> 
+                                辦理登機、托運行李，並<b>領取所有人的【登機證】</b>。<br>
+                                抵達機場，辦理泰國亞洲航空(FD235)N櫃臺報到、托運行李（25公斤3件+25公斤3件）、安檢、證照查驗。
+                            </td>
+                        </tr>
                         <tr><td>11:30-12:30</td><td>🛋️ <b>4F</b> IASS貴賓室</td><td><b><span style="color:red">[本日重點]</span></b> 前往【<b>4樓</b>】貴賓室。<br>• <b>入場</b>：需出示【<b>JCB信用卡</b>】與【<b>登機證</b>】。<br>• <b>時間</b>：<b>請務必在【12:30】前離開</b>。</td></tr>
                         <tr><td>12:30-13:00</td><td>👮 <b>3F</b> 安檢與出境</td><td>返回【<b>3樓</b>】，排隊進行安全檢查與護照查驗。</td></tr>
                         <tr><td>13:00-13:20</td><td>🚶‍♂️ 主樓 → 衛星樓</td><td><b><span style="color:red">[本日重點]</span></b> 跟隨指示前往【<b>衛星樓</b>】。<b>此過程預估需15分鐘</b>。</td></tr>
-                        <tr><td>13:55~</td><td>✈️ 泰航 FD235</td><td>航班起飛，返回高雄。</td></tr>
+                        <tr><td><span style="color:red;">13:15</span></td><td>GATE</td>
+                            <td>登機。請於登機時間前抵達登機門。<br>
+                                <ul style="margin-top:8px; padding-left: 20px; list-style-type: disc;">
+                                    <li>登機證要收好，空服員會確認「登機證」後才發放餐點。</li>
+                                    <li>座位表與餐點:
+                                        <ul style="margin-top:5px; padding-left:20px; list-style-type:decimal;">
+                                            <li>張寶蓮(18A靠窗)椰漿飯</li>
+                                            <li>張寶花(18B中間)椰漿飯</li>
+                                            <li>郭昆岱(18C走道)黑胡椒醬烤雞+美式咖啡+水</li>
+                                            <li>林甄宓(18D走道)ML Noi 羅勒炸雞飯</li>
+                                            <li>黃韻哲(18E中間)黑胡椒醬烤雞+珍奶</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr><td>13:55-17:05</td><td>✈️ 泰國亞洲航空 FD235</td><td>航班起飛，返回高雄。<br><b>備註：17:05是臺灣時間。</b></td></tr>
                     </tbody>
                 </table>
             </div>
@@ -1502,7 +1528,10 @@
             for (i = 0; i < tablinks.length; i++) {
                 tablinks[i].className = tablinks[i].className.replace(" active", "");
             }
-            document.getElementById(tabName).style.display = "block";
+            const tabToShow = document.getElementById(tabName);
+            if (tabToShow) {
+                tabToShow.style.display = "block";
+            }
             if (evt) {
                 evt.currentTarget.className += " active";
             } else {
