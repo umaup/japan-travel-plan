@@ -1,0 +1,1950 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日本阿爾卑斯家族紀行</title>
+    <!-- PWA: 新增 manifest 連結 -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --primary-color: #3a539b;
+            --secondary-color: #e67e22;
+            --background-color: #f8f9fa;
+            --container-bg: #ffffff;
+            --text-color: #343a40;
+            --heading-color: #2c3e50;
+            --border-color: #dee2e6;
+            --shadow-color: rgba(0, 0, 0, 0.08);
+            --font-family: 'Noto Sans TC', 'Noto Sans JP', -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft JhengHei", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        body {
+            font-family: var(--font-family);
+            font-size: 17px; /* Increased base font size for better readability */
+            line-height: 1.8;
+            margin: 0;
+            padding: 10px;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 10px auto;
+            background-color: var(--container-bg);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px var(--shadow-color);
+            border-top: 5px solid var(--primary-color);
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--heading-color);
+            margin-bottom: 10px;
+            font-size: 2.1em; /* Base font size */
+            font-weight: 700;
+        }
+        
+        .trip-dates {
+            text-align: center; 
+            font-size: 1.1em; /* Smaller font size */
+            color: var(--text-color); 
+            margin-top: 0; 
+            margin-bottom: 25px;
+        }
+
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            background: var(--container-bg);
+            padding-bottom: 5px;
+        }
+
+        .tab-link {
+            padding: 10px 15px;
+            cursor: pointer;
+            border: none;
+            background-color: transparent;
+            font-size: 1em;
+            margin-right: 2px;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+            color: #6c757d;
+            font-weight: 700;
+        }
+        
+        .tab-link:hover {
+            background-color: #e9ecef;
+            color: var(--primary-color);
+            border-radius: 6px 6px 0 0;
+        }
+
+        .tab-link.active {
+            border-bottom-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+        
+        .tab-link.active-day {
+            background-color: #fff9e6;
+            color: var(--secondary-color);
+            border-bottom-color: var(--secondary-color);
+            border-radius: 6px 6px 0 0;
+        }
+
+        .tab-content { display: none; }
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+            margin-top: 30px;
+            font-size: 1.6em;
+            display: flex;
+            align-items: center;
+        }
+        h2 .icon { margin-right: 12px; font-size: 0.9em; }
+        
+        .day-title-banner {
+            background-color: #fef3c7;
+            color: #92400e;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            color: #17a2b8;
+            font-size: 1.3em;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 10px;
+        }
+
+        .card {
+            background-color: #fdfdff;
+            border: 1px solid #eef2f7;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: left;
+            vertical-align: middle;
+            word-break: break-word;
+        }
+        th {
+            background-color: #f8f9fa;
+            font-weight: 700;
+            color: var(--heading-color);
+        }
+        
+        .overview-table td:first-child {
+             display: flex;
+             align-items: center;
+             gap: 10px;
+        }
+
+        tr:nth-child(even) { background-color: #f8f9fa; }
+
+        ul { list-style-type: none; padding-left: 0; }
+        li { margin-bottom: 12px; position: relative; }
+        
+        .checklist-item-container li {
+            padding-left: 35px;
+            cursor: pointer;
+            font-size: 1.1em;
+        }
+        .checklist-item-container li::before {
+            content: '☐';
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 1.5em;
+            line-height: 1.2;
+            font-family: monospace;
+            color: var(--primary-color);
+        }
+        .checklist-item-container li.completed::before {
+            content: '✅';
+        }
+         .checklist-item-container li.completed {
+            text-decoration: line-through;
+            color: #888;
+        }
+
+        .default-list > li {
+             padding-left: 28px;
+        }
+        .default-list > li::before {
+            position: absolute;
+            left: 0;
+            top: 2px;
+            width: 20px;
+            text-align: center;
+        }
+        .icon-calendar::before { content: '📅'; }
+        .icon-time::before { content: '⏰'; }
+        .icon-flight::before { content: '✈️'; }
+        .icon-pin::before { content: '📍'; }
+        .icon-departure::before { content: '🛫'; }
+        .icon-arrival::before { content: '🛬'; }
+        .icon-bed::before { content: '🛏️'; }
+        .icon-room::before { content: '🚪'; }
+        .icon-star::before { content: '⭐'; }
+        .icon-walk::before { content: '🚶‍♂️'; }
+        .icon-bus::before { content: '🚌'; }
+        .icon-taxi::before { content: '🚕'; }
+        .icon-toilet::before { content: '🚻'; }
+        .icon-luggage::before { content: '🧳'; }
+        .icon-phone::before { content: '📞'; }
+        .icon-temperature::before { content: '🌡️'; }
+        .icon-weather::before { content: '🌦️'; }
+        .icon-rain::before { content: '💧'; }
+        .icon-shirt::before { content: '👕'; }
+
+
+        ol { padding-left: 30px; }
+        ol li::before { content: ''; }
+
+        .warning {
+            background-color: #fffbeb;
+            border-left: 5px solid #f59e0b;
+            padding: 15px 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+        .warning h3 { margin-top: 0; color: #b45309; }
+        
+        .photo-link {
+            color: #007bff;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .info-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .info-card {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            background-color: #fff;
+        }
+        .info-card h3 {
+            border-left: none;
+            padding-left: 0;
+            margin-top: 0;
+            font-size: 1.2em;
+            color: var(--heading-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        .info-card ul {
+            padding-left: 5px;
+        }
+        .info-card li {
+            padding-left: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .info-card li::before {
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 1.5rem;
+            line-height: 1.2;
+            width: 2rem;
+            text-align: center;
+        }
+        
+
+        .timeline th {
+            white-space: nowrap;
+        }
+        .timeline td:first-child {
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        /* Responsive Fix */
+        @media (min-width: 768px) {
+            body { padding: 20px; }
+            .container { margin: 20px auto; padding: 30px 40px; }
+            h1 { font-size: 2.5em; } /* Larger font size on desktop */
+            .tabs { position: sticky; top: 0; z-index: 10; }
+            h2, .day-title-banner { font-size: 1.8em; }
+            h3 { font-size: 1.4em; }
+            .card { padding: 20px; }
+            th, td { padding: 14px; }
+            .warning { padding: 18px 22px; }
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                padding: 0;
+                background-color: #fff;
+            }
+            .container {
+                box-shadow: none;
+                border: none;
+                width: 100%;
+                max-width: 100%;
+                padding: 0;
+                margin: 0;
+            }
+            .tabs {
+                display: none !important;
+            }
+            .tab-content {
+                display: block !important;
+                animation: none;
+                page-break-before: always;
+            }
+            #tab-overview {
+                page-break-before: auto;
+            }
+            h1, h2, h3, .day-title-banner {
+                page-break-after: avoid;
+            }
+            table, .card, .info-grid {
+                page-break-inside: avoid;
+            }
+            .card {
+                border: 1px solid #ccc;
+                box-shadow: none;
+            }
+            .info-grid {
+                grid-template-columns: 1fr !important;
+            }
+            a::after {
+                content: " (" attr(href) ")";
+                font-size: 0.8em;
+                color: #555;
+            }
+            .photo-link::after { content: ''; }
+            .checklist-item-container li::before { content: '☐ '; }
+            .checklist-item-container li.completed::before { content: '✅ '; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>日本阿爾卑斯家族紀行</h1>
+        <p class="trip-dates">2025/09/10 (週三) - 2025/09/17 (週三)</p>
+
+        <div class="tabs">
+            <button class="tab-link active" onclick="openTab(event, 'tab-overview')">📊 總覽</button>
+            <button class="tab-link" onclick="openTab(event, 'tab-day1')" data-date="2025-09-10">Day 1</button>
+            <button class="tab-link" onclick="openTab(event, 'tab-day2')" data-date="2025-09-11">Day 2</button>
+            <button class="tab-link" onclick="openTab(event, 'tab-day3')" data-date="2025-09-12">Day 3</button>
+            <button class="tab-link" onclick="openTab(event, 'tab-day4')" data-date="2025-09-13">Day 4</button>
+            <button class="tab-link" onclick="openTab(event, 'tab-day5')" data-date="2025-09-14">Day 5</button>
+            <button class="tab-link" onclick="openTab(event, 'tab-day6')" data-date="2025-09-15">Day 6</button>
+            <button class="tab-link" onclick="openTab(event, 'tab-day7')" data-date="2025-09-16">Day 7</button>
+            <button class="tab-link" onclick="openTab(event, 'tab-day8')" data-date="2025-09-17">Day 8</button>
+        </div>
+
+        <!-- 總覽 Tab Content -->
+        <div id="tab-overview" class="tab-content active">
+            
+            <h2><span class="icon">✈️</span>航班資訊</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>🛫 去程航班資訊</h3>
+                    <ul class="default-list">
+                        <li class="icon-calendar"><b>起飛日期:</b> <span style="color:red;">2025-09-10 (週三)</span></li>
+                        <li class="icon-time"><b>登機時間:</b> <span style="color:red;">07:25</span></li>
+                        <li class="icon-time"><b>時間:</b> <span style="color:red;">08:05 → 12:55 (當地時間)</span></li>
+                        <li class="icon-flight"><b>航班:</b> <b>FD234</b> / 泰國亞洲航空 (A櫃臺)</li>
+                        <li class="icon-pin"><b>起迄地點:</b> 高雄 (KHH) → 成田 <span style="font-size:0.9em; color:#6c757d;">(なりた)</span> (NRT)</li>
+                        <li class="icon-departure"><b>出發航廈:</b> 高雄機場國際航廈 <b>3樓</b></li>
+                        <li class="icon-arrival"><b>抵達航廈:</b> 成田 <span style="font-size:0.9em; color:#6c757d;">(なりた)</span> 國際機場 <b>第二航廈 (Terminal 2)</b></li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>🛬 回程航班資訊</h3>
+                    <ul class="default-list">
+                        <li class="icon-calendar"><b>起飛日期:</b> <span style="color:red;">2025-09-17 (週三)</span></li>
+                        <li class="icon-time"><b>登機時間:</b> <span style="color:red;">13:15</span></li>
+                        <li class="icon-time"><b>時間:</b> <span style="color:red;">13:55 → 17:05 (當地時間)</span></li>
+                        <li class="icon-flight"><b>航班:</b> <b>FD235</b> / 泰國亞洲航空 (N櫃臺)</li>
+                        <li class="icon-pin"><b>起迄地點:</b> 成田 <span style="font-size:0.9em; color:#6c757d;">(なりた)</span> (NRT) → 高雄 (KHH)</li>
+                        <li class="icon-departure"><b>出發航廈:</b> 成田 <span style="font-size:0.9em; color:#6c757d;">(なりた)</span> 國際機場 <b>第二航廈 (Terminal 2)</b></li>
+                    </ul>
+                </div>
+            </div>
+
+            <h2><span class="icon">🗺️</span> 每日行程總覽</h2>
+            <div class="card">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>日期</th>
+                            <th>行程重點</th>
+                            <th>住宿地點</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Day 1 (2025-09-10 週三)</td>
+                            <td>抵達東京成田機場，搭乘新幹線前往輕井澤，入住輕井澤王子大飯店西館。</td>
+                            <td>輕井澤 <span style="font-size:0.9em; color:#6c757d;">(かるいざわ)</span></td>
+                        </tr>
+                        <tr>
+                            <td>Day 2 (2025-09-11 週四)</td>
+                            <td>輕井澤景點漫遊（雲場池、舊銀座通），下午搭車前往松本，參觀松本城。</td>
+                            <td>松本 <span style="font-size:0.9em; color:#6c757d;">(まつもと)</span></td>
+                        </tr>
+                        <tr>
+                            <td>Day 3 (2025-09-12 週五)</td>
+                            <td>上高地一日健行，享受「神的故鄉」絕美風景。</td>
+                            <td>松本 <span style="font-size:0.9em; color:#6c757d;">(まつもと)</span></td>
+                        </tr>
+                        <tr>
+                            <td>Day 4 (2025-09-13 週六)</td>
+                            <td>抵達金澤，下午展開武家屋敷與現代藝術巡禮。</td>
+                            <td>金澤 <span style="font-size:0.9em; color:#6c757d;">(かなざわ)</span></td>
+                        </tr>
+                        <tr>
+                            <td>Day 5 (2025-09-14 週日)</td>
+                            <td>五箇山和白川鄉巴士一日遊。</td>
+                            <td>金澤 <span style="font-size:0.9em; color:#6c757d;">(かなざわ)</span></td>
+                        </tr>
+                        <tr>
+                            <td>Day 6 (2025-09-15 週一)<br><span style="color:red;">(敬老之日)</span></td>
+                            <td>金澤經典庭園、茶屋街與寺廟深度文化體驗。</td>
+                            <td>金澤 <span style="font-size:0.9em; color:#6c757d;">(かなざわ)</span></td>
+                        </tr>
+                        <tr>
+                            <td>Day 7 (2025-09-16 週二)</td>
+                            <td>搭乘新幹線返回東京，下午進行淺草、上野下町散策。</td>
+                            <td>東京日暮里 <span style="font-size:0.9em; color:#6c757d;">(とうきょうにっぽり)</span></td>
+                        </tr>
+                        <tr>
+                            <td>Day 8 (2025-09-17 週三)</td>
+                            <td>從日暮里搭乘Skyliner至成田機場，滿載而歸。</td>
+                            <td>溫暖的家</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2><span class="icon">📊</span>關鍵資訊總覽</h2>
+            <div class="warning">
+                <p><b>⏰ 時差提醒：</b>日本時間比台灣快一小時，抵達日本之後請記得調整手錶時間。</p>
+            </div>
+            <div class="card">
+                <h3>🪙 匯率參考</h3>
+                <table>
+                    <tbody>
+                        <tr><td><b>預估匯率日期</b></td><td id="rate-date"></td></tr>
+                        <tr><td><b>日幣 (JPY) → 台幣 (TWD)</b></td><td id="rate-value"></td></tr>
+                    </tbody>
+                </table>
+                <p style="font-size: smaller; color: #6c757d;">*此為預估匯率，僅供預算參考，實際花費請以交易當下為準。</p>
+            </div>
+            <div class="card">
+                <h3>📈 總覽表格</h3>
+                <table class="overview-table">
+                    <tbody>
+                        <tr><td>👤 <b>每人平均花費</b></td><td id="per-person-twd"></td></tr>
+                        <tr><td>☀️ <b>天氣概況</b></td><td>15°C - 25°C，早晚溫差大。<b>山區更冷</b>，指 Day 1 輕井澤 <span style="font-size:0.9em; color:#6c757d;">(かるいざわ)</span> (高原度假區，海拔約1000公尺) 和 Day 3 上高地 <span style="font-size:0.9em; color:#6c757d;">(かみこうち)</span> (海拔約1500公尺)。</td></tr>
+                        <tr><td>🔌 <b>插座 & 電壓</b></td><td>100V，A 型雙腳扁型插座 (與台灣相同)。</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <table id="budget-table">
+                    <thead>
+                        <tr><th>項目</th><th>每人預估 (JPY)</th><th>每人預估 (TWD)</th></tr>
+                    </thead>
+                    <tbody>
+                        <!-- Rows will be dynamically inserted here by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <h3>✅ 行前準備清單</h3>
+                <ul id="packing-list" class="checklist-item-container">
+                    <!-- Checklist items will be dynamically inserted here -->
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h3>🚗 交通費用明細 (每人)</h3>
+                <table>
+                    <thead><tr><th>項目</th><th>費用 (JPY)</th><th>備註</th></tr></thead>
+                    <tbody>
+                        <tr><td>JR北陸拱型鐵路周遊券</td><td>¥27,562</td><td>Day1-7: 7日券，核心交通票券</td></tr>
+                        <tr><td>JR自費區段 (長野↔松本來回)</td><td>¥4,740</td><td>Day2和4: 篠ノ井線特急，需額外購票，單程【乘車券+特急自由席】票價為 ¥2,370</td></tr>
+                        <tr><td>上高地交通套票 (松本出發)</td><td>¥7,420</td><td>Day3: 電車(¥710*2)+巴士(¥3000*2)來回</td></tr>
+                        <tr><td>五箇山和白川鄉巴士一日遊(金澤出發)</td><td>¥7,000</td><td>Day 5 使用</td></tr>
+                        <tr><td>金澤巴士一日券</td><td>¥800</td><td>Day 6 使用</td></tr>
+                        <tr><td>京成Skyliner (日暮里→成田)</td><td>¥2,570</td><td>Day 8 使用</td></tr>
+                        <tr style="font-weight:bold; background-color: #e9ecef;"><td><b>交通總計 (每人)</b></td><td id="transport-total"><b>¥50,092</b></td><td></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="card">
+                <h3>🎟️ 門票景點與價格 (每人)</h3>
+                <table>
+                    <thead><tr><th>參訪日期</th><th>景點</th><th>成人票價 (JPY)</th></tr></thead>
+                    <tbody>
+                        <tr><td>Day 2</td><td>國寶松本城 <span style="font-size:0.9em; color:#6c757d;">(こくほうまつもとじょう)</span></td><td>¥700</td></tr>
+                        <tr><td>Day 4</td><td>鈴木大拙館 <span style="font-size:0.9em; color:#6c757d;">(すずきだいせつかん)</span></td><td>¥310</td></tr>
+                        <tr><td>Day 6</td><td>兼六園 <span style="font-size:0.9em; color:#6c757d;">(けんろくえん)</span></td><td>¥320</td></tr>
+                        <tr><td>Day 6</td><td>老舖紀念館 <span style="font-size:0.9em; color:#6c757d;">(しにせきねんかん)</span></td><td>¥100</td></tr>
+                        <tr><td>Day 6</td><td>妙立寺 <span style="font-size:0.9em; color:#6c757d;">(みょうりゅうじ)</span> (忍者寺)</td><td>¥1,200</td></tr>
+                        <tr><td>Day 6</td><td>松の湯 <span style="font-size:0.9em; color:#6c757d;">(まつのゆ)</span> (錢湯)</td><td>¥500</td></tr>
+                        <tr><td>Day 7</td><td>斎藤湯 <span style="font-size:0.9em; color:#6c757d;">(さいとうゆ)</span> (錢湯)</td><td>¥550</td></tr>
+                        <tr style="font-weight:bold; background-color: #e9ecef;">
+                            <td colspan="2"><b>門票總計 (每人)</b></td>
+                            <td><b>¥3,680</b></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p style="font-size: smaller; color: #6c757d;">*以上為個人票價，實際費用請以現場公告為準。金澤市公所展望大廳為免費景點。兼六園65歲以上長者出示護照可免費。</p>
+            </div>
+            
+            <div class="card">
+                <h3>🛡️ 保險費</h3>
+                <ul class="default-list">
+                    <li style="list-style-type: none;">(1) 東京海上日動7天（日本）：2,960 JPY 每人<br><small style="color: #6c757d;">[備註]日本入境後才能購買。線上投保，只能刷自己名字的信用卡</small></li>
+                    <li style="list-style-type: none;">(2) 旅遊不便8天(臺灣)：522 TWD 每人</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Day 1 Content -->
+        <div id="tab-day1" class="tab-content">
+            <div class="day-title-banner">1️⃣ Day 1: 抵達輕井澤 <span style="font-size:0.9em; color:#6c757d;">(かるいざわ)</span> (2025-09-10 週三)</div>
+            <div class="info-card">
+                <h3>☀️ 當日天氣預報 (輕井澤 <span style="font-size:0.9em; color:#6c757d;">(かるいざわ)</span>)</h3>
+                <ul class="default-list">
+                    <li class="icon-temperature"><b>預估氣溫:</b> 13°C - 22°C</li>
+                    <li class="icon-weather"><b>天氣狀況:</b> 晴時多雲，氣候穩定。</li>
+                    <li class="icon-rain"><b>降雨機率:</b> 低。</li>
+                    <li class="icon-shirt"><b>穿搭建議:</b> 白天薄長袖，傍晚後務必加上保暖外套，日夜溫差大。</li>
+                </ul>
+            </div>
+            <div class="warning">
+                <h3>🏔️ 高原氣候提醒</h3>
+                <p>輕井澤 <span style="font-size:0.9em; color:#6c757d;">(かるいざわ)</span> 為高原度假區，海拔約1000公尺，氣溫會比平地涼爽，尤其早晚溫差大，請務必準備保暖外套。</p>
+            </div>
+             <div class="card">
+                <h3>💡 當日重要提醒</h3>
+                <p>💰 <b>請預先準備零錢！</b>明天 (Day 2) 在輕井澤車站寄放行李時，置物櫃<b style="color:red;">只收現金</b>，請務必準備足夠的百元日幣硬幣 (¥100)。<br> • 大¥700 (24吋行李箱)、中¥400 (20吋行李箱)</p>
+            </div>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>🚶‍♀️ 生理與行李負荷分析</h3>
+                    <ul class="default-list">
+                        <li class="icon-walk"><b>步行強度:</b> 約 5,000 步 (約 3.5 公里)。</li>
+                        <li class="icon-toilet"><b>廁所友善度:</b> 佳。</li>
+                        <li class="icon-luggage"><b>行李友善度:</b> 低。本日是行李移動最頻繁的一天，請善用飯店接駁車。</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>🏨 當日住宿資訊</h3>
+                    <ul class="default-list">
+                        <li class="icon-bed"><b>飯店:</b> 輕井澤王子大飯店 西館 <span style="font-size:0.9em; color:#6c757d;">(かるいざわぷりんすほてるうえすと)</span> (<a class="photo-link" href="https://www.princehotels.com/karuizawa-west/zh-hant/guest-rooms/prince-cottage-type-e/" target="_blank">參考照片</a>)</li>
+                        <li class="icon-room"><b>房型:</b> 小木屋E 禁煙客房 (75m²)。2臥室，6張單人床，1客廳，2洗浴室，1洗手間（西式）。</li>
+                        <li class="icon-star"><b>特色:</b> 提供浴衣，環境清幽。<b>車站南口有免費飯店接駁車</b>。</li>
+                        <li class="icon-time"><b>入住/退房:</b> 15:00 / 11:00</li>
+                        <li class="icon-pin"><b>地址:</b> 長野県北佐久郡軽井沢町軽井沢1016-87<br>1016-87 Karuizawa, Kitasaku District, Nagano 389-0193, Japan</li>
+                        <li class="icon-phone"><b>電話:</b> +81 267-42-1111</li>
+                    </ul>
+                    <p style="font-size: smaller; color: #6c757d; margin-top: 10px;">*提示：點擊藍色底線文字可查看照片。</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3>⏰ 時間軸 & 任務清單</h3>
+                <table class="timeline">
+                    <thead><tr><th>時間</th><th>地點 / 活動</th><th>詳細說明與任務</th></tr></thead>
+                    <tbody>
+                        <tr><td>~06:00</td><td>🛫 高雄國際機場</td><td>抵達機場，辦理泰國亞洲航空(FD234)A櫃臺報到、托運行李（25公斤）、安檢、證照查驗。</td></tr>
+                        <tr><td><span style="color:red;">07:25</span></td><td>GATE</td>
+                            <td>登機。請於登機時間前抵達登機門。<br>
+                                <ul style="margin-top:8px; padding-left: 20px; list-style-type: disc;">
+                                    <li>登機證要收好，空服員會確認「登機證」後才發放餐點。</li>
+                                    <li>座位表與餐點:
+                                        <ul style="margin-top:5px; padding-left:20px; list-style-type:decimal;">
+                                            <li>張寶蓮(18A靠窗)羅勒炸雞飯+焦香起司蛋糕</li>
+                                            <li>黃韻哲(18B中間)秦叔叔雞肉飯+美式咖啡</li>
+                                            <li>郭昆岱(18C走道)黑胡椒醬烤雞+美式咖啡+水</li>
+                                            <li>林甄宓(18D走道)椰漿飯+焦香起司蛋糕</li>
+                                            <li>張寶花(18E中間)羅勒炸雞飯+焦香起司蛋糕</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr><td>08:05-12:55</td><td>✈️ 空中飛行</td><td>實際搭乘：3小時50分(日本時間比台灣快一小時)。從高雄(KHH)飛往成田 <span style="font-size:0.9em; color:#6c757d;">(なりた)</span>(NRT)。</td></tr>
+                        <tr><td>12:55-15:00</td><td>🛬 成田機場 <span style="font-size:0.9em; color:#6c757d;">(なりた)</span> T2</td><td>辦理入境、提領行李、兌換JR Pass。<br><b>備註：12:55是日本時間。</b></td></tr>
+                        <tr><td>15:14-16:14</td><td>🚄 成田機場 <span style="font-size:0.9em; color:#6c757d;">(なりた)</span> → 東京 <span style="font-size:0.9em; color:#6c757d;">(とうきょう)</span></td><td>搭乘時間：1小時0分。搭乘【<b>特急成田エクスプレス３２号(新宿行)</b>】。<br><b>備註(前一班車)：</b>14:20 成田空港 → 15:15 東京，轉乘 15:52 東京 → 17:08 輕井澤。</td></tr>
+                        <tr><td>16:14-16:52</td><td>🔄 東京車站轉乘</td><td>轉乘時間：38分。依照下方轉乘指南，從N'EX月台(<b>B5F</b>)移動至北陸新幹線月台(<b>2F</b>)。<br><b>備註：如果快一點，有機會搭上：16:32-17:35新幹線はくたか５７１号(金沢行)[63分]</b></td></tr>
+                        <tr><td>16:52-18:03</td><td>🚄 東京 <span style="font-size:0.9em; color:#6c757d;">(とうきょう)</span> → 輕井澤 <span style="font-size:0.9em; color:#6c757d;">(かるいざわ)</span></td><td>搭乘時間：1小時11分。搭乘【<b>新幹線あさま６２１号(長野行)</b>】。上車預計在<b>2F的23月台</b>。</td></tr>
+                        <tr><td>18:30-18:45</td><td>🏨 輕井澤王子大飯店</td><td>「車站南口」搭乘飯店免費接駁車，棕色路線從<b>B1</b>出發(<b>00、30發車</b>)，抵達<b>B12M</b> 西館大廳(<b>15、45抵達</b>)(<b>25、55發車</b>)辦理入住。備註：可考慮先去吃飯再入住，但必須注意最後入住時間。</td></tr>
+                        <tr><td>19:00~</td><td>🛍️ 輕井澤王子購物廣場 <span style="font-size:0.9em; color:#6c757d;">(かるいざわぷりんすしょっぴんぐぷらざ)</span></td><td>於美食街「味之街」享用晚餐，餐後自由散步。</td></tr>
+                    </tbody>
+                </table>
+            </div>
+             <div class="card">
+                <h3>🔄 成田機場T2 → 換票/劃位 → 搭乘N'EX</h3>
+                <table>
+                    <thead><tr><th>順序</th><th>流程步驟</th><th>詳細操作說明</th><th>貼心建議與注意事項</th></tr></thead>
+                    <tbody>
+                        <tr><td>1</td><td>抵達成田機場T2入口（<b>1F入境層</b>）</td><td>通關完成後，依「JR線」／「鐵道」標示前往電扶梯或電梯，往<b>B1層</b>下樓。</td><td>請耐心排隊，電梯口易擁擠。</td></tr>
+                        <tr><td>2</td><td>前往JR East Travel Service Center（<b>B1樓層</b>）</td><td>尋找綠色招牌，向服務人員出示護照與兌換券，進行JR PASS換票與預約劃位工作。</td><td>準備好所有證件與兌換資料。</td></tr>
+                        <tr><td>3</td><td>劃位與確認座位</td><td>工作人員協助劃定N’EX指定席及其他旅段劃位，確認車票細節無誤後領取票券。</td><td>確認列車號碼、發車時間與座位號碼。</td></tr>
+                        <tr><td>4</td><td>進入JR線閘門</td><td>從窗口旁「JR線」閘門刷票入站，切勿誤入京成線閘口。</td><td>注意閘門英文標識，如有困難請求助。</td></tr>
+                        <tr><td>5</td><td>前往月台（通常<b>1或2號</b>）</td><td>依月台螢幕確認班次，前往指定月台及車廂位置，有序排隊等候列車。</td><td>注意隨身行李，團體協調上下車順序。</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card">
+                <h3>🔄 東京車站 N'EX → 北陸新幹線轉乘</h3>
+                <table>
+                    <thead><tr><th>順序</th><th>流程步驟</th><th>詳細說明</th><th>貼心建議與注意事項</th></tr></thead>
+                    <tbody>
+                        <tr><td>1</td><td>N'EX下車（<b>B5F</b>）</td><td>建議選擇<b>5～6號車廂</b>，靠近電梯與手扶梯，下車後方便直上。</td><td>行李集中，便於團體協作</td></tr>
+                        <tr><td>2</td><td>上樓至<b>1樓</b></td><td>從<b>B5F</b>搭乘電梯或手扶梯直達<b>1樓</b>大廳，依「新幹線／八重洲口」標示前進。</td><td>跟隨綠色「新幹線」標誌，減少迷路風險</td></tr>
+                        <tr><td>3</td><td>站內移動</td><td><b>1樓</b>步行依「新幹線」指標，朝八重洲中央口或新幹線乘換口方向前行。</td><td>跟隨綠色「新幹線」標誌，減少迷路風險</td></tr>
+                        <tr><td>4</td><td>通過新幹線閘門</td><td>進入「北のりかえ口」或「南のりかえ口」，投入兩張車票或感應IC卡／出示JR PASS。</td><td>人多時可請站務員協助通過</td></tr>
+                        <tr><td>5</td><td>上<b>2樓</b>至新幹線月台</td><td>進閘後搭乘手扶梯或電梯上<b>2樓</b>，前往<b>23號月台</b>（北陸新幹線）；依票面查車廂位置，月台標示清晰。</td><td>注意確認車廂編號與位置</td></tr>
+                        <tr><td>6</td><td>月台候車與上車</td><td>於指定車廂門口等候，確認車廂編號與行李空間；預留充裕緩衝時間，團體協調分工有序上車。</td><td>建議提前協調上下車順序與行李搬運</td></tr>
+                    </tbody>
+                </table>
+            </div>
+             <div class="card">
+                <h3>🍽️ 輕井澤餐飲選項(晚餐)</h3>
+                <ul class="default-list">
+                    <li style="margin-bottom: 16px;">
+                        <b>明治亭 <span style="font-size:0.9em; color:#6c757d;">(めいじてい)</span> - 醬汁豬排丼名店 🐷</b>
+                        <ul style="margin-top:5px; padding-left:20px; list-style-type:circle;">
+                            <li><b>營業時間：</b>駒ヶ根本店 <span style="font-size:0.9em; color:#6c757d;">(こまがねほんてん)</span> 11:00–20:30 (L.O.)；中央アルプス登山口店 <span style="font-size:0.9em; color:#6c757d;">(ちゅうおうあるぷすとざんぐちてん)</span> 3–11月 9:00–20:00，12–2月 11:00–19:30。</li>
+                            <li><b>支付方式：</b>多數分店可刷卡與部分電子支付。</li>
+                            <li><b>菜色建議：</b>招牌「ソースかつ丼」<span style="font-size:0.9em; color:#6c757d;">(そーすかつどん)</span>(醬汁豬排丼)，豬排厚實，份量充足。</li>
+                            <li><b>價位：</b>丼飯類約 <b>¥1,300–¥1,800</b>。</li>
+                            <li><b>備註：</b>在輕井澤王子購物廣場內的「味之街」<span style="font-size:0.9em; color:#6c757d;">(あじのまち)</span>也有分店。</li>
+                        </ul>
+                    </li>
+                    <li style="margin-bottom: 16px;">
+                        <b>信州そば処 きりさと <span style="font-size:0.9em; color:#6c757d;">(しんしゅうそばどころ きりさと)</span> - 手打蕎麥專賣 🍜</b>
+                        <ul style="margin-top:5px; padding-left:20px; list-style-type:circle;">
+                            <li><b>營業時間：</b>11:00–20:00（中間不停休為常見營業型態；偶有臨時調整）。</li>
+                            <li><b>支付方式：</b><b style="color:red;">僅收現金</b>。</li>
+                            <li><b>菜色建議：</b>手打信州蕎麥、天婦羅、蕎麥湯；可點「天ざる」<span style="font-size:0.9em; color:#6c757d;">(てんざる)</span>或「もりそば＋天ぷら」<span style="font-size:0.9em; color:#6c757d;">(もりそば＋てんぷら)</span>組合。</li>
+                            <li><b>價位：</b>約 <b>¥1,000–¥2,000</b>/人。</li>
+                            <li><b>備註：</b>可預約、座位較寬敞、停車便利；菜單以日文為主，可用翻譯App；長者友善度佳。</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Day 2 Content -->
+        <div id="tab-day2" class="tab-content">
+            <div class="day-title-banner">2️⃣ Day 2: 輕井澤 <span style="font-size:0.9em; color:#6c757d;">(かるいざわ)</span> 風光 → 前進松本 <span style="font-size:0.9em; color:#6c757d;">(まつもと)</span> (2025-09-11 週四)</div>
+            <div class="info-card">
+                <h3>☀️ 當日天氣預報 (輕井澤 → 松本)</h3>
+                <ul class="default-list">
+                    <li class="icon-temperature"><b>預估氣溫:</b> 16°C - 26°C</li>
+                    <li class="icon-weather"><b>天氣狀況:</b> 晴朗。</li>
+                    <li class="icon-rain"><b>降雨機率:</b> 低。</li>
+                    <li class="icon-shirt"><b>穿搭建議:</b> 上午在輕井澤需薄外套，下午抵達松本後天氣溫暖，可穿著薄長袖。</li>
+                </ul>
+            </div>
+            <div class="warning">
+                <h3>🏔️ 高原氣候提醒</h3>
+                <p>輕井澤 <span style="font-size:0.9em; color:#6c757d;">(かるいざわ)</span> 海拔較高，早晚溫差大。即使日間溫暖，太陽下山後氣溫會明顯下降，請務必攜帶保暖衣物。</p>
+            </div>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>🚶‍♀️ 生理與行李負荷分析</h3>
+                     <ul class="default-list">
+                        <li class="icon-walk"><b>步行強度:</b> 約 8,000 步 (約 5.5 公里)。</li>
+                        <li class="icon-toilet"><b>廁所友善度:</b> 佳。</li>
+                        <li class="icon-luggage"><b>行李友善度:</b> 中。善用置物櫃與計程車是本日關鍵。</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>🏨 當日住宿資訊</h3>
+                    <ul class="default-list">
+                        <li class="icon-bed"><b>住宿:</b> 松本 <span style="font-size:0.9em; color:#6c757d;">(まつもと)</span> Airbnb (<a class="photo-link" href="https://www.airbnb.com.tw/rooms/1291644049856334910?source_impression_id=p3_1752918306_P3XQHS3CzQH26wtD" target="_blank">參考照片</a>)</li>
+                        <li class="icon-room"><b>房型:</b> 獨棟2層樓，3間客房 (臥室1: 2張單人床, 臥室2: 3張地板床墊, 臥室3: 3張地板床墊)。</li>
+                        <li class="icon-star"><b>特色:</b> 房內可看到松本城，離松本城走路僅1分鐘，可寄放行李。</li>
+                        <li class="icon-time"><b>入住/退房:</b> 15:00 (自助入住) / 10:00</li>
+                    </ul>
+                    <p style="font-size: smaller; color: #6c757d; margin-top: 10px;">*提示：點擊藍色底線文字可查看照片。</p>
+                </div>
+            </div>
+            <div class="card">
+                <h3>⏰ 時間軸規劃</h3>
+                <table class="timeline">
+                    <thead><tr><th>時間</th><th>地點 / 活動</th><th>詳細說明與任務</th></tr></thead>
+                    <tbody>
+                        <tr><td>~08:30</td><td>🏨 飯店 / 退房</td><td>辦理退房手續。</td></tr>
+                        <tr><td>08:55-09:25</td><td>🚉 輕井澤車站 <span style="font-size:0.9em; color:#6c757d;">(かるいざわえき)</span></td><td>從 <b>B12M</b> 西館大廳（<b>25、55發車</b>)搭乘免費接駁車，抵達車站南口（<b>25、55抵達</b>)。</td></tr>
+                        <tr><td>09:30-14:00</td><td>🚶‍♂️ 輕井澤景點漫遊</td>
+                            <td>
+                                將行李寄放於車站置物櫃後，依序遊覽：
+                                <br>
+                                <b style="color:blue;">輕井澤站寄物櫃資訊：</b><br>
+                                • 位置：北口中央，JR輕井澤車站徒步0分。<br>
+                                • 營業時間：00:00〜23:59<br>
+                                • 數量：大25個 (¥700)、中25個 (¥400)<br>
+                                • 支付方式：<b style="color:red;">僅現金</b><br>
+                                <br>車站 → 雲場池 <span style="font-size:0.9em; color:#6c757d;">(くもばいけ)</span> → 舊輕井澤銀座通 <span style="font-size:0.9em; color:#6c757d;">(きゅうかるいざわぎんざどおり)</span> → 聖保羅天主教堂 <span style="font-size:0.9em; color:#6c757d;">(せいぱうろかとりっくきょうかい)</span> → 蕭紀念禮拜堂 <span style="font-size:0.9em; color:#6c757d;">(しょーきねんれいはいどう)</span> → 車站。並在此區間享用午餐。
+                            </td>
+                        </tr>
+                        <tr><td><b>14:16-14:46</b></td><td>🚄 輕井澤 <span style="font-size:0.9em; color:#6c757d;">(かるいざわ)</span> → 長野 <span style="font-size:0.9em; color:#6c757d;">(ながの)</span></td><td>搭乘【<b>新幹線あさま613号（往長野）</b>】。抵達月台：<b>14</b>。</td></tr>
+                        <tr><td><b>14:46-15:00</b></td><td>🔄 長野車站轉乘</td><td>轉乘時間：14分鐘。</td></tr>
+                        <tr><td><b>15:00-15:51</b></td><td>🚄 長野 <span style="font-size:0.9em; color:#6c757d;">(ながの)</span> → 松本 <span style="font-size:0.9em; color:#6c757d;">(まつもと)</span></td><td>搭乘【<b>特急しなの18号（往名古屋）</b>】。發車月台：<b>6</b>。長野-松本段需額外購票，【乘車券+特急自由席】票價為 <b>¥2,370</b>。<b>特急票無法使用西瓜卡，要另外在售票機或櫃臺購買</b>。</td></tr>
+                        <tr><td>16:05-16:25</td><td>🏠 松本Airbnb</td>
+                            <td>
+                                <b>1. 搭乘公車：公車200號(21月台)</b><br>
+                                在松本站「お城口」（正面出口）的<b>21號月台</b>，搭乘「タウンスニーカー北コース」循環巴士（30分鐘一班，5、35分發車，最後一班17：15），在「池上百竹亭 <span style="font-size:0.9em; color:#6c757d;">(いけがみひゃくちくてい)</span>」下車(4站，約20分)。可用現金(¥200)、信用卡感應、Apple Pay支付，不可用西瓜卡(Suica)。<br>
+                                <b>2. 計程車：</b>在[二の丸裏御門橋 <span style="font-size:0.9em; color:#6c757d;">(にのまるうらごもんばし)</span>]下車，費用約¥1,000多。
+                            </td>
+                        </tr>
+                        <tr><td>16:30-17:30</td><td>🏯 國寶松本城 <span style="font-size:0.9em; color:#6c757d;">(こくほうまつもとじょう)</span></td><td><b>[營業時間 08:30-17:00，最後入場16:30] [門票 ¥700]</b> 步行1分鐘前往參觀。</td></tr>
+                        <tr><td>17:30-18:30</td><td>🐸 繩手通 <span style="font-size:0.9em; color:#6c757d;">(なわてどおり)</span></td><td><b>[店家約10:00-17:00]</b> 逛逛特色青蛙主題小店。</td></tr>
+                        <tr><td>18:30-19:00</td><td>🏺 中町通 <span style="font-size:0.9em; color:#6c757d;">(なかまちどおり)</span></td><td><b>[店家約10:00-17:00]</b> 逛逛倉庫改建的民藝品店。</td></tr>
+                        <tr><td>19:00~</td><td>🌃 松本市區 / 晚餐</td><td>在繩手通或車站周邊享用晚餐。<b style="color:red;">備註：晚上需採買隔天去上高地的早餐和午餐。</b></td></tr>
+                        <tr><td colspan="3"><b style="color:red;">提醒：明天前往上高地的交通票券 (松本電鐵+巴士) 記得提早至巴士售票處購買！</b></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card">
+                <h3>🏞️ 車窗風景提醒</h3>
+                <p>如果選擇從長野搭乘<b>[篠ノ井線 <span style="font-size:0.9em; color:#6c757d;">(しののいせん)</span>]普通車</b>前往松本，將會經過<b>[姨捨 <span style="font-size:0.9em; color:#6c757d;">(おばすて)</span>]</b>站，此處為「日本三大車窗風景」之一。可從<b>右側車窗</b>欣賞壯麗的善光寺平全景與千曲川，秋季景色尤其優美。</p>
+            </div>
+            <div class="card">
+                <h3>📍 輕井澤經典景點簡介</h3>
+                <table>
+                    <thead><tr><th>景點</th><th>特色與拍照技巧</th></tr></thead>
+                    <tbody>
+                        <tr>
+                            <td>輕井澤車站 <span style="font-size:0.9em; color:#6c757d;">(かるいざわえき)</span></td>
+                            <td><b>特色：</b>結合現代新幹線與懷舊車站的建築風格，是連接南北輕井澤的中心點。<br><b>拍照技巧：</b>可以嘗試在車站南口的Outlet廣場，以車站為背景，捕捉廣闊的藍天與歐式建築的對比。</td></tr>
+                        <tr>
+                            <td>雲場池 <span style="font-size:0.9em; color:#6c757d;">(くもばいけ)</span></td>
+                            <td><b>特色：</b>有「天鵝湖」的美譽，湖水清澈見底，四季景色分明，尤其以秋天的楓紅倒影最為著名。<br><b>拍照技巧：</b>建議早晨前來，此時光線柔和且遊客較少。可利用低角度拍攝，將湖面倒影與實景完整納入畫面，創造出對稱的美感。</td></tr>
+                        <tr>
+                            <td>舊輕井澤銀座通 <span style="font-size:0.9em; color:#6c757d;">(きゅうかるいざわぎんざどおり)</span></td>
+                            <td><b>特色：</b>充滿歷史風情的主要商店街，匯集了果醬、麵包、香腸等當地名產店與各式咖啡館。<br><b>拍照技巧：</b>可以利用長焦段鏡頭，捕捉街上的人文互動或特色店家的櫥窗細節，營造出溫馨的街拍風格。</td></tr>
+                        <tr>
+                            <td>聖保羅天主教堂 <span style="font-size:0.9em; color:#6c757d;">(せいぱうろかとりっくきょうかい)</span></td>
+                            <td><b>特色：</b>由美國建築師安東尼・雷蒙設計，巨大的三角形屋頂與木造結構是其標誌，充滿寧靜與神聖的氛圍。<br><b>拍照技巧：</b>嘗試從教堂側面的小徑，利用樹葉作為前景，框住教堂主體，拍出彷彿置身於森林童話中的感覺。</td></tr>
+                        <tr>
+                            <td>蕭紀念禮拜堂 <span style="font-size:0.9em; color:#6c757d;">(しょーきねんれいはいどう)</span></td>
+                            <td><b>特色：</b>輕井澤最古老的教堂，紀念被譽為「輕井澤之父」的加拿大傳教士A.C.蕭，樸實的木造建築散發著歷史感。<br><b>拍照技巧：</b>聚焦在教堂的木質紋理與彩繪玻璃窗，利用光影變化，捕捉其莊重而溫暖的氣氛。</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card">
+                <h3>🚇 交通詳解：松本車站 ⇿ 住宿</h3>
+                <ul class="default-list" style="padding-left: 10px;">
+                    <li class="icon-walk">
+                        <b>步行：</b>1.4公里、約20分鐘。
+                    </li>
+                    <li class="icon-bus">
+                        <b>公車：</b>
+                        <ul style="margin-top: 10px; padding-left: 20px; list-style-type: disc;">
+                            <li style="margin-bottom: 8px;">
+                                <b>車站 → 住宿 (抵達時):</b><br>
+                                於松本站「お城口」(正面出口) <b>21號月台</b>，搭乘「タウンスニーカー北コース」循環巴士。
+                                <br><small><em>(每30分鐘一班，5, 35分發車，末班車17:15)。</em></small>
+                                <br>在「池上百竹亭」下車 (4站, 約20分)。
+                                <br><small><em>費用: ¥200 (可用現金/信用卡感應/Apple Pay，不可用Suica)。</em></small>
+                            </li>
+                            <li>
+                                <b>住宿 → 車站 (出發時):</b><br>
+                                於「松本市役所前 <span style="font-size:0.9em; color:#6c757d;">(まつもとしやくしょまえ)</span>」站牌，搭乘【30號】淺間溫泉線 <span style="font-size:0.9em; color:#6c757d;">(あさまおんせんせん)</span> 巴士前往松本車站。
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="icon-taxi">
+                        <b>計程車：</b>
+                        <br>告知司機在 [二の丸裏御門橋] 下車，費用約 ¥1,000多。
+                    </li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>🍽️ 餐飲與購物建議</h3>
+                <ul class="default-list">
+                    <li><b>輕井澤餐飲選項:</b>
+                        <ul style="margin-top: 10px; padding-left: 20px; list-style-type: disc;">
+                            <li style="margin-bottom: 8px;">
+                                <b>🥖 輕井澤法國麵包店 (French Bakery)</b>
+                                <ul style="margin-top:5px; padding-left:20px; list-style-type:circle;">
+                                    <li><b>營業時間：</b>8:00–17:00（週四公休，夏季多為無休）。</li>
+                                    <li><b>支付方式：</b>信用卡可；電子支付部分通路顯示支援（含PayPay）但建議備少量現金。</li>
+                                    <li><b>菜色建議：</b>法國長棍、可頌、蘋果派、可可、熱咖啡。適合外帶當早餐或下午茶。</li>
+                                    <li><b>價位：</b>約 ¥1,000/人。</li>
+                                    <li><b>備註：</b>座席約15-16席，空間較小；無停車場；觀光客多、英文可簡單溝通。</li>
+                                </ul>
+                            </li>
+                            <li style="margin-bottom: 8px;">
+                                <b>☕ ミカド珈琲 舊道店 <span style="font-size:0.9em; color:#6c757d;">(みかどコーヒー きゅうどうてん)</span> (Mikado Coffee)</b>
+                                <ul style="margin-top:5px; padding-left:20px; list-style-type:circle;">
+                                    <li><b>營業時間：</b>10:00–17:30（季節性略有調整）。</li>
+                                    <li><b>支付方式：</b>信用卡、NFC行動支付、Rakuten Pay等。</li>
+                                    <li><b>菜色建議：</b>招牌<b>モカソフト <span style="font-size:0.9em; color:#6c757d;">(もかそふと)</span>（摩卡霜淇淋/冰咖啡）</b>、經典熱咖啡、甜點蛋糕。</li>
+                                    <li><b>價位：</b>約 ¥1,000/人。</li>
+                                    <li><b>備註：</b>輕鬆休憩型咖啡館，座位舒適，適合長輩午後休息。</li>
+                                </ul>
+                            </li>
+                            <li style="margin-bottom: 8px;">
+                                <b>🥐 ベーカリー&レストラン沢村 舊輕井澤 <span style="font-size:0.9em; color:#6c757d;">(べーかりー&れすとらんさわむら きゅうかるいざわ)</span> (Bakery & Restaurant Sawamura)</b>
+                                <ul style="margin-top:5px; padding-left:20px; list-style-type:circle;">
+                                    <li><b>營業時間：</b>7:00–21:00（年中多營業，少數日不定休）。</li>
+                                    <li><b>支付方式：</b>信用卡、PayPay、Rakuten Pay等。</li>
+                                    <li><b>菜色建議：</b>早餐盤、歐陸麵包、三明治、義大利麵、牛排。</li>
+                                    <li><b>價位：</b>約 ¥1,000–2,000/人（依餐次而異）。</li>
+                                    <li><b>備註：</b>空間寬敞、座位多，適合5人同桌；熱門時段建議預約或提早卡位；服務人員對外國旅客友善。</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><b>松本餐飲選項:</b>
+                        <ul style="margin-top: 10px; padding-left: 20px; list-style-type: disc;">
+                            <li style="margin-bottom: 8px;">
+                                <b>🍞 小松パン店 <span style="font-size:0.9em; color:#6c757d;">(こまつぱんてん)</span> (Komatsu Bakery)</b>
+                                <ul style="margin-top:5px; padding-left:20px; list-style-type:circle;">
+                                    <li><b>價格：</b>多數麵包 ¥100–¥450；牛乳麵包 ¥420。</li>
+                                    <li><b>營業時間：</b>10:00–17:00（售完為止）；週日、國定假日、每月第1/3/5個週一公休。</li>
+                                    <li><b>支付方式：</b><b style="color:red;">僅收現金</b>。</li>
+                                    <li><b>特色：</b>昭和風老店，招牌 **牛乳麵包** 常溫可保存3天，適合健行當天攜帶。</li>
+                                    <li><b>備註：</b>熱門品項易售罄，建議提前一天預訂。</li>
+                                </ul>
+                            </li>
+                             <li style="margin-bottom: 8px;">
+                                <b>🍢 しづか <span style="font-size:0.9em; color:#6c757d;">(しづか)</span>（居酒屋／郷土料理）</b>
+                                <ul style="margin-top:5px; padding-left:20px; list-style-type:circle;">
+                                    <li><b>營業時間：</b>12:00–22:00（午餐12:00–14:00）；週日、國定假日休業。</li>
+                                    <li><b>支付方式：</b>可刷卡、電子支付。</li>
+                                    <li><b>菜色建議：</b>郷土料理豐富，推薦 **おでん盛り合わせ <span style="font-size:0.9em; color:#6c757d;">(おでんもりあわせ)</span>** 或 **ソースかつ丼 <span style="font-size:0.9em; color:#6c757d;">(そーすかつどん)</span>**，適合長輩。</li>
+                                    <li><b>價位：</b>午餐約 ¥1,000–¥1,999；晚餐約 ¥3,000–¥3,999。</li>
+                                    <li><b>備註：</b>鄰近松本城，座位舒適、有包廂可預約。</li>
+                                </ul>
+                            </li>
+                            <li style="margin-bottom: 8px;">
+                                <b>🍗 松本からあげセンター <span style="font-size:0.9em; color:#6c757d;">(まつもとからあげせんたー)</span>（松本站MIDORI 4F）</b>
+                                <ul style="margin-top:5px; padding-left:20px; list-style-type:circle;">
+                                    <li><b>營業時間：</b>每日10:00–20:00（隨MIDORI）。</li>
+                                    <li><b>支付方式：</b>可刷卡；不支援電子票證。</li>
+                                    <li><b>菜色建議：</b>名物 **山賊燒** 與各式唐揚。</li>
+                                    <li><b>價位：</b>客單約 ¥1,000–¥1,999。</li>
+                                    <li><b>備註：</b>松本站直結、外帶方便，適合趕車或健行當天搭配麵包享用。</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                     <li>
+                        <b>🍇 長野特產焦點</b>
+                        <ul style="margin-top: 10px; padding-left: 20px; list-style-type: disc;">
+                            <li style="margin-bottom: 8px;"><b>信州葡萄三姊妹:</b> 九月正是長野葡萄的盛產季，務必品嚐！
+                                <ul style="margin-top:5px; padding-left:20px; list-style-type:circle;">
+                                    <li><b>麝香葡萄 (シャインマスカット <span style="font-size:0.9em; color:#6c757d;">(しゃいんますかっと)</span>):</b> 綠色無籽，果皮極薄可直接吃，甜度高且帶有獨特花香。</li>
+                                    <li><b>長野紫葡萄 (ナガノパープル <span style="font-size:0.9em; color:#6c757d;">(ながのぱーぷる)</span>):</b> 紫黑色無籽，同樣可帶皮吃，甜度與酸度平衡得恰到好處。</li>
+                                    <li><b>女王紅寶石 (クイーンルージュ <span style="font-size:0.9em; color:#6c757d;">(くいーんるーじゅ)</span>):</b> 長野縣新開發的紅色品種，無籽帶皮吃，甜度非常高。</li>
+                                </ul>
+                            </li>
+                            <li style="margin-bottom: 8px;"><b>其他特產:</b>
+                                <ul style="margin-top:5px; padding-left:20px; list-style-type:circle;">
+                                     <li><b>蘋果 (りんご <span style="font-size:0.9em; color:#6c757d;">(りんご)</span>):</b> 信州蘋果汁多甜脆，品種繁多。</li>
+                                     <li><b>開運堂 <span style="font-size:0.9em; color:#6c757d;">(かいうんどう)</span>:</b> 松本的百年和菓子老店，他們的「真味糖」和「白鳥の湖」餅乾都是非常雅緻的伴手禮。</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Day 3 Content -->
+        <div id="tab-day3" class="tab-content">
+             <div class="day-title-banner">3️⃣ Day 3: 神的故鄉 (上高地 <span style="font-size:0.9em; color:#6c757d;">(かみこうち)</span>) 健行 (2025-09-12 週五)</div>
+            <div class="info-card">
+                <h3>☀️ 當日天氣預報 (上高地 <span style="font-size:0.9em; color:#6c757d;">(かみこうち)</span>)</h3>
+                <ul class="default-list">
+                    <li class="icon-temperature"><b>預估氣溫:</b> 8°C - 18°C</li>
+                    <li class="icon-weather"><b>天氣狀況:</b> 大晴天，能見度極佳。</li>
+                    <li class="icon-rain"><b>降雨機率:</b> 非常低。</li>
+                    <li class="icon-shirt"><b>穿搭建議:</b> 洋蔥式穿搭。內層排汗衣，中層保暖層(刷毛或薄羽絨)，外層防風外套。務必做好防曬。</li>
+                </ul>
+            </div>
+            <div class="warning">
+                <h3>🏔️ 高山氣候提醒</h3>
+                <p>上高地 <span style="font-size:0.9em; color:#6c757d;">(かみこうち)</span> 海拔約1500公尺，氣溫會比平地低5-10度，紫外線強。即使平地晴朗，山區天氣也可能多變，請務必攜帶保暖防風外套與雨具。</p>
+            </div>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>🚶‍♀️ 生理與行李負荷分析</h3>
+                    <ul class="default-list">
+                        <li class="icon-walk"><b>步行強度：</b>高。依照健行方案，約 6,000 - 15,000 步 (約 4 - 10 公里)。</li>
+                        <li class="icon-toilet"><b>廁所友善度：</b>中。主要集中在大正池、巴士總站、河童橋、明神池等區域。</li>
+                        <li class="icon-luggage"><b>行李友善度：</b>佳。輕裝一日遊。</li>
+                    </ul>
+                </div>
+                 <div class="info-card">
+                    <h3>🏨 當日住宿資訊</h3>
+                    <ul class="default-list">
+                        <li class="icon-bed"><b>住宿:</b> 松本 <span style="font-size:0.9em; color:#6c757d;">(まつもと)</span> Airbnb (<a class="photo-link" href="https://www.airbnb.com.tw/rooms/1291644049856334910?source_impression_id=p3_1752918306_P3XQHS3CzQH26wtD" target="_blank">參考照片</a>)</li>
+                        <li class="icon-room"><b>房型:</b> 獨棟2層樓，3間客房 (臥室1: 2張單人床, 臥室2: 3張地板床墊, 臥室3: 3張地板床墊)。</li>
+                        <li class="icon-star"><b>特色:</b> 房內可看到松本城，離松本城走路僅1分鐘，可寄放行李。</li>
+                        <li class="icon-time"><b>入住/退房:</b> 15:00 (自助入住) / 10:00</li>
+                    </ul>
+                    <p style="font-size: smaller; color: #6c757d; margin-top: 10px;">*提示：點擊藍色底線文字可查看照片。</p>
+                </div>
+            </div>
+            <div class="card">
+                <h3>⏰ 時間軸規劃</h3>
+                <table class="timeline">
+                    <thead><tr><th>時間</th><th>地點 / 活動</th><th>詳細說明與任務</th></tr></thead>
+                    <tbody>
+                        <tr><td>~07:38</td><td>🏠 住宿 → 松本站 <span style="font-size:0.9em; color:#6c757d;">(まつもとえき)</span></td><td>從住宿步行至「松本市役所前」站牌，搭乘【30號】淺間溫泉線巴士前往松本車站(07:25-07:38)。</td></tr>
+                        <tr><td><b>08:43-09:14</b></td><td>🚃 松本 <span style="font-size:0.9em; color:#6c757d;">(まつもと)</span> → 新島々 <span style="font-size:0.9em; color:#6c757d;">(しんしましま)</span></td><td>搭乘時間：31分。於松本車站搭乘松本電鐵上高地線 (當日買票，限現金)。</td></tr>
+                        <tr><td><b>09:14-09:30</b></td><td>🔄 新島々 <span style="font-size:0.9em; color:#6c757d;">(しんしましま)</span> 站轉乘</td><td>轉乘時間：16分。電車轉乘巴士。</td></tr>
+                        <tr><td><b>09:30-10:24</b></td><td>🚌 新島々 <span style="font-size:0.9em; color:#6c757d;">(しんしましま)</span> → 大正池 <span style="font-size:0.9em; color:#6c757d;">(たいしょういけ)</span></td><td>搭乘時間：54分。搭乘Alpico巴士。<br><b>預約號碼:</b> 09012048161(4人), 09012048221(1人)</td></tr>
+                        <tr><td>10:24-10:40</td><td>🚌 抵達大正池公車站，廁所整裝</td><td>確認回程車票、整理裝備。</td></tr>
+                        <tr><td>10:40-11:20</td><td>🚶‍♀️ 第1段步行（40分鐘）</td><td>大正池→田代池方向，沿途拍照。</td></tr>
+                        <tr><td>11:20-11:50</td><td>☕ 第1次休息（30分鐘）</td><td>找樹蔭長椅，補充水分。</td></tr>
+                        <tr><td>11:50-12:30</td><td>🚶‍♀️ 第2段步行（40分鐘）</td><td>田代池→穗高橋方向，林蔭步道。</td></tr>
+                        <tr><td>12:30-13:00</td><td>🍱 午餐時間（30分鐘）</td><td>簡單餐點+休息。</td></tr>
+                        <tr><td>13:00-13:40</td><td>🚶‍♀️ 第3段步行（40分鐘）</td><td>穗高橋→河童橋，最後衝刺。</td></tr>
+                        <tr><td>13:40-14:00</td><td>📸 河童橋拍照留念（20分鐘）</td><td>經典景點，全家合照。</td></tr>
+                        <tr><td>14:00-14:45</td><td>🍰 甜點時間1 / 甜點時間2</td><td>
+                            <b>甜點時間1：ラ・ベルフォーレ <span style="font-size:0.9em; color:#6c757d;">(ら・べるふぉーれ)</span></b> 巨型蒙布朗+空調休息<br>
+                            <b>甜點時間2：TROIS CINQ <span style="font-size:0.9em; color:#6c757d;">(とろわ さんく)</span></b> 經典蘋果派+河景
+                        </td></tr>
+                        <tr><td>14:45-15:00</td><td>🛍️ 簡單購物（15分鐘）</td><td>伴手禮、紀念品。</td></tr>
+                        <tr><td>15:40-15:50</td><td>🚌 準備搭車返回（10分鐘）</td><td>整裝、確認班次。</td></tr>
+                        <tr><td><b>16:00-17:05</b></td><td>🚌 上高地 <span style="font-size:0.9em; color:#6c757d;">(かみこうち)</span> → 新島々 <span style="font-size:0.9em; color:#6c757d;">(しんしましま)</span></td><td>搭乘時間：1小時5分。從上高地巴士總站<b>4號月台</b>搭乘巴士。<br><b>預約號碼:</b> 09012048351(4人), 09012048391(1人)</td></tr>
+                        <tr><td><b>17:05-17:22</b></td><td>🔄 新島々 <span style="font-size:0.9em; color:#6c757d;">(しんしましま)</span> 站轉乘</td><td>轉乘時間：17分。巴士轉乘電車。</td></tr>
+                        <tr><td><b>17:22-17:52</b></td><td>🚃 新島々 <span style="font-size:0.9em; color:#6c757d;">(しんしましま)</span> → 松本 <span style="font-size:0.9em; color:#6c757d;">(まつもと)</span></td><td>搭乘時間：30分。搭乘電車返回松本。<b style="color:red;">提醒：此時間抵達松本，已接不上循環巴士末班車(17:15)。</b></td></tr>
+                    </tbody>
+                </table>
+            </div>
+             <div class="card">
+                <h3>🍰 優化甜點安排策略</h3>
+                <ul class="default-list">
+                    <li><b>混雜判斷：</b>河童橋10:30–14:30最擁擠；建議將入座時間安排在12:00前或14:30後。</li>
+                    <li><b>第一站：ラ・ベルフォーレ <span style="font-size:0.9em; color:#6c757d;">(ら・べるふぉーれ)</span></b>
+                        <ul style="margin-top:5px; padding-left:20px; list-style-type:circle;">
+                            <li><b>📍 位置：</b>上高地ホテル白樺荘內 <span style="font-size:0.9em; color:#6c757d;">(かみこうちほてるしらかばそう)</span></li>
+                            <li><b>🏆 推薦理由：</b>✅ 室內空調，最適合65歲長者休息；✅ 窗景絕佳，面向穗高連峰；✅ 可刷卡，無現金壓力。</li>
+                            <li><b>🍰 點餐建議：</b>ジャンボモンブラン <span style="font-size:0.9em; color:#6c757d;">(じゃんぼもんぶらん)</span> 巨型蒙布朗 <b>¥800</b></li>
+                            <li><b>⏰ 用餐時間：</b>45分鐘（包含休息）</li>
+                        </ul>
+                    </li>
+                    <li><b>第二站：TROIS CINQ <span style="font-size:0.9em; color:#6c757d;">(とろわ さんく)</span></b>
+                        <ul style="margin-top:5px; padding-left:20px; list-style-type:circle;">
+                            <li><b>📍 位置：</b>河童橋 <span style="font-size:0.9em; color:#6c757d;">(かっぱばし)</span> 旁，視野佳</li>
+                            <li><b>🏆 推薦理由：</b>✅ 經典名店，上高地必訪；✅ 戶外座位，拍照絕佳；✅ アップルパイ <span style="font-size:0.9em; color:#6c757d;">(あっぷるぱい)</span> 招牌必吃。</li>
+                            <li><b>💰 預算準備：</b>現金 <b>¥5,000</b>（5人份）</li>
+                            <li><b>⏰ 用餐時間：</b>40分鐘</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+             <div class="card">
+                <h3>📊 時間充裕度評估</h3>
+                <p>總停留時間：5小時36分鐘（10:24-16:00）；實際步行時間：2小時（分3段，每段40分鐘）；休息+甜點時間：2小時25分鐘；機動緩衝時間：約1小時。
+                <br><b>結論：時間安排恰到好處！ ✅ 不會太趕；✅ 不會太閒；✅ 有彈性。</b></p>
+            </div>
+            
+             <div class="card">
+                <h3>📍 上高地景點特色速覽</h3>
+                <table>
+                     <thead><tr><th>景點</th><th>特色與可看性</th><th>拍照技巧</th></tr></thead>
+                     <tbody>
+                        <tr><td>大正池 <span style="font-size:0.9em; color:#6c757d;">(たいしょういけ)</span></td><td><b>特色：</b>因火山噴發而形成的堰塞湖，枯木矗立在水中的景象如夢似幻，是上高地的代表景觀之一。<br><b>可看性：</b>清晨時水面如鏡，能完美倒映穗高連峰，景色絕美。</td><td>建議早晨順光拍攝，利用廣角鏡頭將山脈倒影與枯木一同納入畫面。</td></tr>
+                        <tr><td>田代池 <span style="font-size:0.9em; color:#6c757d;">(たしろいけ)</span></td><td><b>特色：</b>由地下湧泉形成的淺灘濕地，水質清澈見底，四季展現不同色彩。<br><b>可看性：</b>濕地中的原生植物與清澈流水交織成原始的自然美景。</td><td>可使用偏光鏡消除水面反光，拍出水下植物的清透感。</td></tr>
+                        <tr><td>河童橋 <span style="font-size:0.9em; color:#6c757d;">(かっぱばし)</span></td><td><b>特色：</b>上高地的地標，是欣賞穗高連峰與梓川清流的最佳地點。<br><b>可看性：</b>從橋上可以360度欣賞壯麗的山景與溪谷，是遊客必訪的中心點。</td><td>站在橋上或下游河灘，以橋為前景，將後方的穗高連峰一起拍下，是最經典的構圖。</td></tr>
+                        <tr><td>明神池 <span style="font-size:0.9em; color:#6c757d;">(みょうじんいけ)</span></td><td><b>特色：</b>分為一之池與二之池，池畔是穗高神社奧宮，充滿神秘與莊嚴的氛圍。<br><b>可看性：</b>池水極度清澈，周圍被原始森林環繞，靜謐的氛圍彷彿人間仙境。</td><td>低角度拍攝停泊在池邊的小船，搭配後方的山景與神社，能營造出靜謐神聖的感覺。</td></tr>
+                     </tbody>
+                </table>
+            </div>
+            <div class="card">
+                <h3>🍽️ 健行與用餐建議</h3>
+                <ul class="default-list">
+                     <li><b>上高地健行外帶餐點推薦:</b>
+                        <ul style="margin-top: 10px; padding-left: 20px; list-style-type: disc;">
+                            <li style="margin-bottom: 8px;"><b>小松パン店 牛乳麵包（牛奶麵包）:</b>
+                                <br>人氣招牌，常溫可保存3天，不需冷藏，是健行帶餐的首選。建議前一晚於松本購入，因熱門款式常於上午售罄。
+                                <br><b>價格：</b>¥420/個。
+                            </li>
+                             <li style="margin-bottom: 8px;"><b>其他耐放麵包：</b>
+                                <br>鹹口麵包（如咖哩麵包、調理麵包）同樣耐放、有飽足感，方便攜帶。
+                            </li>
+                             <li style="margin-bottom: 8px;"><b>專業登山健行補充：</b>
+                                <br>便利商店可購買穀麥麵包、能量棒、米果、飯糰（注意夏季易變質）；
+                                <br>登山用品店（如mont-bell）也有多種無需加熱的常溫行動食。
+                            </li>
+                        </ul>
+                    </li>
+                    <li><b>上高地餐廳與咖啡廳資訊:</b>
+                        <ul style="margin-top: 10px; padding-left: 20px; list-style-type: disc;">
+                            <li style="margin-bottom: 8px;">
+                                <b>🍎 TROIS CINQ 上高地 <span style="font-size:0.9em; color:#6c757d;">(とわさんく かみこうち)</span> (蘋果派)</b>
+                                <ul style="margin-top:5px; padding-left:20px; list-style-type:circle;">
+                                    <li><b>營業時間：</b>8:00–16:00；旺季無休。</li>
+                                    <li><b>支付方式：</b>現金為主。</li>
+                                    <li><b>菜色建議：</b>招牌 **アップルパイ <span style="font-size:0.9em; color:#6c757d;">(あっぷるぱい)</span>（蘋果派）**，單片約¥600，套餐約¥1,090。</li>
+                                    <li><b>備註：</b>河童橋旁人氣咖啡館，視野佳，設有戶外座位。</li>
+                                </ul>
+                            </li>
+                             <li style="margin-bottom: 8px;">
+                                <b>🍦 上高地のおみやげや <span style="font-size:0.9em; color:#6c757d;">(かみこうちのおみやげや)</span>（上高地食堂 內賣店）</b>
+                                <ul style="margin-top:5px; padding-left:20px; list-style-type:circle;">
+                                    <li><b>營業時間：</b>4/17–11/15，晨間至午後。</li>
+                                    <li><b>支付方式：</b>多數可現金，部分可刷卡。</li>
+                                    <li><b>菜色建議：</b>現做小吃如 **河童燒 <span style="font-size:0.9em; color:#6c757d;">(かっぱやき)</span>**（每個¥300）、冰淇淋等。</li>
+                                    <li><b>備註：</b>巴士總站旁，伴手禮齊全，適合等車前補給。</li>
+                                </ul>
+                            </li>
+                             <li style="margin-bottom: 8px;">
+                                <b>🌰 ラ・ベルフォーレ <span style="font-size:0.9em; color:#6c757d;">(ら・べるふぉーれ)</span>（上高地ホテル白樺荘 <span style="font-size:0.9em; color:#6c757d;">(かみこうちほてるしらかばそう)</span> 內）</b>
+                                <ul style="margin-top:5px; padding-left:20px; list-style-type:circle;">
+                                    <li><b>營業時間：</b>咖啡時段 11:00–15:00；旺季營運。</li>
+                                    <li><b>支付方式：</b>普遍可刷卡。</li>
+                                    <li><b>菜色建議：</b>名物 **ジャンボモンブラン <span style="font-size:0.9em; color:#6c757d;">(じゃんぼもんぶらん)</span>**，份量大適合分食；自家製蘋果派。</li>
+                                    <li><b>備註：</b>窗景面向穗高連峰，室內有空調，適合長輩休息。</li>
+                                </ul>
+                            </li>
+                            <li style="margin-bottom: 8px;">
+                                <b>🍰 スイーツカフェ＆バー LOUNGE <span style="font-size:0.9em; color:#6c757d;">(すいーつかふぇ＆ばーらうんじ)</span>（五千尺ホテル上高地 <span style="font-size:0.9em; color:#6c757d;">(ごせんじゃくほてるかみこうち)</span> 1F）</b>
+                                <ul style="margin-top:5px; padding-left:20px; list-style-type:circle;">
+                                    <li><b>營業時間：</b>山季期間（約4/20起），白天為咖啡館，傍晚為酒吧。</li>
+                                    <li><b>支付方式：</b>通常可刷卡。</li>
+                                    <li><b>菜色建議：</b>人氣 **レアチーズケーキ <span style="font-size:0.9em; color:#6c757d;">(れあちーずけーき)</span>** 與信州富士蘋果派。</li>
+                                    <li><b>備註：</b>氣氛高雅，座位舒適，適合散策後休憩。</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li style="margin-bottom: 16px;">
+                        <b>晚餐選項 (松本):</b>
+                        <ul style="margin-top: 10px; padding-left: 20px; list-style-type: disc;">
+                            <li style="margin-bottom: 16px;">
+                                <b>🍶 きく蔵 <span style="font-size:0.9em; color:#6c757d;">(きくぞう)</span> - 日式割烹居酒屋</b>
+                                <ul style="margin-top:5px; padding-left:20px; list-style-type:circle;">
+                                    <li><b>營業時間：</b>17:30–22:00（L.O. 21:15）；週日公休。</li>
+                                    <li><b>支付方式：</b>可刷卡、支援部分QR支付。</li>
+                                    <li><b>菜色建議：</b>以信州食材為主的日本料理。推薦懷石套餐（需預約）。</li>
+                                    <li><b>價位：</b>懷石套餐 <b>¥6,600</b>/人起；晚餐客單約 <b>¥8,000–¥9,999</b>。</li>
+                                    <li><b>備註：</b>會收取 <b>¥700/人</b> 的お通し代 <span style="font-size:0.9em; color:#6c757d;">(おとおしだい)</span> 作為餐前小菜費，請務必計入預算。</li>
+                                </ul>
+                            </li>
+                            <li style="margin-bottom: 16px;">
+                                <b>🍛 松本民芸レストラン 盛よし <span style="font-size:0.9em; color:#6c757d;">(まつもとみんげいれすとらん もりよし)</span> - 在地洋食</b>
+                                <ul style="margin-top:5px; padding-left:20px; list-style-type:circle;">
+                                    <li><b>營業時間：</b>午餐 11:30–15:00（L.O.14:30）；晚餐 17:30–21:30（L.O.21:00）；週二公休。</li>
+                                    <li><b>支付方式：</b>可刷卡、支援多種電子支付。</li>
+                                    <li><b>菜色建議：</b>手作漢堡排、蟹肉可樂餅等招牌洋食。</li>
+                                    <li><b>價位：</b>定食約 <b>¥1,000–¥1,800</b>；單品約 <b>¥750–¥2,035</b>。</li>
+                                    <li><b>備註：</b>不收お通し代 <span style="font-size:0.9em; color:#6c757d;">(おとおしだい)</span> 與包廂費，適合家庭用餐。</li>
+                                </ul>
+                            </li>
+                            <li style="margin-bottom: 16px;">
+                                <b>🐴 新三よし <span style="font-size:0.9em; color:#6c757d;">(しんみよし)</span> - 馬肉專門店</b>
+                                <ul style="margin-top:5px; padding-left:20px; list-style-type:circle;">
+                                    <li><b>營業時間：</b>午餐 11:30–14:00；晚餐 17:00–22:00；年中無休。</li>
+                                    <li><b>支付方式：</b>可刷卡、電子支付、QR支付。</li>
+                                    <li><b>菜色建議：</b>松本代表性馬肉專門店，推薦「さくら刺身盛」<span style="font-size:0.9em; color:#6c757d;">(さくらさしみもり)</span>或午間御膳。</li>
+                                    <li><b>價位：</b>午餐御膳約 <b>¥2,420–¥3,850</b>；晚餐客單約 <b>¥3,300–¥5,000</b>。</li>
+                                    <li><b>備註：</b>晚餐時段有座席/小菜等收費政策，建議訂位時主動確認。</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li style="margin-bottom: 16px;">
+                        <b>點心:</b>
+                        <ul style="margin-top: 10px; padding-left: 20px; list-style-type: disc;">
+                            <li style="margin-bottom: 16px;">
+                                <b>🍮 上高地布丁 <span style="font-size:0.9em; color:#6c757d;">(かみこうちぷりん)</span></b>
+                                <ul style="margin-top:5px; padding-left:20px; list-style-type:circle;">
+                                    <li><b>販售地點：</b>河童橋旁「上高地のおみやげや」<span style="font-size:0.9em; color:#6c757d;">(かみこうちのおみやげや)</span>。</li>
+                                    <li><b>價格：</b>約 <b>¥600</b>/個。</li>
+                                    <li><b>特色：</b>使用當地新鮮牛奶製作，口感細滑香濃。</li>
+                                    <li><b>備註：</b>需冷藏，建議健行結束或回程前購買。</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Day 4 Content -->
+        <div id="tab-day4" class="tab-content">
+             <div class="day-title-banner">4️⃣ Day 4: 抵達金澤 <span style="font-size:0.9em; color:#6c757d;">(かなざわ)</span> → 武家屋敷與現代藝術巡禮 (2025-09-13 週六)</div>
+            <div class="info-card">
+                <h3>☀️ 當日天氣預報 (金澤 <span style="font-size:0.9em; color:#6c757d;">(かなざわ)</span>)</h3>
+                <ul class="default-list">
+                    <li class="icon-temperature"><b>預估氣溫:</b> 18°C - 26°C</li>
+                    <li class="icon-weather"><b>天氣狀況:</b> 晴時多雲，偶有短暫陣雨。</li>
+                    <li class="icon-rain"><b>降雨機率:</b> 中等。</li>
+                    <li class="icon-shirt"><b>穿搭建議:</b> 薄長袖搭配輕便外套，務必攜帶雨具。</li>
+                </ul>
+            </div>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>🚶‍♀️ 生理與行李負荷分析</h3>
+                    <ul class="default-list">
+                        <li class="icon-walk"><b>步行強度：</b>高。約 10,000 步 (約 7 公里)。</li>
+                        <li class="icon-toilet"><b>廁所友善度:</b> 佳。</li>
+                        <li class="icon-luggage"><b>行李友善度：</b>中。本日行程集中，建議輕裝出發。</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>🏨 當日住宿資訊</h3>
+                    <ul class="default-list">
+                        <li class="icon-bed"><b>住宿:</b> RUFF - Hosai (金澤 <span style="font-size:0.9em; color:#6c757d;">(かなざわ)</span>) (<a class="photo-link" href="https://www.booking.com/hotel/jp/ruff-hosai.zh-tw.html" target="_blank">參考照片</a>)</li>
+                        <li class="icon-room"><b>房型:</b> 獨棟2層樓住宅 (98m²)，3房</li>
+                        <li class="icon-star"><b>特色:</b> 位於長町武家屋敷區域，有熱水按摩池。</li>
+                        <li class="icon-time"><b>入住/退房:</b> 15:00 / 11:00</li>
+                    </ul>
+                    <p style="font-size: smaller; color: #6c757d; margin-top: 10px;">*提示：點擊藍色底線文字可查看照片。</p>
+                </div>
+            </div>
+            <div class="card">
+                <h3>⏰ 時間軸規劃</h3>
+                <table class="timeline">
+                    <thead><tr><th>時間</th><th>地點 / 活動</th><th>詳細說明與任務</th></tr></thead>
+                    <tbody>
+                        <tr><td>08:15-08:43</td><td>🏠 住宿 → 車站</td><td>「松本市役所前」站牌，搭乘【30號】淺間溫泉線巴士前往松本車站。 （公車08:30-08:43）</td></tr>
+                        <tr><td><b>09:09-10:03</b></td><td>🚄 松本 <span style="font-size:0.9em; color:#6c757d;">(まつもと)</span> → 長野 <span style="font-size:0.9em; color:#6c757d;">(ながの)</span></td><td>搭乘時間：54分。搭乘【<b>特急しなの1号</b>】。（<b>3號月台</b>出發，<b>2號月台</b>抵達）</td></tr>
+                        <tr><td><b>10:03-10:46</b></td><td>🔄 長野站轉乘</td><td>轉乘時間：43分。</td></tr>
+                        <tr><td><b>10:46-11:52</b></td><td>🚄 長野 <span style="font-size:0.9em; color:#6c757d;">(ながの)</span> → 金澤 <span style="font-size:0.9em; color:#6c757d;">(かなざわ)</span></td><td>搭乘時間：1小時6分。搭乘【<b>新幹線かがやき507号，全車指定席（必須先訂位）</b>】。（<b>12月台</b>出發，<b>13月台</b>抵達）</td></tr>
+                        <tr><td>12:00-13:00</td><td>🏨 金澤住宿</td><td>車站→ 住宿，走路1公里，15分。先至住宿處寄放行李。</td></tr>
+                        <tr><td>13:00-14:30</td><td>🚶‍♂️ 長町武家屋敷跡 <span style="font-size:0.9em; color:#6c757d;">(ながまちぶけやしきあと)</span></td><td><b>[店家約10:00-17:00]</b> 在此區域散步並享用午餐。</td></tr>
+                        <tr><td>14:30-15:30</td><td>🧘 鈴木大拙館 <span style="font-size:0.9em; color:#6c757d;">(すずきだいせつかん)</span></td><td><b>[開放至 17:00，最後入場16:30] [門票 ¥310]</b> 感受禪意空間。</td></tr>
+                        <tr><td>15:30-16:30</td><td>🖼️ 金澤21世紀美術館 <span style="font-size:0.9em; color:#6c757d;">(かなざわにじゅういっせいきびじゅつかん)</span></td><td><b>[展覽區 10:00-18:00] [門票因展覽而異]</b> 參觀現代藝術。</td></tr>
+                        <tr><td>16:30-17:00</td><td>🏙️ 金澤市公所展望大廳</td><td><b>[平日 08:30-17:15] [免費]</b> 從8樓欣賞市景。</td></tr>
+                        <tr><td>17:00~</td><td>🌃 金澤 / 晚餐</td><td>返回住宿處辦理入住，之後可至片町 <span style="font-size:0.9em; color:#6c757d;">(かたまち)</span>/香林坊 <span style="font-size:0.9em; color:#6c757d;">(こうりんぼう)</span> 區域享用晚餐。</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card">
+                <h3>📍 當日景點特色速覽</h3>
+                <table>
+                     <thead><tr><th>景點</th><th>特色與推薦理由</th></tr></thead>
+                     <tbody>
+                        <tr><td>長町武家屋敷跡 <span style="font-size:0.9em; color:#6c757d;">(ながまちぶけやしきあと)</span></td><td><b>特色：</b>保留江戶時代武士住宅區的原始風貌，土牆與石板路非常有味道。<br><b>推薦：</b>適合悠閒散步，感受歷史氛圍，且離住宿點最近，可作為起點。</td></tr>
+                        <tr><td>鈴木大拙館 <span style="font-size:0.9em; color:#6c757d;">(すずきだいせつかん)</span></td><td><b>特色：</b>由建築大師谷口吉生設計，充滿禪意的哲學空間，建築與水景完美結合。<br><b>推薦：</b>能讓心靈完全沉靜下來的地方，是本日行程的完美收尾。</td></tr>
+                        <tr><td>金澤21世紀美術館 <span style="font-size:0.9em; color:#6c757d;">(かなざわにじゅういっせいきびじゅつかん)</span></td><td><b>特色：</b>圓形玻璃建築本身就是藝術品，以互動式裝置藝術聞名，尤其是《泳池》。<br><b>推薦：：</b>顛覆傳統美術館的想像，充滿趣味性，適合所有年齡層。</td></tr>
+                        <tr><td>金澤市公所展望大廳</td><td><b>特色：</b>免費的市區制高點，可從不同角度俯瞰金澤市景，包含金澤城與兼六園。<br><b>推薦：：</b>CP值極高的秘境景點，能快速建立對金澤市的地理概念。</td></tr>
+                     </tbody>
+                </table>
+            </div>
+             <div class="card">
+                <h3>🍽️ 餐飲與購物建議</h3>
+                <ul class="default-list">
+                     <li style="margin-bottom: 16px;">
+                        <b>午餐選項 (長町武家屋敷跡 / 香林坊附近):</b>
+                        <ul style="margin-top: 10px; padding-left: 20px; list-style-type: disc;">
+                            <li style="margin-bottom: 16px;">
+                                <b>🍳 グリルオーツカ <span style="font-size:0.9em; color:#6c757d;">(ぐりるおーつか)</span> (Grill Otsuka 洋食)</b>
+                                <ul style="margin-top:5px; padding-left:20px; list-style-type:circle;">
+                                    <li><b>特色：</b>昭和32年(1957年)創業的洋食老店，金澤在地美食「ハントンライス <span style="font-size:0.9em; color:#6c757d;">(はんとんらいす)</span> (哈頓飯)」的創始店。</li>
+                                    <li><b>價位：</b>午餐約 ¥1,000 - ¥1,999 /人。</li>
+                                    <li><b>推薦菜色：</b>ハントンライス <span style="font-size:0.9em; color:#6c757d;">(はんとんらいす)</span> (哈頓飯，在蛋包飯上淋番茄醬與塔塔醬，並放上炸物)。</li>
+                                    <li><b>評價：</b>
+                                        <ul style="margin-top:2px; padding-left:15px; list-style-type:'- ';">
+                                            <li>食べログ: 3.58</li>
+                                            <li>Google: 4.1</li>
+                                        </ul>
+                                    </li>
+                                    <li><b>營業時間：</b>11:00–15:20 (L.O. 14:45)、17:00–20:30 (L.O. 19:50)，週三公休。</li>
+                                    <li><b>注意事項：</b>不接受預約，用餐尖峰時間必定大排長龍，建議開店前就去排隊。</li>
+                                    <li><b>友善度：</b>座位為一般西式桌椅，但巷弄與店內較窄。排隊時間長，建議長輩避開正午尖峰。</li>
+                                    <li><b>付款方式：</b>建議準備現金，部分資訊表示不可刷卡。</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li style="margin-bottom: 16px;">
+                        <b>晚餐選項 (片町/香林坊):</b>
+                        <ul style="margin-top: 10px; padding-left: 20px; list-style-type: disc;">
+                             <li style="margin-bottom: 16px;">
+                                <b>🐟 いたる本店 <span style="font-size:0.9em; color:#6c757d;">(いたるほんてん)</span> (Itaru Honten 海鮮居酒屋)</b>
+                                <ul style="margin-top:5px; padding-left:20px; list-style-type:circle;">
+                                    <li><b>特色：</b>金澤最具代表性的居酒屋，能品嚐到北陸(能登、加賀)最新鮮的海產與豐富的在地清酒。氣氛熱鬧。</li>
+                                    <li><b>價位：</b>晚餐約 ¥6,000 - ¥7,999 /人。</li>
+                                    <li><b>推薦菜色：</b>刺身の桶盛 <span style="font-size:0.9em; color:#6c757d;">(さしみのおけもり)</span> (綜合生魚片桶)、のどぐろ塩焼き <span style="font-size:0.9em; color:#6c757d;">(のどぐろしおやき)</span> (烤紅喉)、季節性料理 (如岩牡蠣、白子等)。</li>
+                                    <li><b>評價：</b>
+                                        <ul style="margin-top:2px; padding-left:15px; list-style-type:'- ';">
+                                            <li>食べログ: 3.76 (居酒屋百名店)</li>
+                                            <li>Google: 4.4</li>
+                                        </ul>
+                                    </li>
+                                    <li><b>營業時間：</b>17:30–23:30 (L.O. 23:00)，週日公休。</li>
+                                    <li><b>注意事項：</b><b style="color:red;">極度熱門，務必提早預約 (建議一個月前)</b>。日本居酒屋通常會收取「お通し/席料」<span style="font-size:0.9em; color:#6c757d;">(おとおし/せきりょう)</span>(小菜費/座位費)。</li>
+                                    <li><b>友善度：</b>有一般桌席與吧檯座位，預約時可指定桌席對長輩較友善。海鮮為主，若有過敏需注意。</li>
+                                    <li><b>付款方式：</b>可使用信用卡 (VISA, Master, JCB, AMEX)。</li>
+                                </ul>
+                            </li>
+                             <li style="margin-bottom: 16px;">
+                                <b>🥟 第7ギョーザの店 <span style="font-size:0.9em; color:#6c757d;">(だいななぎょうざのみせ)</span> (The 7th Gyoza 餃子)</b>
+                                <ul style="margin-top:5px; padding-left:20px; list-style-type:circle;">
+                                    <li><b>特色：</b>金澤的靈魂美食，以獨特的「ホワイト餃子 <span style="font-size:0.9em; color:#6c757d;">(ほわいとぎょうざ)</span> (白餃子)」聞名，外皮厚實，口感介於煎與炸之間，像圓滾滾的炸麵包。</li>
+                                    <li><b>價位：</b>晚餐約 ¥1,000 - ¥1,999 /人。</li>
+                                    <li><b>推薦菜色：</b>ホワイト餃子 <span style="font-size:0.9em; color:#6c757d;">(ほわいとぎょうざ)</span> (白餃子)、焼餃子 <span style="font-size:0.9em; color:#6c757d;">(やきぎょうざ)</span> (煎餃)。</li>
+                                    <li><b>評價：</b>
+                                        <ul style="margin-top:2px; padding-left:15px; list-style-type:'- ';">
+                                            <li>食べログ: 3.48</li>
+                                            <li>Google: 4.0</li>
+                                        </ul>
+                                    </li>
+                                    <li><b>營業時間：</b>11:00–22:00 (L.O. 21:00)，週三公休。</li>
+                                    <li><b>注意事項：</b>不接受預約，用餐時間人潮洶湧，建議避開尖峰。</li>
+                                    <li><b>友善度：</b>座位多，翻桌率快。但環境較嘈雜，適合喜歡熱鬧氛圍的團體。</li>
+                                    <li><b>付款方式：</b>可使用信用卡。</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Day 5 Content -->
+        <div id="tab-day5" class="tab-content">
+            <div class="day-title-banner">5️⃣ Day 5: 五箇山 <span style="font-size:0.9em; color:#6c757d;">(ごかやま)</span>・白川鄉 <span style="font-size:0.9em; color:#6c757d;">(しらかわごう)</span> 合掌村一日遊 (2025-09-14 週日)</div>
+            <div class="info-card">
+                <h3>☀️ 當日天氣預報 (五箇山・白川鄉)</h3>
+                <ul class="default-list">
+                    <li class="icon-temperature"><b>預估氣溫:</b> 15°C - 23°C</li>
+                    <li class="icon-weather"><b>天氣狀況:</b> 多雲時晴。</li>
+                    <li class="icon-rain"><b>降雨機率:</b> 中等。</li>
+                    <li class="icon-shirt"><b>穿搭建議:</b> 比金澤市區涼爽，建議穿著薄外套，並務必攜帶雨具。</li>
+                </ul>
+            </div>
+            <div class="info-grid">
+                 <div class="info-card">
+                    <h3>🚶‍♀️ 生理與行李負荷分析</h3>
+                    <ul class="default-list">
+                        <li class="icon-walk"><b>步行強度：</b>中。約 8,000步，主要在合掌村內散步。</li>
+                        <li class="icon-toilet"><b>廁所友善度：</b>佳。</li>
+                        <li class="icon-luggage"><b>行李友善度：</b>佳。輕裝一日遊。</li>
+                    </ul>
+                </div>
+                 <div class="info-card">
+                    <h3>🏨 當日住宿資訊</h3>
+                    <ul class="default-list">
+                        <li class="icon-bed"><b>住宿:</b> RUFF - Hosai (金澤 <span style="font-size:0.9em; color:#6c757d;">(かなざわ)</span>) (<a class="photo-link" href="https://www.booking.com/hotel/jp/ruff-hosai.zh-tw.html" target="_blank">參考照片</a>)</li>
+                        <li class="icon-room"><b>房型:</b> 獨棟2層樓住宅 (98m²)，3房</li>
+                        <li class="icon-star"><b>特色:</b> 位於長町武家屋敷區域，有熱水按摩池。</li>
+                        <li class="icon-time"><b>入住/退房:</b> 15:00 / 11:00</li>
+                    </ul>
+                     <p style="font-size: smaller; color: #6c757d; margin-top: 10px;">*提示：點擊藍色底線文字可查看照片。</p>
+                </div>
+            </div>
+            <div class="card">
+                <h3>⏰ 時間軸規劃</h3>
+                <table class="timeline">
+                    <thead><tr><th>時間</th><th>地點 / 活動</th><th>詳細說明與任務</th></tr></thead>
+                    <tbody>
+                        <tr><td>~09:10</td><td>🏨 住宿 → 金澤車站 <span style="font-size:0.9em; color:#6c757d;">(かなざわえき)</span></td><td>從住宿步行至【北陸鐵道售票中心】辦理搭乘手續，然後前往【金澤駅西口 2 號】月台候車。</td></tr>
+                        <tr><td><b>09:25-10:35</b></td><td>🚌 金澤 <span style="font-size:0.9em; color:#6c757d;">(かなざわ)</span> → 五箇山 <span style="font-size:0.9em; color:#6c757d;">(ごかやま)</span></td>
+                            <td><b>[重要]巴士上沒廁所。</b>有 Wi-Fi 可用，但沒有USB插座，請自備行動電源。<br>
+                            <b>預約號碼:</b> 09022010821 (4人), 09022011091 (1人)<br>
+                            <b>座位:</b> 4A, 4B, 4C, 4D / 5D(女)。
+                        </td></tr>
+                        <tr><td>10:35-11:25</td><td>🚶‍♂️ 五箇山 <span style="font-size:0.9em; color:#6c757d;">(ごかやま)</span> (停留50分鐘)</td><td>參觀這個安靜、純樸的隱藏寶石村莊。</td></tr>
+                        <tr><td><b>11:25-12:30</b></td><td>🚌 五箇山 <span style="font-size:0.9em; color:#6c757d;">(ごかやま)</span> → 白川鄉 <span style="font-size:0.9em; color:#6c757d;">(しらかわごう)</span></td><td><b>座位:</b> 4A, 4B, 4C, 4D / 5D(女)。</td></tr>
+                        <tr><td>12:30-15:30</td><td>🚶‍♂️ 白川鄉荻町 <span style="font-size:0.9em; color:#6c757d;">(しらかわごうおぎまち)</span> (停留3小時)</td><td>遊覽著名的世界遺產。<br><b>午餐建議:</b> 可嘗試外賣，如五平餅 <span style="font-size:0.9em; color:#6c757d;">(ごへいもち)</span> (香甜烤米飯串)。<br><b>[合掌造民家園]</b> ¥800，出示旅遊貼紙即可免費參觀。</td></tr>
+                        <tr><td><b>15:30-17:05</b></td><td>🚌 白川鄉 <span style="font-size:0.9em; color:#6c757d;">(しらかわごう)</span> → 金澤 <span style="font-size:0.9em; color:#6c757d;">(かなざわ)</span></td><td><b>座位:</b> 4A, 4B, 4C, 4D / 5D(女)。</td></tr>
+                        <tr><td>17:05~</td><td>🌃 金澤 / 晚餐</td><td>返回金澤後，可至片町/香林坊區域享用晚餐。</td></tr>
+                    </tbody>
+                </table>
+            </div>
+             <div class="card">
+                <h3>📍 當日景點特色速覽</h3>
+                <table>
+                     <thead><tr><th>景點</th><th>特色與推薦理由</th></tr></thead>
+                     <tbody>
+                        <tr><td>五箇山 <span style="font-size:0.9em; color:#6c757d;">(ごかやま)</span></td><td><b>特色：</b>相較於白川鄉，五箇山的合掌村（相倉、菅沼）規模較小，遊客也較少，氛圍更為寧靜純樸。<br><b>推薦：</b>能體驗到更原始、未受過度商業化打擾的合掌村風情。</td></tr>
+                        <tr><td>白川鄉 <span style="font-size:0.9em; color:#6c757d;">(しらかわごう)</span></td><td><b>特色：</b>日本最知名的合掌村，規模最大，被譽為「冬日的童話村」，荻町城跡展望台是經典拍照點。<br><b>推薦：</b>世界文化遺產的代表，景色壯觀，商業設施完善，適合初次造訪的旅客。</td></tr>
+                     </tbody>
+                </table>
+            </div>
+            <div class="card">
+                <h3>🍽️ 餐飲與購物建議</h3>
+                <ul class="default-list">
+                    <li style="margin-bottom: 16px;">
+                        <b>午餐選項 (白川鄉):</b>
+                        <ul style="margin-top: 10px; padding-left: 20px; list-style-type: disc;">
+                            <li style="margin-bottom: 16px;">
+                                <b>🍜 手打ちそば処 乃むら <span style="font-size:0.9em; color:#6c757d;">(てうちそばどころ のむら)</span> (Nomura Soba 手工蕎麥麵)</b>
+                                <ul style="margin-top:5px; padding-left:20px; list-style-type:circle;">
+                                    <li><b>特色：</b>店主當日手打的二八蕎麥麵，麵條香氣足，能品嚐到最純粹的蕎麥風味。</li>
+                                    <li><b>價位：</b>約 ¥1,000 - ¥1,999 /人。</li>
+                                    <li><b>推薦菜色：</b>ざるそば <span style="font-size:0.9em; color:#6c757d;">(ざるそば)</span> (笊籬蕎麥冷麵)、かけそば <span style="font-size:0.9em; color:#6c757d;">(かけそば)</span> (湯蕎麥麵)。</li>
+                                    <li><b>評價：</b>
+                                        <ul style="margin-top:2px; padding-left:15px; list-style-type:'- ';">
+                                            <li>食べログ: 3.45</li>
+                                            <li>Google: 4.2</li>
+                                        </ul>
+                                    </li>
+                                    <li><b>營業時間：</b>通常為午餐時段，但常不定休或售完提早打烊，建議早點去。</li>
+                                    <li><b>注意事項：</b>店內只有12個吧檯座位，非常狹小，不適合團體。</li>
+                                    <li><b>友善度：</b>空間小，對長輩和團體較不友善。</li>
+                                    <li><b>付款方式：</b><b style="color:red;">僅限現金 (現金限定)</b>。</li>
+                                </ul>
+                            </li>
+                             <li style="margin-bottom: 16px;">
+                                <b>🏠 お食事処 いろり <span style="font-size:0.9em; color:#6c757d;">(おしょくじどころ いろり)</span> (Irori 鄉土料理)</b>
+                                <ul style="margin-top:5px; padding-left:20px; list-style-type:circle;">
+                                    <li><b>特色：</b>在合掌造建築內，圍著地爐品嚐飛驒牛、朴葉味噌、山菜等在地鄉土料理，非常有氣氛。</li>
+                                    <li><b>價位：</b>午餐約 ¥1,000 - ¥2,999 /人。</li>
+                                    <li><b>推薦菜色：</b>朴葉味噌定食、飛驒牛咖哩蕎麥麵。</li>
+                                    <li><b>評價：</b>
+                                        <ul style="margin-top:2px; padding-left:15px; list-style-type:'- ';">
+                                            <li>食べログ: 3.46</li>
+                                            <li>Google: 4.1</li>
+                                        </ul>
+                                    </li>
+                                    <li><b>營業時間：</b>午餐 10:00–14:00 (不定休，週三休息居多)。</li>
+                                    <li><b>注意事項：</b>位置便利，離巴士總站近。尖峰時間需要候位。</li>
+                                    <li><b>友善度：</b>合掌造內部有門檻和階梯，長輩需注意腳步。座位為一般桌椅。5人團體建議預約。</li>
+                                    <li><b>付款方式：</b>以現金為主，建議備足現金。</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li style="margin-bottom: 16px;">
+                        <b>晚餐選項 (金澤):</b>
+                        <ul style="margin-top: 10px; padding-left: 20px; list-style-type: disc;">
+                             <li style="margin-bottom: 16px;">
+                                <b>🍢 金澤おでん 赤玉本店 <span style="font-size:0.9em; color:#6c757d;">(かなざわおでん あかだまほんてん)</span> (Akadama Honten 金澤關東煮)</b>
+                                <ul style="margin-top:5px; padding-left:20px; list-style-type:circle;">
+                                    <li><b>特色：</b>創業於昭和2年(1927年)的關東煮老店，湯頭是傳承秘方，口味清甜溫和。</li>
+                                    <li><b>價位：</b>晚餐約 ¥2,000 - ¥3,999 /人。</li>
+                                    <li><b>推薦菜色：</b>おでん盛合せ <span style="font-size:0.9em; color:#6c757d;">(おでんもりあわせ)</span> (關東煮拼盤)、牛すじ <span style="font-size:0.9em; color:#6c757d;">(ぎゅうすじ)</span> (牛筋)、車麩 <span style="font-size:0.9em; color:#6c757d;">(くるまふ)</span> (車麩)、ばい貝 <span style="font-size:0.9em; color:#6c757d;">(ばいがい)</span> (梅貝)。</li>
+                                    <li><b>評價：</b>
+                                        <ul style="margin-top:2px; padding-left:15px; list-style-type:'- ';">
+                                            <li>食べログ: 3.49</li>
+                                            <li>Google: 3.9</li>
+                                        </ul>
+                                    </li>
+                                    <li><b>營業時間：</b>平日 16:00–22:00, 週末假日 12:00–21:00。週一公休。</li>
+                                    <li><b>注意事項：</b>人氣名店，尖峰時段需排隊，建議提早到。</li>
+                                    <li><b>友善度：</b>座位多，長輩容易入座，但可能需要排隊等待。口味清淡溫和，適合長輩。</li>
+                                    <li><b>付款方式：</b><b style="color:red;">僅限現金 (現金限定)！不接受任何信用卡或電子支付。</b></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                     <li style="margin-bottom: 16px;">
+                        <b>點心/伴手禮:</b>
+                        <ul style="margin-top: 10px; padding-left: 20px; list-style-type: disc;">
+                             <li><b>飛驒牛可樂餅 <span style="font-size:0.9em; color:#6c757d;">(ひだぎゅうコロッケ)</span>:</b> 在白川鄉或飛驒地區是很受歡迎的街頭小吃，外酥內軟，肉香濃郁。多數攤販只收現金，記得準備零錢。</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Day 6 Content -->
+        <div id="tab-day6" class="tab-content">
+            <div class="day-title-banner">6️⃣ Day 6: 金澤經典庭園、茶屋街與寺廟深度文化體驗 (2025-09-15 週一)</div>
+            <div class="warning" style="background-color:#ffebeb; border-color:#d54040; color:#b72b2b;">
+                <p>🪥 <b>重要提醒：</b> 明天 (Day 7) 入住的日式旅館可能不提供一次性牙刷，建議今晚先將個人牙刷等盥洗用品從大行李箱中取出，放入隨身包，或在市區的藥妝店/便利商店購買。</p>
+            </div>
+            <div class="info-card">
+                <h3>☀️ 當日天氣預報 (金澤 <span style="font-size:0.9em; color:#6c757d;">(かなざわ)</span>)</h3>
+                <ul class="default-list">
+                    <li class="icon-temperature"><b>預估氣溫:</b> 18°C - 26°C</li>
+                    <li class="icon-weather"><b>天氣狀況:</b> 晴時多雲，有短暫陣雨機率。</li>
+                    <li class="icon-rain"><b>降雨機率:</b> 中等。</li>
+                    <li class="icon-shirt"><b>穿搭建議:</b> 輕便服裝搭配薄外套，務必攜帶雨具。</li>
+                </ul>
+            </div>
+            <div class="warning">
+                <h3>🎌 國定假日提醒</h3>
+                <p>本日為日本國定假日<b>「敬老之日 (敬老の日)」</b>，各大觀光景點人潮預計會非常多，請有心理準備，並建議提早出門，特別是兼六園與近江町市場。</p>
+            </div>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>🚶‍♀️ 生理與行李負荷分析</h3>
+                    <ul class="default-list">
+                        <li class="icon-walk"><b>步行強度：</b>極高。約 15,000 步 (約 10 公里)。本日為金澤市區的深度步行日，建議適時搭乘巴士。</li>
+                        <li class="icon-toilet"><b>廁所友善度：</b>佳。</li>
+                        <li class="icon-luggage"><b>行李友善度：</b>佳。輕裝出遊。</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>🏨 當日住宿資訊</h3>
+                     <ul class="default-list">
+                        <li class="icon-bed"><b>住宿:</b> RUFF - Hosai (金澤 <span style="font-size:0.9em; color:#6c757d;">(かなざわ)</span>) (<a class="photo-link" href="https://www.booking.com/hotel/jp/ruff-hosai.zh-tw.html" target="_blank">參考照片</a>)</li>
+                        <li class="icon-room"><b>房型:</b> 獨棟2層樓住宅 (98m²)，3房</li>
+                        <li class="icon-star"><b>特色:</b> 位於長町武家屋敷區域，有熱水按摩池。</li>
+                        <li class="icon-time"><b>入住/退房:</b> 15:00 / 11:00</li>
+                    </ul>
+                     <p style="font-size: smaller; color: #6c757d; margin-top: 10px;">*提示：點擊藍色底線文字可查看照片。</p>
+                </div>
+            </div>
+             <div class="card">
+                <h3>⏰ 時間軸規劃 (巴士一日遊)</h3>
+                <table class="timeline">
+                    <thead><tr><th>時間</th><th>地點 / 活動</th><th>詳細說明與任務</th></tr></thead>
+                    <tbody>
+                        <tr><td>08:00-10:00</td><td>🌳 兼六園 <span style="font-size:0.9em; color:#6c757d;">(けんろくえん)</span> & 金澤城公園 <span style="font-size:0.9em; color:#6c757d;">(かなざわじょうこうえん)</span></td><td><b>[兼六園 07:00-18:00] [門票 ¥320, 65+免費]</b><br>從住宿步行至「香林坊 <span style="font-size:0.9em; color:#6c757d;">(こうりんぼう)</span>」站牌，搭乘巴士至<b>[兼六園下・金沢城]</b>下車。提早出門避開人潮。</td></tr>
+                        <tr><td>10:00-12:00</td><td>🏮 東茶屋街 <span style="font-size:0.9em; color:#6c757d;">(ひがしちゃやがい)</span> & 主計町茶屋街 <span style="font-size:0.9em; color:#6c757d;">(かずえまちちゃやがい)</span></td><td><b>[店家約10:00-18:00]</b> 從<b>[兼六園下・金沢城]</b>搭乘巴士至<b>[橋場町 <span style="font-size:0.9em; color:#6c757d;">(はしばちょう)</span>]</b>下車。感受江戶氛圍，並散步至對岸寧靜的【主計町茶屋街】。</td></tr>
+                        <tr><td>12:00-13:30</td><td>🐟 近江町市場 <span style="font-size:0.9em; color:#6c757d;">(おうみちょういちば)</span> / 午餐</td><td><b>[店家約09:00-17:00]</b> 從<b>[橋場町]</b>搭乘巴士至<b>[武蔵ヶ辻・近江町市場 <span style="font-size:0.9em; color:#6c757d;">(むさしがつじ・おうみちょういちば)</span>]</b>下車，享用新鮮海鮮丼。</td></tr>
+                        <tr><td>14:00-15:30</td><td>🏛️ 西茶屋街 <span style="font-size:0.9em; color:#6c757d;">(にしちゃやがい)</span> & 老舖紀念館 <span style="font-size:0.9em; color:#6c757d;">(しにせきねんかん)</span></td><td><b>[店家約10:00-18:00]</b> 從<b>[武蔵ヶ辻・近江町市場]</b>搭乘巴士至<b>[広小路 <span style="font-size:0.9em; color:#6c757d;">(ひろこうじ)</span>]</b>下車。感受寧靜茶屋街氛圍，並參觀【老舖紀念館】<b>[門票 ¥100]</b>。</td></tr>
+                        <tr><td>15:30-16:30</td><td>🥷 妙立寺 <span style="font-size:0.9em; color:#6c757d;">(みょうりゅうじ)</span> (忍者寺)</td><td><b>[需預約 09:00-16:00] [門票 ¥1,200]</b> 從西茶屋街步行前往，參加預約好的導覽。</td></tr>
+                        <tr><td>16:30-17:30</td><td>⛩️ 尾山神社 <span style="font-size:0.9em; color:#6c757d;">(おやまじんじゃ)</span> & 大乘寺 <span style="font-size:0.9em; color:#6c757d;">(だいじょうじ)</span> (可選)</td><td>從<b>[広小路]</b>搭乘巴士至<b>[南町・尾山神社 <span style="font-size:0.9em; color:#6c757d;">(みなみまち・おやまじんじゃ)</span>]</b>下車，參觀【尾山神社】。若時間體力允許，可再前往【大乘寺】。</td></tr>
+                        <tr><td>17:30~</td><td>🌃 金澤 / 晚餐</td><td>返回住宿處或香林坊区域，享用在金澤的最後一頓晚餐，餐後可步行前往附近的【松の湯 <span style="font-size:0.9em; color:#6c757d;">(まつのゆ)</span>】體驗在地錢湯文化 <b>[門票 ¥500]</b>。</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card">
+                <h3>📍 當日景點特色速覽</h3>
+                <table>
+                     <thead><tr><th>景點</th><th>特色與推薦理由</th></tr></thead>
+                     <tbody>
+                        <tr><td>兼六園 <span style="font-size:0.9em; color:#6c757d;">(けんろくえん)</span> & 金澤城公園 <span style="font-size:0.9em; color:#6c757d;">(かなざわじょうこうえん)</span></td><td><b>特色：</b>日本三大名園之首，四季景色皆美；相鄰的城堡公園展現加賀百萬石的雄偉氣勢。<br><b>推薦：</b>金澤必訪的代表性景點，提早前往能享受較佳的遊覽品質。</td></tr>
+                        <tr><td>東茶屋街 <span style="font-size:0.9em; color:#6c757d;">(ひがしちゃやがい)</span> & 主計町茶屋街 <span style="font-size:0.9em; color:#6c757d;">(かずえまちちゃやがい)</span></td><td><b>特色：：</b>前者熱鬧，是金澤茶屋街的代表；後者緊鄰河畔，小巧寧靜，氛圍絕佳。<br><b>推薦：：</b>一次體驗兩種截然不同的茶屋街風情，感受金澤的雅緻。</td></tr>
+                        <tr><td>近江町市場 <span style="font-size:0.9em; color:#6c757d;">(おうみちょういちば)</span></td><td><b>特色：</b>被稱為「金澤的廚房」，充滿活力的在地市場，海產新鮮豐富。<br><b>推薦：</b>解決午餐的最佳地點，能品嚐到最新鮮的海鮮丼。</td></tr>
+                        <tr><td>西茶屋街 <span style="font-size:0.9em; color:#6c757d;">(にしちゃやがい)</span> & 老舖紀念館 <span style="font-size:0.9em; color:#6c757d;">(しにせきねんかん)</span></td><td><b>特色：</b>氛圍比東茶屋街更寧靜，至今仍有藝妓活動；紀念館可一窺江戶商家的生活樣貌。<br><b>推薦：</b>深入體驗金澤的另一面，老舖紀念館是絕佳的室內景點。</td></tr>
+                        <tr><td>妙立寺 <span style="font-size:0.9em; color:#6c757d;">(みょうりゅうじ)</span> (忍者寺)</td><td><b>特色：</b>機關重重的防禦要塞，參觀過程像一場探險，充滿趣味。<br><b>推薦：</b><b style="color:red;">需電話預約！</b>是金澤最獨特的體驗之一，絕對值回票價。</td></tr>
+                        <tr><td>尾山神社 <span style="font-size:0.9em; color:#6c757d;">(おやまじんじゃ)</span></td><td><b>特色：</b>融合和洋風格的「神門」是最大亮點，頂樓的彩繪玻璃非常特別。<br><b>推薦：</b>交通方便，能欣賞到獨一無二的明治時代建築美學。</td></tr>
+                        <tr><td>大乘寺 <span style="font-size:0.9em; color:#6c757d;">(だいじょうじ)</span></td><td><b>特色：</b>真正的禪修道場，建築莊嚴，氛圍肅穆寧靜，遊客稀少。<br><b>推薦：</b>(可選) 適合想深度體驗日本禪宗文化、尋求心靈平靜的旅客。</td></tr>
+                        <tr><td>松の湯 <span style="font-size:0.9em; color:#6c757d;">(まつのゆ)</span> (錢湯)</td><td><b>特色：</b>創業超過80年的在地公共澡堂，能體驗最道地的日本庶民生活文化。<br><b>推薦：</b>在一天疲憊的行程後，泡個熱水澡放鬆身心是絕佳的享受。</td></tr>
+                     </tbody>
+                </table>
+            </div>
+            <div class="card">
+                <h3>🍽️ 餐飲與購物建議</h3>
+                <ul class="default-list">
+                     <li style="margin-bottom: 16px;">
+                        <b>午餐選項 (近江町市場):</b>
+                        <ul style="margin-top: 10px; padding-left: 20px; list-style-type: disc;">
+                            <li style="margin-bottom: 16px;">
+                                <b>🍣 山さん寿司 本店 <span style="font-size:0.9em; color:#6c757d;">(やまさんすし ほんてん)</span> (Yamasan Sushi 海鮮丼)</b>
+                                <ul style="margin-top:5px; padding-left:20px; list-style-type:circle;">
+                                    <li><b>特色：</b>近江町市場內的超人氣名店，以滿到溢出來的「海鮮丼」聞名，視覺效果和美味兼具。</li>
+                                    <li><b>價位：</b>午餐約 ¥3,000 - ¥3,999 /人。</li>
+                                    <li><b>推薦菜色：</b>海鮮丼、特上海鮮丼 (鋪滿當季漁獲，常有金箔點綴)。</li>
+                                    <li><b>評價：</b>
+                                        <ul style="margin-top:2px; padding-left:15px; list-style-type:'- ';">
+                                            <li>食べログ: 3.59</li>
+                                            <li>Google: 4.1</li>
+                                        </ul>
+                                    </li>
+                                    <li><b>營業時間：</b>09:00–16:00 (食材售罄即止)，不定休。</li>
+                                    <li><b>注意事項：</b>假日必定大排長龍，建議開店前就去排隊，或是避開正午12點的高峰。</li>
+                                    <li><b>友善度：</b>座位有一般桌席，但尖峰時段非常擁擠，長輩排隊會比較辛苦。</li>
+                                    <li><b>付款方式：</b>可使用信用卡 (JCB, AMEX, Diners), PayPay。但有資訊表示部分卡片不收，建議準備現金備用。</li>
+                                </ul>
+                            </li>
+                             <li style="margin-bottom: 16px;"><b>市場內的各種小吃</b>: 如果不想排隊，可以直接在市場內購買生蠔、烤鰻魚、炸蝦等小吃，邊走邊吃也是一種樂趣。</li>
+                        </ul>
+                    </li>
+                    <li style="margin-bottom: 16px;">
+                        <b>下午茶選項 (東茶屋街):</b>
+                        <ul style="margin-top: 10px; padding-left: 20px; list-style-type: disc;">
+                             <li style="margin-bottom: 16px;">
+                                <b>🥞 Cafe Tamon <span style="font-size:0.9em; color:#6c757d;">(かふぇ たもん)</span> (鬆餅)</b>
+                                 <ul style="margin-top:5px; padding-left:20px; list-style-type:circle;">
+                                    <li><b>特色：</b>在傳統町家建築中品嚐極厚、如舒芙蕾般的鬆軟鬆餅，是結合傳統與現代的完美體驗。</li>
+                                    <li><b>價位：</b>約 ¥1,800 - ¥2,500 /人。</li>
+                                    <li><b>推薦菜色：</b>加賀棒茶鬆餅、季節水果鬆餅。</li>
+                                    <li><b>評價：</b>
+                                        <ul style="margin-top:2px; padding-left:15px; list-style-type:'- ';">
+                                            <li>食べログ: 3.51</li>
+                                            <li>Google: 4.2</li>
+                                        </ul>
+                                    </li>
+                                    <li><b>營業時間：</b>09:00–18:00。</li>
+                                    <li><b>注意事項：</b>人氣店，假日可能需要候位。</li>
+                                    <li><b>友善度：</b>座位舒適，適合下午茶休息。</li>
+                                    <li><b>付款方式：</b>可使用信用卡、電子支付。</li>
+                                </ul>
+                             </li>
+                              <li style="margin-bottom: 16px;">
+                                <b>🍦 箔一 <span style="font-size:0.9em; color:#6c757d;">(はくいち)</span> (Hakuichi 金箔冰淇淋)</b>
+                                <ul style="margin-top:5px; padding-left:20px; list-style-type:circle;">
+                                    <li><b>特色：</b>金澤金箔工藝的代表品牌，其「金箔のかがやきソフトクリーム <span style="font-size:0.9em; color:#6c757d;">(きんぱくのかがやきそふとくりーむ)</span> (金箔光芒霜淇淋)」是必吃打卡美食。</li>
+                                    <li><b>價位：</b>金箔冰淇淋 ¥980 /支。</li>
+                                    <li><b>推薦菜色：</b>金箔冰淇淋。</li>
+                                    <li><b>評價：</b>
+                                        <ul style="margin-top:2px; padding-left:15px; list-style-type:'- ';">
+                                            <li>食べログ: 3.47 (東山店)</li>
+                                            <li>Google: 4.1 (東山店)</li>
+                                        </ul>
+                                    </li>
+                                    <li><b>營業時間：</b>09:00–18:00。</li>
+                                    <li><b>注意事項：：</b>為立食或外帶店，人潮多。</li>
+                                    <li><b>友善度：</b>購買快速，但無座位，長輩需在附近找地方休息食用。</li>
+                                    <li><b>付款方式：</b>可使用信用卡。</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                     <li style="margin-bottom: 16px;">
+                        <b>晚餐選項 (金澤車站):</b>
+                        <ul style="margin-top: 10px; padding-left: 20px; list-style-type: disc;">
+                             <li style="margin-bottom: 16px;">
+                                <b>🍢 黒百合 <span style="font-size:0.9em; color:#6c757d;">(くろゆり)</span> (Kuroyuri 金澤關東煮)</b>
+                                <ul style="margin-top:5px; padding-left:20px; list-style-type:circle;">
+                                    <li><b>特色：</b>位於金澤車站「百番街あんと」<span style="font-size:0.9em; color:#6c757d;">(ひゃくばんがいあんと)</span>內，交通極度便利，是體驗金澤關東煮的名店之一。</li>
+                                    <li><b>價位：</b>晚餐約 ¥2,000 - ¥3,999 /人。</li>
+                                    <li><b>推薦菜色：</b>おでん各種 (車麩、ばい貝、ふぐ卵巣等金澤特色)、茶飯。</li>
+                                    <li><b>評價：</b>
+                                        <ul style="margin-top:2px; padding-left:15px; list-style-type:'- ';">
+                                            <li>食べログ: 3.58</li>
+                                            <li>Google: 4.0</li>
+                                        </ul>
+                                    </li>
+                                    <li><b>營業時間：</b>11:00–21:30 (L.O. 21:00)。</li>
+                                    <li><b>注意事項：</b>非常熱門，用餐時間常需排隊，可先抽號碼牌。</li>
+                                    <li><b>友善度：</b>位於車站內，無障礙設施佳，對長輩移動方便。座位為一般桌席。</li>
+                                    <li><b>付款方式：：</b>可使用信用卡、電子支付。</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                     <li style="margin-bottom: 16px;">
+                        <b>伴手禮:</b>
+                        <ul style="margin-top: 10px; padding-left: 20px; list-style-type: disc;">
+                             <li><b>加賀棒茶 <span style="font-size:0.9em; color:#6c757d;">(かがぼうちゃ)</span>:</b> 金澤特有的烘焙莖茶，香氣濃郁不苦澀，非常適合作為伴手禮。在東茶屋街或金澤車站都能找到專賣店。</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Day 7 Content -->
+        <div id="tab-day7" class="tab-content">
+            <div class="day-title-banner">7️⃣ Day 7: 返回東京 <span style="font-size:0.9em; color:#6c757d;">(とうきょう)</span> → 淺草 <span style="font-size:0.9em; color:#6c757d;">(あさくさ)</span> 下町散策 (2025-09-16 週二)</div>
+            <div class="info-card">
+                <h3>☀️ 當日天氣預報 (東京 <span style="font-size:0.9em; color:#6c757d;">(とうきょう)</span>)</h3>
+                <ul class="default-list">
+                    <li class="icon-temperature"><b>預估氣溫:</b> 20°C - 28°C</li>
+                    <li class="icon-weather"><b>天氣狀況:</b> 晴時多雲。</li>
+                    <li class="icon-rain"><b>降雨機率:</b> 低。</li>
+                    <li class="icon-shirt"><b>穿搭建議:</b> 天氣溫暖潮濕，白天穿短袖即可，晚上準備一件薄外套。</li>
+                </ul>
+            </div>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>🚶‍♀️ 生理與行李負荷分析</h3>
+                    <ul class="default-list">
+                        <li class="icon-walk"><b>步行強度：</b>高。約 10,000 步 (約 7 公里)。東京的步行與轉乘較為密集。</li>
+                        <li class="icon-toilet"><b>廁所友善度：</b>佳。</li>
+                        <li class="icon-luggage"><b>行李友善度：</b>中。需先寄放行李再開始行程。</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>🏨 當日住宿資訊</h3>
+                    <ul class="default-list">
+                        <li class="icon-bed"><b>飯店:</b> 日暮里 和ごころ <span style="font-size:0.9em; color:#6c757d;">(にっぽり わごころ)</span> (<a class="photo-link" href="https://reurl.cc/mYvANM" target="_blank">參考照片</a>)</li>
+                        <li class="icon-room"><b>房型:</b> 豪華雙床房*2間 (19m²)</li>
+                        <li class="icon-star"><b>特色:</b> 設有公共廚房，體驗日式旅館氛圍。</li>
+                        <li class="icon-time"><b>入住/退房:</b> 15:00 / 11:00</li>
+                    </ul>
+                    <p style="font-size: smaller; color: #6c757d; margin-top: 10px;">*提示：點擊藍色底線文字可查看照片。</p>
+                </div>
+            </div>
+            <div class="card">
+                <h3>⏰ 時間軸規劃</h3>
+                <table class="timeline">
+                    <thead><tr><th>時間</th><th>地點 / 活動</th><th>詳細說明與任務</th></tr></thead>
+                    <tbody>
+                        <tr><td><b>09:07-11:30</b></td><td>🚄 金澤 <span style="font-size:0.9em; color:#6c757d;">(かなざわ)</span> → 上野 <span style="font-size:0.9em; color:#6c757d;">(うえの)</span></td><td>搭乘時間：2小時23分。搭乘【<b>新幹線かがやき506号，全車指定席</b>】。（<b>12月台</b>出發，<b>22月台</b>抵達）</td></tr>
+                        <tr><td><b>11:47-11:51</b></td><td>🚄 上野 <span style="font-size:0.9em; color:#6c757d;">(うえの)</span> → 日暮里 <span style="font-size:0.9em; color:#6c757d;">(にっぽり)</span></td><td>搭乘時間：4分。搭乘【<b>山手線</b>】。</td></tr>
+                        <tr><td>12:00-13:00</td><td>🏨 日暮里和ごころ</td><td>先至旅館寄放行李(此時尚未能入住)。</td></tr>
+                        <tr><td>13:00-16:00</td><td>🏮 淺草寺 <span style="font-size:0.9em; color:#6c757d;">(せんそうじ)</span> / 午餐</td><td><b>[本堂06:00-17:00]</b> 從日暮里搭車至【淺草】，參拜【淺草寺】。</td></tr>
+                        <tr><td>16:00-17:30</td><td>🛍️ 上野阿美橫丁 <span style="font-size:0.9em; color:#6c757d;">(あめやよこちょう)</span></td><td><b>[店家約10:00-20:00]</b> 返回上野，逛熱鬧的【阿美橫丁】。</td></tr>
+                        <tr><td>17:30-18:30</td><td>⛩️ 根津神社 <span style="font-size:0.9em; color:#6c757d;">(ねづじんじゃ)</span></td><td><b>[全天開放]</b> 參觀壯觀的千本鳥居。</td></tr>
+                        <tr><td>18:30~</td><td>🌇 谷中銀座 <span style="font-size:0.9em; color:#6c757d;">(やなかぎんざ)</span> / 晚餐</td><td><b>[店家約10:00-19:00]</b> 從根津神社散步至【谷中銀座】，觀賞【晚霞階梯】日落，享用晚餐後辦理入住。晚餐後可步行前往附近的【斎藤湯 <span style="font-size:0.9em; color:#6c757d;">(さいとうゆ)</span>】體驗下町錢湯文化 <b>[門票 ¥550]</b>。</td></tr>
+                    </tbody>
+                </table>
+            </div>
+             <div class="card">
+                <h3>📍 當日景點特色速覽</h3>
+                <table>
+                     <thead><tr><th>景點</th><th>特色與推薦理由</th></tr></thead>
+                     <tbody>
+                        <tr><td>淺草寺 <span style="font-size:0.9em; color:#6c757d;">(せんそうじ)</span></td><td><b>特色：</b>東京最古老的寺廟，巨大的「雷門」燈籠是東京的象徵之一，仲見世商店街充滿活力。<br><b>推薦：</b>感受東京最具代表性的下町風情與信仰中心，是體驗東京的起點。</td></tr>
+                        <tr><td>上野阿美橫丁 <span style="font-size:0.9em; color:#6c757d;">(あめやよこちょう)</span></td><td><b>特色：</b>充滿活力的露天市集，藥妝、零食、海產、雜貨應有盡有，價格實惠。<br><b>推薦：</b>適合採買伴手禮與感受在地市場的熱鬧氣氛。</td></tr>
+                        <tr><td>根津神社 <span style="font-size:0.9em; color:#6c757d;">(ねづじんじゃ)</span></td><td><b>特色：</b>擁有媲美京都伏見稻荷的「千本鳥居」隧道，但遊客較少，氛圍靜謐。<br><b>推薦：</b>在東京市區就能拍到壯觀的鳥居隧道，是絕佳的秘境攝影點。</td></tr>
+                        <tr><td>谷中銀座 <span style="font-size:0.9em; color:#6c757d;">(やなかぎんざ)</span></td><td><b>特色：：</b>保留了昭和時代的懷舊商店街風情，以「晚霞階梯」的夕陽景色聞名。<br><b>推薦：</b>適合傍晚前來，感受東京的慢活步調與溫馨的社區氛圍。</td></tr>
+                        <tr><td>斎藤湯 <span style="font-size:0.9em; color:#6c757d;">(さいとうゆ)</span></td><td><b>特色：</b>位於日暮里附近的高評價現代化錢湯，內部乾淨明亮，提供多種浴池。<br><b>推薦：</b>在旅途的尾聲，體驗在地錢湯文化，洗去一身疲憊，是完美的放鬆方式。</td></tr>
+                     </tbody>
+                </table>
+            </div>
+            <div class="warning">
+                <h3>🚇 交通詳解</h3>
+                <p><b>上野站轉乘：</b>新幹線抵達地下月台(<b>19-22號</b>)，需上樓至地面層，前往山手線月台(<b>2號</b>)。跟隨指標轉乘，路途稍長。</p>
+            </div>
+             <div class="card">
+                <h3>🍽️ 餐飲與購物建議</h3>
+                <ul class="default-list">
+                    <li style="margin-bottom: 16px;">
+                        <b>🥩 焼肉牛星 三河島店 <span style="font-size:0.9em; color:#6c757d;">(やきにくぎゅうぼし みかわしまてん)</span></b>
+                        <ul style="margin-top:5px; padding-left:20px; list-style-type:circle;">
+                            <li><b>特色與價位：</b>主打「問屋厳選」牛肉與大份量實惠，常見客單約¥3,000–¥6,000；提供多種套餐與飲み放題活動。</li>
+                            <li><b>推薦菜色：</b>厚切り牛タン塩、牛星カルビ／ハラミ、壺漬けカルビ、ミックスホルモン等為人氣點單。</li>
+                            <li><b>茶水費／お通し：</b>一般燒肉餐廳形態，未見居酒屋式お通し或茶水費明文。</li>
+                            <li><b>營業時間：</b>週一至週五 17:00–23:30、週末假日 16:30–23:30。</li>
+                            <li><b>注意事項：</b>繁忙時段可能有用餐時間約2小時之引導；可網路/電話預約。</li>
+                            <li><b>評價：</b>食べログ評論普遍肯定其「安い・旨い・量多い」的CP值與家族客適性。</li>
+                            <li><b>友善度：</b>距車站近、動線平坦；建議長者選桌席；菜單圖文清晰易點。</li>
+                            <li><b>付款方式：</b>支援信用卡、交通系IC與多數電子支付/QR支付。</li>
+                        </ul>
+                    </li>
+                    <li style="margin-bottom: 16px;">
+                        <b>🍢 日暮里 串まる <span style="font-size:0.9em; color:#6c757d;">(にっぽり くしまる)</span> (串炸&義式餐酒館)</b>
+                        <ul style="margin-top:5px; padding-left:20px; list-style-type:circle;">
+                            <li><b>特色與價位：</b>車站前1分鐘，串カツ80–200円級為主，並提供手作披薩與義大利麵。食べログ總分約3.4，預算帶夜¥3,000～¥3,999。</li>
+                            <li><b>推薦菜色：</b>串カツ (紅しょうが、玉ねぎ、海老しそ)、ローマピッツァ、生パスタ。</li>
+                            <li><b>茶水費／お通し：</b>有「チャージ」(席料) 約200–330円。</li>
+                            <li><b>營業時間：</b>週一至週五 16:30–23:30；週末假日 14:00–23:30。</li>
+                            <li><b>注意事項：：</b>全席禁煙；尖峰時段擁擠，建議預約。</li>
+                            <li><b>評價：</b>食べログ口碑指向「駅近・安い・提供快」「ピザ/パスタ也好吃」。</li>
+                            <li><b>友善度：</b>站前步行平坦；建議指名一般桌席避免高腳桌；菜單圖文化。</li>
+                            <li><b>付款方式：</b>可刷卡 (VISA/Master)，不支援電子支付/QR支付；<b style="color:red;">請備少量現金</b>。</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Day 8 Content -->
+        <div id="tab-day8" class="tab-content">
+            <div class="day-title-banner">8️⃣ Day 8: 滿載而歸 (2025-09-17 週三)</div>
+            <div class="info-card">
+                <h3>☀️ 當日天氣預報 (東京 <span style="font-size:0.9em; color:#6c757d;">(とうきょう)</span>)</h3>
+                <ul class="default-list">
+                    <li class="icon-temperature"><b>預估氣溫:</b> 20°C - 28°C</li>
+                    <li class="icon-weather"><b>天氣狀況:</b> 晴時多雲。</li>
+                    <li class="icon-rain"><b>降雨機率:</b> 低。</li>
+                    <li class="icon-shirt"><b>穿搭建議:</b> 輕便的夏裝即可。</li>
+                </ul>
+            </div>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>🚶‍♀️ 生理與行李負荷分析</h3>
+                    <ul class="default-list">
+                        <li class="icon-walk"><b>步行強度：</b>約 4,000 步 (約 3 公里)。主要為機場內移動。</li>
+                        <li class="icon-toilet"><b>廁所友善度：</b>佳。</li>
+                        <li class="icon-luggage"><b>行李友善度：</b>低。本日為旅程中最後一次行李大移動。</li>
+                    </ul>
+                </div>
+                 <div class="info-card">
+                    <h3>🏨 當日住宿資訊</h3>
+                    <ul class="default-list">
+                        <li class="icon-bed"><b>住宿:</b> 溫暖的家</li>
+                    </ul>
+                 </div>
+            </div>
+            <div class="card">
+                <h3>⏰ 時間軸規劃</h3>
+                <table class="timeline">
+                    <thead><tr><th>時間</th><th>地點 / 活動</th><th>詳細說明與任務</th></tr></thead>
+                    <tbody>
+                        <tr><td>~08:45</td><td>🏨 日暮里和ごころ / 退房</td><td>享用早餐，確認所有物品皆已打包，辦理退房。</td></tr>
+                        <tr><td><b>09:22-10:08</b></td><td>🚆 日暮里 <span style="font-size:0.9em; color:#6c757d;">(にっぽり)</span> → 成田機場 <span style="font-size:0.9em; color:#6c757d;">(なりたくうこう)</span></td><td>搭乘時間：46分。<b><span style="color:red">[關鍵任務]</span></b> 搭乘【<b>京成Skyliner</b>】。<b>JR Pass已失效，需另外購票</b>。</td></tr>
+                        <tr><td>10:08-10:55</td><td>🛫 成田機場T2</td><td>前往【<b>3樓 出境大廳</b>】，找到泰國亞洲航空的【<b>N</b>】櫃檯。<b>櫃檯於10:55開放</b>。</td></tr>
+                        <tr><td>10:55-11:30</td><td>🛂 <b>3F</b> 報到櫃檯</td>
+                            <td><b><span style="color:red">[本日重點]</span></b> 
+                                辦理登機、托運行李，並<b>領取所有人的【登機證】</b>。<br>
+                                抵達機場，辦理泰國亞洲航空(FD235)N櫃臺報到、托運行李（25公斤3件+25公斤3件）、安檢、證照查驗。
+                            </td>
+                        </tr>
+                        <tr><td>11:30-12:30</td><td>🛋️ <b>4F</b> IASS貴賓室</td><td><b><span style="color:red">[本日重點]</span></b> 前往【<b>4樓</b>】貴賓室。<br>• <b>入場</b>：需出示【<b>JCB信用卡</b>】與【<b>登機證</b>】。<br>• <b>時間</b>：<b>請務必在【12:30】前離開</b>。</td></tr>
+                        <tr><td>12:30-13:00</td><td>👮 <b>3F</b> 安檢與出境</td><td>返回【<b>3樓</b>】，排隊進行安全檢查與護照查驗。</td></tr>
+                        <tr><td>13:00-13:20</td><td>🚶‍♂️ 主樓 → 衛星樓</td><td><b><span style="color:red">[本日重點]</span></b> 跟隨指示前往【<b>衛星樓</b>】。<b>此過程預估需15分鐘</b>。</td></tr>
+                        <tr><td><span style="color:red;">13:15</span></td><td>GATE</td>
+                            <td>登機。請於登機時間前抵達登機門。<br>
+                                <ul style="margin-top:8px; padding-left: 20px; list-style-type: disc;">
+                                    <li>登機證要收好，空服員會確認「登機證」後才發放餐點。</li>
+                                    <li>座位表與餐點:
+                                        <ul style="margin-top:5px; padding-left:20px; list-style-type:decimal;">
+                                            <li>張寶蓮(18A靠窗)椰漿飯</li>
+                                            <li>張寶花(18B中間)椰漿飯</li>
+                                            <li>郭昆岱(18C走道)黑胡椒醬烤雞+美式咖啡+水</li>
+                                            <li>林甄宓(18D走道)ML Noi 羅勒炸雞飯</li>
+                                            <li>黃韻哲(18E中間)黑胡椒醬烤雞+珍奶</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr><td>13:55-17:05</td><td>✈️ 泰國亞洲航空 FD235</td><td>航班起飛，返回高雄。<br><b>備註：17:05是臺灣時間。</b></td></tr>
+                    </tbody>
+                </table>
+            </div>
+             <div class="card">
+                <h3>🍽️ 餐飲與購物建議</h3>
+                <ul class="default-list">
+                     <li><b>餐飲選項 (成田機場第二航廈):</b>
+                        <ul style="margin-top: 10px; padding-left: 20px; list-style-type: disc;">
+                            <li style="margin-bottom: 8px;"><b>出境審查前 (4樓)</b>: 有壽司、拉麵、烏龍麵等多種餐廳可選擇，是用餐選擇最多的區域。</li>
+                             <li style="margin-bottom: 8px;"><b>出境審查後</b>: 餐廳選擇較少，主要以咖啡廳和輕食為主，建議在出境前用餐。</li>
+                        </ul>
+                    </li>
+                     <li><b>伴手禮 (成田機場):</b>
+                        <ul style="margin-top: 10px; padding-left: 20px; list-style-type: disc;">
+                             <li><b>Fa-So-La DUTY FREE</b>: 機場內最大的免稅店，可以在此做最後的採購，包含「東京香蕉蛋糕 (東京ばな奈)」<span style="font-size:0.9em; color:#6c757d;">(とうきょうばなな)</span>、「白色戀人 (白い恋人)」<span style="font-size:0.9em; color:#6c757d;">(しろいこいびと)</span>、「ROYCE'巧克力」等經典伴手禮都能一次購足。</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <!-- PWA: 註冊 Service Worker -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('service-worker.js')
+                    .then(registration => {
+                        console.log('Service Worker 註冊成功:', registration);
+                    })
+                    .catch(error => {
+                        console.log('Service Worker 註冊失敗:', error);
+                    });
+            });
+        }
+    </script>
+    
+    <script type="module">
+        // Import Firebase modules for interactivity
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, setDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // --- GLOBAL VARIABLES ---
+        let db, auth, userId;
+        // This is a local-only file, no need to worry about the actual values
+        const appId = 'local-app-id';
+        const JPY_TO_TWD_RATE = 0.21; 
+        const NUM_TRAVELERS = 5;
+
+        // --- FIREBASE INITIALIZATION ---
+        async function initializeFirebase() {
+            try {
+                // For local use, we can provide a dummy config
+                const firebaseConfig = {
+                    apiKey: "dummy-api-key",
+                    authDomain: "dummy-auth-domain",
+                    projectId: "dummy-project-id"
+                };
+                const app = initializeApp(firebaseConfig);
+                db = getFirestore(app);
+                auth = getAuth(app);
+
+                // For local use, we sign in anonymously to enable interactivity
+                await signInAnonymously(auth);
+                
+                userId = auth.currentUser?.uid;
+                if (!userId) {
+                    console.error("Authentication failed, user ID is not available.");
+                    return;
+                }
+                setupChecklistListeners();
+            } catch (error) {
+                console.error("Firebase Initialization Error:", error);
+            }
+        }
+
+        // --- BUDGET & RATE RENDER ---
+        function renderBudgetAndRate() {
+             const budgetItems = [
+                 { name: '✈️ 機票', jpy: 37543 },
+                 { name: '🏨 住宿', jpy: 41219 },
+                 { name: '🚇 交通', jpy: 50092 },
+                 { name: '🎟️ 門票', jpy: 3680 },
+                 { name: '🍽️ 餐飲', jpy: 48000 },
+                 { name: '🛡️ 保險', jpy: 5446 },
+                 { name: '🌐 網卡', jpy: 714 },
+             ];
+
+            const tableBody = document.getElementById('budget-table')?.querySelector('tbody');
+            if (!tableBody) return;
+            
+            let totalJpy = 0;
+            
+            tableBody.innerHTML = budgetItems.map(item => {
+                const twd = Math.round(item.jpy * JPY_TO_TWD_RATE);
+                totalJpy += item.jpy;
+                return `
+                    <tr>
+                        <td>${item.name}</td>
+                        <td>${item.jpy.toLocaleString()}</td>
+                        <td>${twd.toLocaleString()}</td>
+                    </tr>
+                `;
+            }).join('');
+            
+            const totalTwd = Math.round(totalJpy * JPY_TO_TWD_RATE);
+
+            tableBody.innerHTML += `
+                <tr style="font-weight:bold; background-color: #e9ecef;">
+                    <td><b>--- 合計 ---</b></td>
+                    <td><b>${totalJpy.toLocaleString()}</b></td>
+                    <td><b style="color:red;">${totalTwd.toLocaleString()}</b></td>
+                </tr>
+            `;
+
+            document.getElementById('per-person-twd').innerHTML = `約 <span style="color:red; font-weight:bold;">${totalTwd.toLocaleString()} TWD</span>`;
+            
+            const today = new Date();
+            document.getElementById('rate-date').textContent = today.toLocaleDateString('zh-TW', { year: 'numeric', month: 'long', day: 'numeric' });
+            document.getElementById('rate-value').textContent = `1 JPY ≈ ${JPY_TO_TWD_RATE} TWD`;
+        }
+
+        // --- CHECKLIST RENDER & LOGIC ---
+        const packingItems = [
+            { id: 'pack-passport', text: '護照 (確認效期超過6個月)' },
+            { id: 'pack-pass', text: 'JR Pass 兌換券' },
+            { id: 'pack-yen', text: '日幣現金' },
+            { id: 'pack-creditcard', text: '信用卡 (JCB卡必備)' },
+            { id: 'pack-sim', text: 'SIM卡 / WiFi分享器' },
+            { id: 'pack-medicine', text: '個人常備藥品' },
+            { id: 'pack-jacket', text: '保暖防風外套 (輕井澤/上高地用)' },
+            { id: 'pack-shoes', text: '好走的鞋子' },
+            { id: 'pack-umbrella', text: '雨具 (摺疊傘)' },
+            { id: 'pack-powerbank', text: '行動電源' } // Moved to the end
+        ];
+
+        function renderChecklist() {
+            const list = document.getElementById('packing-list');
+            if (!list) return;
+            list.innerHTML = packingItems.map(item => `<li id="${item.id}" onclick="toggleChecklistItem(event)">${item.text}</li>`).join('');
+            list.innerHTML += `<li style="padding-left: 0; font-size: 0.9em; list-style-type: none; color: #6c757d; position: static; margin-top: 15px; cursor: default;">* <b>行動電源限制：</b>限100Wh（約20,000mAh）以下，必須隨身攜帶入客艙，嚴禁放入托運行李。全程禁止在機上使用行動電源充電。</li>`;
+        }
+        
+        window.toggleChecklistItem = function(event) {
+            if (!db || !userId) {
+                // If not connected to a database (for local use), toggle class directly
+                const li = event.currentTarget;
+                li.classList.toggle('completed');
+                return;
+            }
+            const li = event.currentTarget;
+            const isCompleted = !li.classList.contains('completed');
+            updateChecklistInDB(li.id, isCompleted);
+        }
+
+        function setupChecklistListeners() {
+            // For local-only usage, we don't need a real-time listener
+            // We can just keep the state in memory, or not at all.
+            // For this version, let's keep it simple and just toggle the class.
+        }
+        
+        async function updateChecklistInDB(id, isCompleted) {
+            // This function is not used in the local-only version, but kept for clarity
+            // so we don't accidentally remove it later.
+            const checklistDocRef = doc(db, `artifacts/${appId}/public/data/checklists`, 'tripTasks');
+            try {
+                await setDoc(checklistDocRef, { [id]: isCompleted }, { merge: true });
+            } catch (error) {
+                console.error("Error updating checklist:", error);
+            }
+        }
+
+        // --- TAB & UI LOGIC ---
+        window.openTab = function(evt, tabName) {
+            let i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            const tabToShow = document.getElementById(tabName);
+            if (tabToShow) {
+                tabToShow.style.display = "block";
+            }
+            if (evt) {
+                evt.currentTarget.className += " active";
+            } else {
+                document.querySelector('.tab-link[onclick*="tab-overview"]').className += " active";
+            }
+        }
+
+        function highlightCurrentDayTab() {
+            const today = new Date();
+            today.setHours(0, 0, 0, 0); 
+            
+            document.querySelectorAll('.tab-link[data-date]').forEach(tab => {
+                const tabDate = new Date(tab.dataset.date);
+                if (today.getTime() === tabDate.getTime()) {
+                    tab.classList.add('active-day');
+                }
+            });
+        }
+
+        // --- INITIAL LOAD ---
+        document.addEventListener('DOMContentLoaded', () => {
+            openTab(null, 'tab-overview');
+            highlightCurrentDayTab();
+            renderBudgetAndRate();
+            renderChecklist();
+            // Since this is for local use, we can remove Firebase initialization
+            // initializeFirebase();
+        });
+
+    </script>
+</body>
+</html>
